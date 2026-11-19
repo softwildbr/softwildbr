@@ -7,7 +7,7 @@ const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const pad=n=>String(n).padStart(2,'0');
-const featuredNames=['Adrian Wolf','Theo Lynx','Milan Falcon','Ethan Bear','Atlas Orca','Dylan Tiger','Luna Fox','Iris Wren','Maya Stoat','Talia Swan'];
+const featuredNames=['Caio Lobo','Teo Lins','Mateus Pires','Heitor Braga','Álvaro Costa','Dênis Tavares','Luana Reis','Íris Moura','Maia Nascimento','Tainá Campos'];
 const productArt={
   'Retrozim Launcher':['android','ANDROID · INTERFACE','▣','navy'],
   'Minamp':['audio','ÁUDIO · WIDGET','♫','teal'],
@@ -114,56 +114,64 @@ function renderResearch(){
 function spritePosition(index){
   return (index%5)*25+'% '+Math.floor(index/5)*100+'%';
 }
-function agentDisplayName(a){return a.proposed_name||a.name;}
+/* Retratos finais serão produzidos após a validação do layout.
+   portrait_file mantém os SVGs de transição sem impedir nomes brasileiros definitivos. */
+function agentImagePath(a){
+  const file=String(a.portrait_file||'');
+  return './assets/agents/'+(/^[a-z0-9-]+\.svg$/.test(file)?file:'placeholder.svg');
+}
 function agentVisual(a){
-  // O nome antigo permanece como chave de arquivo até a produção dos novos retratos.
-  const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
   return '<div class="agent-media">'+
-    '<img class="agent-portrait agent-svg" src="./assets/agents/'+slug+'.svg" alt="Retrato provisório de '+esc(agentDisplayName(a))+'" width="960" height="1440" loading="lazy" decoding="async">'+
-    '<span class="agent-media-draft" aria-hidden="true">ARTE PROVISÓRIA</span></div>';
+    '<img class="agent-portrait" src="'+esc(agentImagePath(a))+'" alt="Retrato ilustrado de '+esc(a.name)+'" width="512" height="512" loading="lazy" decoding="async">'+
+    '</div>';
 }
 function agentTile(a){
- const idx=state.data.groups.flatMap(g=>g.agents).indexOf(a);
- const name=agentDisplayName(a);
- return '<article class="agent-card" aria-label="Colaborador digital '+esc(name)+'">'+agentVisual(a)+
-   '<div class="agent-caption"><h4>'+esc(name)+'</h4>'+
-   '<span class="agent-badge">AGENTE DE IA</span>'+
-   '<div class="agent-role">'+esc(a.role)+'</div>'+
-   '<p class="agent-description">'+esc(a.description)+'</p>'+
-   '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Conhecer o trabalho de '+esc(name)+'">O que faz <span aria-hidden="true">↗</span></button>'+
-   '</div></article>';
+  const all=state.data.groups.flatMap(g=>g.agents);
+  const idx=all.indexOf(a);
+  const tone=['sun','sky','sand','leaf','lilac'][idx%5];
+  return '<article class="agent-card agent-tone-'+tone+'" aria-label="Colaborador digital '+esc(a.name)+'">'+
+    agentVisual(a)+
+    '<div class="agent-caption">'+
+      '<h4>'+esc(a.name)+'</h4>'+
+      '<span class="agent-badge">Agente de IA</span>'+
+      '<div class="agent-role">'+esc(a.role)+'</div>'+
+      '<p class="agent-description">'+esc(a.card_description||a.description)+'</p>'+
+      '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Ver a descrição completa de '+esc(a.name)+'">Conhecer o trabalho <span aria-hidden="true">↗</span></button>'+
+    '</div></article>';
 }
 function bindAgentDetails(root){
- $$('button[data-agent]',root).forEach(button=>button.addEventListener('click',()=>{
-   const person=state.data.groups.flatMap(g=>g.agents)[Number(button.dataset.agent)];
-   if(!person)return;
-   $('#detail-content').innerHTML='<span class="dialog-kicker">COLABORADOR DIGITAL · AGENTE DE IA</span>'+
-     '<h2 id="detail-title">'+esc(agentDisplayName(person))+'</h2>'+
-     '<div class="dialog-data"><span>ÁREA DE ATUAÇÃO</span>'+esc(person.role)+'</div>'+
-     '<p>'+esc(person.description)+'</p>'+
-     '<p class="dialog-note">Perfil editorial de um agente de IA da Soft Wild. A configuração operacional e a autonomia de cada especialidade devem ser verificadas antes de afirmar que executam tarefas autonomamente.</p>';
-   $('#detail-dialog').showModal();
- }));
+  $$('button[data-agent]',root).forEach(button=>button.addEventListener('click',()=>{
+    const person=state.data.groups.flatMap(g=>g.agents)[Number(button.dataset.agent)];
+    if(!person)return;
+    $('#detail-content').innerHTML='<span class="dialog-kicker">COLABORADOR DIGITAL · AGENTE DE IA</span>'+
+      '<h2 id="detail-title">'+esc(person.name)+'</h2>'+
+      '<div class="dialog-data"><span>ÁREA DE ATUAÇÃO</span>'+esc(person.role)+'</div>'+
+      '<p>'+esc(person.description)+'</p>'+
+      '<p class="dialog-note">Este perfil descreve uma especialidade de agente de IA. A autonomia e a configuração operacional de cada agente são verificadas separadamente.</p>';
+    const dialog=$('#detail-dialog');
+    if(dialog?.showModal)dialog.showModal();
+  }));
 }
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
-  const list=ordered.filter(a=>matches([a.name,a.proposed_name,a.role,a.description],state.query));
+  const list=ordered.filter(a=>matches([a.name,a.role,a.description,a.card_description],state.query));
   const root=$('#track-agents');
   root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
+  const count=$('#count-agents');if(count)count.textContent=list.length;
   bindAgentDetails(root);
   root.scrollLeft=0;updateTrack('agents');
   if(state.directoryOpen)renderDirectory();
 }
 function renderDirectory(){
   const groups=state.team==='todos'?state.data.groups:[state.data.groups[Number(state.team)]];
-  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.proposed_name,a.role,a.description],state.query));
-  $('#directory-grid').innerHTML=list.length?list.map(a=>{
-    const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    const name=agentDisplayName(a);
-    return '<article class="directory-item"><img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato provisório de '+esc(name)+'" src="./assets/agents/'+slug+'.svg"><div class="directory-copy"><strong>'+esc(name)+'</strong>'+
-      '<small>'+esc(a.role)+' · COLABORADOR DIGITAL / AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>';
-  }).join(''):emptyMessage('Nenhum agente neste filtro.');
+  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description,a.card_description],state.query));
+  $('#directory-grid').innerHTML=list.length?list.map(a=>
+    '<article class="directory-item">'+
+    '<img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado de '+esc(a.name)+'" src="'+esc(agentImagePath(a))+'">'+
+    '<div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
+    '<small>'+esc(a.role)+' · AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>'
+  ).join(''):emptyMessage('Nenhum agente neste filtro.');
 }
 function renderLegacy(){
   const target=$('#legacy-grid');if(!target||!state.data)return;
