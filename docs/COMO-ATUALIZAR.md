@@ -1,5 +1,7 @@
 # Soft Wild — manutenção da página GitHub Pages
 
+> **VERSÃO VISUAL ATUAL: v6 — 19/11/2026.** O layout v5 descrito abaixo foi substituído pela estrutura de descoberta inspirada no Hugging Face e pelos carrosséis com cartões inspirados no Together AI. A referência operacional mais recente está em [DIRECAO-VISUAL-V6.md](DIRECAO-VISUAL-V6.md). O conteúdo anterior permanece como histórico, não como instrução vigente de composição.
+
 **Versão visual vigente:** v5, aprovada em direção a partir do mockup de perfil branco enviado pelo fundador em 18/11/2026.
 **Link público:** https://softwildbr.github.io/softwildbr/
 **Repo:** https://github.com/softwildbr/softwildbr
