@@ -1,51 +1,57 @@
-# Soft Wild — manutenção do site público
+# Soft Wild — manutenção da página GitHub Pages
 
-**Site HTML:** `docs/index.html` · **Estilos:** `docs/styles.css` · **Interatividade:** `docs/app.js` · **Dados:** `docs/data/content.json` · **Revisão inicial:** 18/11/2026.
+**Versão visual vigente:** v5, aprovada em direção a partir do mockup de perfil branco enviado pelo fundador em 18/11/2026.
+**Link público:** https://softwildbr.github.io/softwildbr/
+**Repo:** https://github.com/softwildbr/softwildbr
 
-## Publicar pelo GitHub Pages
+## Arquitetura de arquivos
 
-O site foi preparado para o endereço de projeto **https://softwildbr.github.io/softwildbr/**.
+- `docs/index.html`: estrutura editorial do site, em português. A ordem pública segue o screenshot preferido: perfil lateral, manifesto, chips de pesquisa, direção, equipe ilustrada, produtos, progresso e sinais do futuro.
+- `docs/styles.css`: estilos responsivos, fundo branco/cinza-claro, tipografia de perfil, espaçamento compacto, além de **sprite de dez retratos ilustrados incorporado em Base64**. Evite extrair ou substituir o sprite sem preservar os retratos e o mapeamento.
+- `docs/app.js`: carrega catálogo JSON e gera dez agentes em destaque, seis cards de produto e diretórios expansíveis.
+- `docs/data/content.json`: fonte pública dos **44 agentes**, **23 produtos/conceitos** e **10 frentes**; atualizado a partir de pesquisas verificadas.
+- `docs/assets/softwild-logo.webp`: cópia web da marca SW aprovada; **não redesenhar o logotipo**.
+- `docs/assets/muller.webp`: foto real do fundador, fornecida para o perfil; não substituir por fotografia sintética.
+- `docs/.nojekyll`: mantém publicação estática sem Jekyll.
 
-Configuração inicial necessária **uma única vez** na interface do GitHub:
+**Atenção:** este documento substitui a descrição anterior do layout (v1), que trazia uma composição abstrata de landing page. O novo estilo correto é o do screenshot com **barra lateral e painel central**. O histórico permanece no Git.
 
-1. Acesse [softwildbr/softwildbr → Settings → Pages](https://github.com/softwildbr/softwildbr/settings/pages).
-2. Em **Build and deployment**, selecione **Deploy from a branch**.
-3. Branch: **main**. Pasta: **/docs**.
-4. Clique **Save**.
-5. Confira o resultado na página de Pages e visite o endereço publicado.
+## Edição de conteúdo
 
-O conector atualmente utilizado para editar o repositório não disponibiliza a alteração das configurações de Pages. **Não afirmar que o endereço está no ar antes de verificar a implantação.** Depois de habilitar, cada novo commit em `main/docs` pode iniciar uma nova publicação.
+Campos disponíveis em `content.json`:
 
-## Como atualizar conteúdo sem refazer o site
+- `groups[].agents[]`: `name`, `role`, `description`, `gender`. Pessoas fictícias que representam especialidades de **agentes de IA**; não afirmar que 44 agentes autônomos estão ativos.
+- `products[]`: `name`, `description`, `status`, `stage` (`prototype` ou `concept`). Diferenciar protótipo, pesquisa e lançamento.
+- `fronts[]`: `name`, `status`, `progress`, `next`, `updated`. Não inventar barras percentuais ou testes concluídos.
+- `updated`: data da revisão documental, não de publicação automática.
 
-Edite `docs/data/content.json`, usando as seguintes estruturas:
+O arquivo de JS possui a lista de destaques e resumos para a home. Se nomes mudarem, atualize `featuredProjects`, `people`, `shortCopy` e `phaseLabel` para manter a correspondência com o JSON.
 
-- **`products`**: `name`, `description`, `status`, `stage` (`prototype` para projetos com repositório próprio, `concept` para hipóteses). Não confundir protótipos, alfas, ideias e lançamentos.
-- **`fronts`**: `name`, `status`, `progress`, `next`, `updated`. Dados de progresso são factuais e datados, sem percentuais inventados.
-- **`groups`**: núcleo `name` e `agents` com `name`, `role`, `description`, `gender` (apenas para diversidade visual da ilustração, não identidade real). Os 44 agentes são personagens editoriais de IA; **não declarar operação autônoma sem configuração e evidência**.
-- **`updated`**: data ISO da última revisão do catálogo. Não atualizar a data sem conferir a fonte.
+## Direção editorial obrigatória
 
-A seção **Sinais do futuro** e o **manifesto** estão em `index.html` e precisam ser editados com curadoria específica. O slogan oficial é **“Se for pra fazer mais do mesmo, agente nem faz.”**. Preservar “agente” junto.
+- Slogan **literal**: **“Se for pra fazer mais do mesmo, agente nem faz.”**. `agente` escrito junto é intencional.
+- Fundo predominantemente **branco**, cinza de apoio e acento ciano; sem grandes formas 3D, faixa verde-água de herói ou tipografia desproporcional.
+- Sidebar curta: marca, `@softwildbr`, descrição e metadados.
+- Painel: símbolo/wordmark + slogan com divisor, manifesto, pesquisa em chips, direção, time ilustrado e produtos.
+- **Müller**: foto real. **ChatGPT**: colaboração com IA, não sócio jurídico. Agentes: personagens editoriais identificados como IA.
+- O catálogo público não revela códigos privados, documentos confidenciais, credenciais ou dados de clientes.
 
-## Arte e identidade
+## Publicação
 
-- **Logo aprovado:** `docs/assets/softwild-logo.webp` — cópia otimizada da arte aprovada para o GitHub. O PNG original de 512×512, não redesenhado, continua sendo o arquivo de referência para avatar de conta.
-- **Fotografia de Müller:** `docs/assets/muller.webp` — derivado compacto da fotografia que o fundador forneceu e autorizou para a página. Se substituir por versão em resolução maior, preservar rosto, enquadramento e direitos.
-- **Agentes:** retratos ilustrados vetoriais gerados pelo próprio `app.js`, com formas e variações definidas; não são imagens de pessoas reais nem robôs. A equipe de destaque possui oito estilos de cabelo distintos.
-- **Estética:** branco/marfim, preto-azulado e acentos em ciano/verde-água, tipografia editorial, respiro e simplicidade. Evitar gradientes exagerados, ícones genéricos de tecnologia e dados inventados.
+GitHub Pages está configurado para `main` → `/docs`. Cada commit na branch principal aciona automaticamente o workflow `pages build and deployment`.
 
-## QA antes de cada publicação
+Verifique a publicação em:
+- [Site da Soft Wild](https://softwildbr.github.io/softwildbr/)
+- [Execuções de GitHub Pages](https://github.com/softwildbr/softwildbr/actions)
+- [Issue interna #8](https://github.com/softwildbr/laboratorio-de-ideias/issues/8)
 
-1. Conferir no JSON se nomes, estados e progresso estão corretos na data da edição.
-2. Abrir o HTML num servidor HTTP local (ex.: `python3 -m http.server 8000 --directory docs`) e testar desktop/mobile.
-3. Validar navegação por teclado, menu mobile, filtros de projetos, botão “Explorar mais”, diálogos de detalhes, seção expansível de pesquisas e diretório completo.
-4. Testar acessibilidade básica, contraste e `prefers-reduced-motion`.
-5. Checar imagens, links, carregamento do JSON e ausência de erros no console.
-6. Conferir o estado publicado no endereço GitHub Pages, após commit e implantação.
-7. Registrar data, link do commit e mudanças na [Issue #8 do Laboratório de Ideias](https://github.com/softwildbr/laboratorio-de-ideias/issues/8).
+## QA para cada alteração
 
-## Privacidade e rastreabilidade
+1. Conferir HTML válido, CSS e sintaxe JS, nomes dos arquivos e referências do JSON.
+2. Testar navegação em mobile; menu de topo, abertura de `details`, filtros de núcleo e catálogo de produtos.
+3. Testar 10 retratos exibidos sem repetição indevida e acessibilidade dos rótulos.
+4. Verificar status dos produtos nos repositórios de origem, especialmente o progresso de shoppings na Etapa 1 (PR #8, Etapa 2 suspensa).
+5. Validar visual em navegador desktop e mobile comparando com a imagem referência aprovada (mockup de perfil branco). **Não presumir que teste de sintaxe equivale a teste visual.**
+6. Confirmar o workflow de Pages concluído com sucesso antes de declarar a versão publicada.
 
-O catálogo público é uma síntese editorial. **Não copiar para `docs/`** documentos inteiros de repositórios privados, dados de clientes, credenciais ou relatórios de agência. Confirmar a fonte original em `empresa-maker-central`, `pesquisas`, `laboratorio-de-ideias` e nos repositórios individuais antes de atualizar afirmações públicas.
-
-**Shopping centers:** “30 dossiês” refere-se a uma amostra de pesquisa documental num PR de Etapa 1; não representa 30 auditorias visuais, testes de aplicativos ou produto lançado. A Etapa 2 de UX/visual foi suspensa.
+**Versão v5:** site atualizado no commit `83d2c046e0079ad5b2288a91f6527765ede6460d`, workflow de Pages confirmado como **success**.
