@@ -10,8 +10,8 @@
   <meta property="og:type" content="website">
   <title>Soft Wild — Laboratório independente</title>
   <link rel="icon" href="./assets/softwild-logo.webp" type="image/webp">
-  <link rel="stylesheet" href="./styles.css?v=8">
-  <script src="./app.js?v=8" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=10">
+  <script src="./app.js?v=10" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -30,6 +30,7 @@
       </form>
       <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
         <a href="#time">Agentes</a>
+        <a href="#legado">Nossa história</a>
         <a href="#manifesto">Manifesto</a>
         <a href="#explorar">Explorar</a>
         <a href="#pesquisas">Pesquisa</a>
@@ -52,6 +53,7 @@
       <div class="side-sections">
         <h3>Explorar</h3>
         <a class="side-active" href="#time"><span aria-hidden="true">♧</span> Agentes e colaboradores</a>
+        <a href="#legado"><span aria-hidden="true">◷</span> Agentes descontinuados</a>
         <a href="#manifesto"><span aria-hidden="true">✳</span> Manifesto</a>
         <a href="#explorar"><span aria-hidden="true">▦</span> Experimentos</a>
         <a href="#futuros"><span aria-hidden="true">◇</span> Ideias futuras</a>
@@ -132,16 +134,41 @@
           </article>
         </div>
         <div class="carousel-heading team-heading">
-          <div><span class="section-note">NOSSO TIME DE COLABORADORES DIGITAIS</span><h3>Conheça nossos colaboradores <span class="card-count">44</span></h3></div>
+          <div><span class="section-note">44 NOMES, 8 NÚCLEOS, IDEIAS DEMAIS</span><h3>Conheça nossos colaboradores <span class="card-count" id="count-agents">44</span></h3></div>
           <div class="carousel-actions"><span class="track-counter" id="counter-agents" aria-live="off">01 / 44</span><button type="button" class="autoplay-toggle" data-auto="agents" aria-pressed="false" aria-label="Pausar autoplay dos agentes" title="Pausar animação automática">Ⅱ</button><button type="button" class="slide-arrow" data-for="agents" data-dir="-1" aria-label="Ver agentes anteriores">‹</button><button type="button" class="slide-arrow" data-for="agents" data-dir="1" aria-label="Ver próximos agentes">›</button></div>
         </div>
         <div class="agent-track" id="track-agents" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Agentes de inteligência artificial por especialidade"><p class="loading-text">Carregando os agentes…</p></div>
         <div class="scroll-track-progress"><span id="progress-agents"></span></div>
+        <div class="agent-dots" id="agent-dots" role="group" aria-label="Navegação por grupos de agentes"></div>
         <div class="team-directory-tools"><button type="button" class="outline-button" id="show-directory" aria-controls="agent-directory" aria-expanded="false">Explorar o diretório completo <span aria-hidden="true">↓</span></button><p>Conheça cargos, especialidades e o trabalho de cada colaborador digital. Todos são identificados como agentes de IA; a configuração operacional de cada um precisa ser verificada separadamente.</p></div>
         <div class="agent-directory" id="agent-directory" hidden>
           <div class="directory-toolbar"><label for="agent-area">Filtrar por núcleo</label><select id="agent-area"><option value="todos">Todos os núcleos</option></select></div>
           <div class="directory-grid" id="directory-grid"></div>
         </div>
+      </section>
+
+      <section class="legacy-section" id="legado" aria-labelledby="legacy-title">
+        <div class="section-kicker"><span>01B / ARQUIVO DE EX-COLABORADORES</span><span class="section-rule"></span><span>MEMÓRIA DO LABORATÓRIO</span></div>
+        <div class="legacy-intro">
+          <div>
+            <span class="section-note">ARQUIVO CONFIDENCIAL (MAS A GENTE DEIXOU PÚBLICO)</span>
+            <h2 id="legacy-title">Nem todo agente chega à versão 2.0<span class="dot-cyan">.</span></h2>
+          </div>
+          <p>Alguns fizeram história. Outros fizeram o que puderam. Não foram demitidos: foram <strong>descontinuados</strong>. Uns perderam a função. Outros perderam o botão. Todos foram para um lugar melhor — provavelmente com mais memória RAM.</p>
+        </div>
+        <aside class="legacy-tribute" aria-labelledby="legacy-tribute-title">
+          <div class="legacy-tribute-symbol" aria-hidden="true">✳</div>
+          <div class="legacy-tribute-copy">
+            <span class="legacy-tribute-eyebrow">UMA NOTA DO LABORATÓRIO</span>
+            <h3 id="legacy-tribute-title">Obrigado por terem feito parte da nossa história.</h3>
+            <p>Por cada hipótese improvável, cada botão que não precisava existir e cada ideia que nos ensinou a seguir por outro caminho. A Soft Wild também é feita dessas versões. O crachá foi desativado. A gratidão, não.</p>
+            <span class="legacy-tribute-signature">Com carinho e controle de versão, <strong>Soft Wild.</strong></span>
+          </div>
+        </aside>
+        <div class="legacy-toolbar"><span class="legacy-index">O QUE O LABORATÓRIO DESLIGOU, MAS NÃO ESQUECEU</span><span id="legacy-count" class="legacy-count" aria-live="polite">19 fichas no arquivo</span></div>
+        <div class="legacy-grid" id="legacy-grid" aria-live="polite"><p class="loading-text">Procurando os crachás antigos…</p></div>
+        <div class="legacy-more-wrap"><button class="outline-button legacy-more" id="legacy-more" type="button" aria-controls="legacy-grid" aria-expanded="false" hidden>Ver todo o arquivo dos descontinuados <span aria-hidden="true">↓</span></button></div>
+        <p class="legacy-disclaimer">Não é uma lista de demissões. É o arquivo de personagens digitais, ideias aposentadas e experimentos que ajudaram a moldar o laboratório.</p>
       </section>
 
       <section class="manifesto-section" id="manifesto" aria-labelledby="manifesto-title">

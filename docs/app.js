@@ -7,7 +7,7 @@ const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const pad=n=>String(n).padStart(2,'0');
-const featuredNames=['Adrian Wolf','Theo Lynx','Milan Falcon','Ethan Bear','Atlas Orca','Dylan Tiger','Luna Fox','Iris Wren','Maya Stoat','Talia Swan'];
+const featuredNames=['Caio Lobo','Teo Lins','Mateus Pires','Heitor Braga','Álvaro Costa','Dênis Tavares','Luana Reis','Íris Moura','Maia Nascimento','Tainá Campos'];
 const productArt={
   'Retrozim Launcher':['android','ANDROID · INTERFACE','▣','navy'],
   'Minamp':['audio','ÁUDIO · WIDGET','♫','teal'],
@@ -34,7 +34,7 @@ const productArt={
   'Ferramentas pessoais acessíveis e offline':['android','SOFTWARE · OFFLINE','✳','green']
 };
 const researchIcons=['⌘','▧','✳','⬡','♫','♧','◈','◌','↗','▤'];
-const state={data:null,category:'todos',query:'',team:null,directoryOpen:false};
+const state={data:null,category:'todos',query:'',team:null,directoryOpen:false,legacyExpanded:false};
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const tracks={prototypes:'#track-prototypes',futures:'#track-futures',agents:'#track-agents'};
 const autoplayState=Object.fromEntries(Object.keys(tracks).map(name=>[name,{
@@ -114,50 +114,123 @@ function renderResearch(){
 function spritePosition(index){
   return (index%5)*25+'% '+Math.floor(index/5)*100+'%';
 }
+/* Retratos finais serão produzidos após a validação do layout.
+   portrait_file mantém os SVGs de transição sem impedir nomes brasileiros definitivos. */
+function agentImagePath(a){
+  const file=String(a.portrait_file||'');
+  return './assets/agents/'+(/^[a-z0-9-]+\.svg$/.test(file)?file:'placeholder.svg');
+}
 function agentVisual(a){
-  const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  return '<img class="agent-portrait agent-svg" src="./assets/agents/'+slug+'.svg" alt="Retrato ilustrado do colaborador digital '+esc(a.name)+'" width="512" height="512" loading="lazy" decoding="async">';
+  return '<div class="agent-media">'+
+    '<img class="agent-portrait" src="'+esc(agentImagePath(a))+'" alt="Retrato ilustrado de '+esc(a.name)+'" width="512" height="512" loading="lazy" decoding="async">'+
+    '</div>';
 }
 function agentTile(a){
- const idx=state.data.groups.flatMap(g=>g.agents).indexOf(a);
- return '<article class="agent-card">'+agentVisual(a)+
-   '<div class="agent-caption"><h4>'+esc(a.name)+'</h4>'+
-   '<div class="agent-role">'+esc(a.role)+'</div>'+
-   '<p class="agent-description">'+esc(a.description)+'</p>'+
-   '<span class="agent-badge">COLABORADOR · AGENTE DE IA</span>'+
-   '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Conhecer o trabalho de '+esc(a.name)+'">O que faz <span aria-hidden="true">↗</span></button>'+
-   '</div></article>';
+  const all=state.data.groups.flatMap(g=>g.agents);
+  const idx=all.indexOf(a);
+  const tone=['sun','sky','sand','leaf','lilac'][idx%5];
+  return '<article class="agent-card agent-tone-'+tone+'" aria-label="Colaborador digital '+esc(a.name)+'">'+
+    agentVisual(a)+
+    '<div class="agent-caption">'+
+      '<h4>'+esc(a.name)+'</h4>'+
+      '<span class="agent-badge">Agente de IA</span>'+
+      '<div class="agent-role">'+esc(a.role)+'</div>'+
+      '<p class="agent-description">'+esc(a.card_description||a.description)+'</p>'+
+      '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Ver a descrição completa de '+esc(a.name)+'">Conhecer o trabalho <span aria-hidden="true">↗</span></button>'+
+    '</div></article>';
 }
 function bindAgentDetails(root){
- $$('button[data-agent]',root).forEach(button=>button.addEventListener('click',()=>{
-   const person=state.data.groups.flatMap(g=>g.agents)[Number(button.dataset.agent)];
-   if(!person)return;
-   $('#detail-content').innerHTML='<span class="dialog-kicker">COLABORADOR DIGITAL · AGENTE DE IA</span>'+
-     '<h2 id="detail-title">'+esc(person.name)+'</h2>'+
-     '<div class="dialog-data"><span>ÁREA DE ATUAÇÃO</span>'+esc(person.role)+'</div>'+
-     '<p>'+esc(person.description)+'</p>'+
-     '<p class="dialog-note">Perfil editorial de um agente de IA da Soft Wild. A configuração operacional e a autonomia de cada especialidade devem ser verificadas antes de afirmar que executam tarefas autonomamente.</p>';
-   $('#detail-dialog').showModal();
- }));
+  $$('button[data-agent]',root).forEach(button=>button.addEventListener('click',()=>{
+    const person=state.data.groups.flatMap(g=>g.agents)[Number(button.dataset.agent)];
+    if(!person)return;
+    $('#detail-content').innerHTML='<span class="dialog-kicker">COLABORADOR DIGITAL · AGENTE DE IA</span>'+
+      '<h2 id="detail-title">'+esc(person.name)+'</h2>'+
+      '<div class="dialog-data"><span>ÁREA DE ATUAÇÃO</span>'+esc(person.role)+'</div>'+
+      '<p>'+esc(person.description)+'</p>'+
+      '<p class="dialog-note">Este perfil descreve uma especialidade de agente de IA. A autonomia e a configuração operacional de cada agente são verificadas separadamente.</p>';
+    const dialog=$('#detail-dialog');
+    if(dialog?.showModal)dialog.showModal();
+  }));
+}
+function buildAgentDots(){
+  const track=$('#track-agents'),holder=$('#agent-dots');
+  if(!track||!holder)return;
+  const cards=track.querySelectorAll('.agent-card');
+  const pages=cards.length?Math.min(9,Math.max(1,Math.ceil(track.scrollWidth/Math.max(track.clientWidth,1)))):0;
+  if(holder.childElementCount!==pages){
+    holder.innerHTML=Array.from({length:pages},(_,i)=>
+      '<button type="button" data-agent-page="'+i+'" aria-label="Ver região '+(i+1)+' de '+pages+' do carrossel de agentes" aria-current="false"></button>'
+    ).join('');
+    $('button[data-agent-page]',holder).forEach((b,i)=>b.addEventListener('click',()=>{
+      const max=Math.max(0,track.scrollWidth-track.clientWidth);
+      track.scrollTo({left:pages>1?max*i/(pages-1):0,behavior:prefersReducedMotion.matches?'auto':'smooth'});
+    }));
+  }
+  holder.hidden=pages<=1;
+  updateAgentDots();
+}
+function updateAgentDots(){
+  const track=$('#track-agents'),holder=$('#agent-dots');
+  if(!track||!holder)return;
+  const dots=$('button[data-agent-page]',holder);
+  const max=Math.max(0,track.scrollWidth-track.clientWidth);
+  const current=dots.length>1&&max>0?Math.round(track.scrollLeft/max*(dots.length-1)):0;
+  dots.forEach((b,i)=>b.setAttribute('aria-current',String(i===current)));
 }
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
-  const list=ordered.filter(a=>matches([a.name,a.role,a.description],state.query));
+  const list=ordered.filter(a=>matches([a.name,a.role,a.description,a.card_description],state.query));
   const root=$('#track-agents');
   root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
+  const count=$('#count-agents');if(count)count.textContent=list.length;
   bindAgentDetails(root);
-  root.scrollLeft=0;updateTrack('agents');
+  root.scrollLeft=0;buildAgentDots();updateTrack('agents');
   if(state.directoryOpen)renderDirectory();
 }
 function renderDirectory(){
   const groups=state.team==='todos'?state.data.groups:[state.data.groups[Number(state.team)]];
-  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description],state.query));
-  $('#directory-grid').innerHTML=list.length?list.map(a=>{
-    const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    return '<article class="directory-item"><img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado do colaborador digital '+esc(a.name)+'" src="./assets/agents/'+slug+'.svg"><div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
-      '<small>'+esc(a.role)+' · COLABORADOR DIGITAL / AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>';
-  }).join(''):emptyMessage('Nenhum agente neste filtro.');
+  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description,a.card_description],state.query));
+  $('#directory-grid').innerHTML=list.length?list.map(a=>
+    '<article class="directory-item">'+
+    '<img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado de '+esc(a.name)+'" src="'+esc(agentImagePath(a))+'">'+
+    '<div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
+    '<small>'+esc(a.role)+' · AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>'
+  ).join(''):emptyMessage('Nenhum agente neste filtro.');
+}
+function renderLegacy(){
+  const target=$('#legacy-grid');if(!target||!state.data)return;
+  const all=state.data.legacy_agents||[];
+  const list=all.filter(a=>matches([a.name,a.former_name,a.role,a.description,a.reason,a.destination,a.source_topic],state.query));
+  const visible=state.legacyExpanded||state.query?list:list.slice(0,6);
+  target.innerHTML=visible.length?visible.map((a,i)=>{
+    const initials=a.name.trim().split(' ').map(s=>s[0]||'').slice(0,2).join('');
+    const number=pad(i+1);
+    return '<article class="legacy-card" aria-label="Ficha de '+esc(a.name)+' — descontinuado">'+
+      '<div class="legacy-card-head"><span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>'+
+      '<span class="legacy-status">'+esc(a.status)+'</span></div>'+
+      '<span class="legacy-file">ARQUIVO / '+number+'</span>'+
+      '<h3>'+esc(a.name)+'</h3><p class="legacy-role">'+esc(a.role)+'</p>'+
+      '<p class="legacy-bio">'+esc(a.description)+'</p>'+
+      '<div class="legacy-reason"><strong>POR QUE SAIU</strong><p>'+esc(a.reason)+'</p></div>'+
+      '<div class="legacy-destination"><strong>FOI PARA UM LUGAR MELHOR</strong><p>'+esc(a.destination)+'</p></div>'+
+      '</article>';
+  }).join(''):emptyMessage('Nenhum agente descontinuado corresponde à busca.');
+  const count=$('#legacy-count');if(count)count.textContent=pad(list.length)+' fichas no arquivo';
+  const more=$('#legacy-more');
+  if(more){
+    more.hidden=list.length<=6||!!state.query;
+    more.setAttribute('aria-expanded',String(state.legacyExpanded));
+    more.innerHTML=state.legacyExpanded?'Recolher arquivo <span aria-hidden="true">↑</span>':'Ver as '+pad(list.length)+' fichas <span aria-hidden="true">↓</span>';
+  }
+}
+function initLegacy(){
+  const more=$('#legacy-more');if(!more)return;
+  more.addEventListener('click',()=>{
+    state.legacyExpanded=!state.legacyExpanded;
+    renderLegacy();
+    if(!state.legacyExpanded)$('#legado')?.scrollIntoView({block:'start',behavior:prefersReducedMotion.matches?'auto':'smooth'});
+  });
 }
 function initTeamDirectory(){
   const selector=$('#agent-area');
@@ -185,6 +258,7 @@ function updateTrack(which){
   const progress=$('#progress-'+which);
   const fraction=track.scrollWidth>0?Math.min(1,(track.scrollLeft+track.clientWidth)/track.scrollWidth):1;
   if(progress)progress.style.width=Math.max(4,100*fraction)+'%';
+  if(which==='agents')updateAgentDots();
   $$('button.slide-arrow[data-for="'+which+'"]').forEach(btn=>{
     btn.disabled=total===0||(btn.dataset.dir==="-1"?track.scrollLeft<3:track.scrollLeft>=track.scrollWidth-track.clientWidth-3);
   });
@@ -203,7 +277,7 @@ function activateCarousels(){
     });
   });
   $$('.slide-arrow').forEach(btn=>btn.addEventListener('click',()=>scrollTrack(btn.dataset.for,Number(btn.dataset.dir))));
-  window.addEventListener('resize',()=>Object.keys(tracks).forEach(updateTrack),{passive:true});
+  window.addEventListener('resize',()=>{buildAgentDots();Object.keys(tracks).forEach(updateTrack);},{passive:true});
 }
 function scrollTrack(which,dir){
   const track=$(tracks[which]);if(!track)return;
@@ -285,7 +359,7 @@ function wireNavigation(){
   form.addEventListener('click',()=>{if(window.matchMedia('(max-width:600px)').matches)input.focus()});
   input.addEventListener('input',()=>{
     state.query=normalize(input.value.trim());
-    if(state.data){renderProducts();renderResearch();renderAgents();}
+    if(state.data){renderProducts();renderResearch();renderAgents();renderLegacy();}
     $('#live-announcer').textContent=state.query?'Resultados atualizados para '+input.value:'Busca limpa.';
   });
   document.addEventListener('keydown',e=>{
@@ -339,7 +413,7 @@ async function start(){
     if(!Array.isArray(d.products)||!Array.isArray(d.fronts)||!Array.isArray(d.groups))throw Error('Estrutura inválida');
     state.data=d;
     $('#date-reviewed').textContent=String(d.updated||'2026-11-18').split('-').reverse().join('/');
-    initTeamDirectory();renderProducts();renderResearch();renderAgents();
+    initTeamDirectory();initLegacy();renderProducts();renderResearch();renderAgents();renderLegacy();
   }catch(err){
     console.error('Soft Wild: dados editoriais indisponíveis',err);
     for(const id of ['track-prototypes','track-futures','track-agents','research-grid','progress-fronts']){

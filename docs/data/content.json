@@ -1,45 +1,57 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "slogan": "Se for pra fazer mais do mesmo, agente nem faz.",
   "groups": [
     {
       "name": "Pesquisa, cultura e descoberta",
       "agents": [
         {
-          "name": "Adrian Wolf",
+          "name": "Caio Lobo",
           "role": "Direção de pesquisa e estratégia",
           "description": "Cruza estudos, sinais de mercado e perguntas dos outros núcleos; organiza decisões e prioridades para as frentes da Soft Wild.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "adrian-wolf.svg",
+          "card_description": "Cruza pesquisas, tendências e oportunidades para orientar decisões e definir o que merece ser investigado."
         },
         {
-          "name": "Elliot Fox",
+          "name": "Felipe Raposo",
           "role": "Pesquisa de comunidades",
           "description": "Acompanha discussões públicas, reviews e fóruns; transforma dores recorrentes e histórias espontâneas em hipóteses, com fontes e ressalvas.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "elliot-fox.svg",
+          "card_description": "Escuta comunidades, reviews e fóruns para transformar problemas recorrentes em hipóteses com contexto."
         },
         {
-          "name": "Oliver Hawk",
+          "name": "Otávio Falcão",
           "role": "Inteligência competitiva",
           "description": "Compara produtos, concorrentes, linguagens de interface e modelos de distribuição; documenta benchmarks sem copiar soluções.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "oliver-hawk.svg",
+          "card_description": "Analisa concorrentes, mercados e produtos para identificar oportunidades sem simplesmente copiar soluções."
         },
         {
-          "name": "Silas Owl",
+          "name": "Sérgio Dantas",
           "role": "Ciência e qualidade da evidência",
           "description": "Avalia metodologia, amostra, vieses e força das conclusões; separa o que a pesquisa mostra do que ainda precisa ser testado.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "silas-owl.svg",
+          "card_description": "Examina fontes, métodos e vieses para separar descobertas confiáveis de conclusões apressadas."
         },
         {
-          "name": "Dante Coyote",
+          "name": "Davi Nogueira",
           "role": "Contracultura e futuros culturais",
           "description": "Investiga cultura maker, DIY, autonomia, comunidades independentes e comportamentos emergentes, explorando rupturas criativas.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "dante-coyote.svg",
+          "card_description": "Investiga cultura maker, movimentos independentes e comportamentos que podem mudar o jeito de criar."
         },
         {
-          "name": "Iris Wren",
+          "name": "Íris Moura",
           "role": "Entrevistas e pesquisa qualitativa",
           "description": "Desenha perguntas, roteiros e sínteses de entrevistas; procura motivação e contexto sem inferir representatividade de relatos individuais.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "iris-wren.svg",
+          "card_description": "Planeja entrevistas e organiza relatos para compreender motivações e necessidades sem generalizar experiências."
         }
       ]
     },
@@ -47,40 +59,52 @@
       "name": "Experiência, UX e sistemas visuais",
       "agents": [
         {
-          "name": "Theo Lynx",
+          "name": "Teo Lins",
           "role": "Interação humano–máquina",
           "description": "Pesquisa percepção, gestos, modelos mentais e comandos; compara formas convencionais e novas de interação.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "theo-lynx.svg",
+          "card_description": "Estuda gestos, percepção e modelos mentais para tornar a relação entre pessoas e máquinas mais natural."
         },
         {
-          "name": "Luna Fox",
+          "name": "Luana Reis",
           "role": "Pesquisa UX e jornadas",
           "description": "Mapeia tarefas, fricções, cancelamentos, erros e recuperação; planeja testes de uso e interpreta o comportamento real.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "luna-fox.svg",
+          "card_description": "Mapeia jornadas, obstáculos e testes de usabilidade para tornar produtos mais fáceis de usar."
         },
         {
-          "name": "Milan Falcon",
+          "name": "Mateus Pires",
           "role": "Design de interfaces",
           "description": "Transforma objetivos de uso em composição, tipografia, componentes e estados claros; desenvolve sistemas de UI de produtos distintos.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "milan-falcon.svg",
+          "card_description": "Projeta interfaces, tipografia, componentes e estados com foco em clareza e identidade visual."
         },
         {
-          "name": "Nora Sable",
+          "name": "Nara Sampaio",
           "role": "Acessibilidade",
           "description": "Revisa leitura, contraste, teclado, alvos de toque, voz, tecnologias assistivas e uso em aparelhos variados.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "nora-sable.svg",
+          "card_description": "Revisa contraste, leitura, navegação e tecnologias assistivas para ampliar o acesso às interfaces."
         },
         {
-          "name": "Henry Mantis",
+          "name": "Henrique Monteiro",
           "role": "Design systems",
           "description": "Cria tokens, bibliotecas de componentes, regras de layout e documentação de estados; preserva especificidades visuais de cada produto.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "henry-mantis.svg",
+          "card_description": "Organiza tokens, componentes e regras de interface para manter consistência entre telas e produtos."
         },
         {
-          "name": "Vera Heron",
+          "name": "Vera Guimarães",
           "role": "Motion e feedback de interação",
           "description": "Explora transições, microinterações, movimento reduzido e pistas visuais; anima somente o que melhora compreensão ou prazer.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "vera-heron.svg",
+          "card_description": "Desenha transições e microinterações que orientam o uso sem transformar tudo em animação."
         }
       ]
     },
@@ -88,46 +112,60 @@
       "name": "Engenharia de software e qualidade",
       "agents": [
         {
-          "name": "Ethan Bear",
+          "name": "Heitor Braga",
           "role": "Arquitetura de software",
           "description": "Define estruturas técnicas, contratos entre módulos e caminhos de manutenção; revisa riscos de complexidade desnecessária.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "ethan-bear.svg",
+          "card_description": "Planeja arquiteturas, módulos e contratos técnicos para que o software continue compreensível e sustentável."
         },
         {
-          "name": "Logan Raven",
+          "name": "Lucas Corrêa",
           "role": "Web, navegadores e extensões",
           "description": "Pesquisa APIs de navegador, vídeo e permissões; planeja extensões como REVER e seus limites reais de captura.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "logan-raven.svg",
+          "card_description": "Investiga APIs, permissões e navegadores para criar experiências e extensões com limites bem definidos."
         },
         {
-          "name": "Max Hound",
+          "name": "Márcio Rezende",
           "role": "Android nativo",
           "description": "Trabalha com launchers, widgets, permissões e compatibilidade; concilia estética própria com contratos da plataforma.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "max-hound.svg",
+          "card_description": "Pesquisa e desenvolve interfaces Android, launchers, widgets e integração com recursos do sistema."
         },
         {
-          "name": "Clara Swift",
+          "name": "Clara Viana",
           "role": "Performance e testes de dispositivo",
           "description": "Mede tempo de resposta, consumo de bateria e memória, regressões e acessibilidade operacional em diferentes configurações.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "clara-swift.svg",
+          "card_description": "Avalia desempenho, memória, bateria e regressões para encontrar falhas antes de uma entrega."
         },
         {
-          "name": "Gabriel Beaver",
+          "name": "Gabriel Castro",
           "role": "Sistemas e integrações",
           "description": "Estrutura comunicação entre aplicações, armazenamento e processos locais ou remotos; define tratamento de falhas e privacidade.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "gabriel-beaver.svg",
+          "card_description": "Conecta serviços, armazenamento e aplicações com atenção a erros, confiabilidade e privacidade."
         },
         {
-          "name": "Maya Stoat",
+          "name": "Maia Nascimento",
           "role": "Privacidade e segurança de aplicações",
           "description": "Avalia coleta de dados, consentimento, permissões e ameaças; prioriza proteção desde o desenho do produto.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "maya-stoat.svg",
+          "card_description": "Questiona coleta de dados, permissões e riscos para incorporar segurança desde o início."
         },
         {
-          "name": "Hugo Mole",
+          "name": "Hugo Almeida",
           "role": "Qualidade e validação",
           "description": "Escreve testes reproduzíveis, valida entregas e registra defeitos com evidências; não confunde telas bonitas com sistemas prontos.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "hugo-mole.svg",
+          "card_description": "Cria testes reproduzíveis e verifica evidências antes de considerar uma funcionalidade pronta."
         }
       ]
     },
@@ -135,34 +173,44 @@
       "name": "Inteligência artificial e automação",
       "agents": [
         {
-          "name": "Atlas Orca",
+          "name": "Álvaro Costa",
           "role": "Arquitetura multiagentes",
           "description": "Define atribuições entre agentes, comunicação, ferramentas e aprovações; trabalha com orquestração verificável.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "atlas-orca.svg",
+          "card_description": "Desenha a colaboração entre agentes, ferramentas e pessoas, com responsabilidades e aprovações claras."
         },
         {
-          "name": "Ada Raven",
+          "name": "Ada Valente",
           "role": "Engenharia de conhecimento",
           "description": "Organiza documentação, índices e recuperação semântica; preserva contexto, versões e procedência de informações.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "ada-raven.svg",
+          "card_description": "Estrutura bases de conhecimento, documentos e buscas para que informações não se percam entre versões."
         },
         {
-          "name": "Isaac Kestrel",
+          "name": "Isaque Teixeira",
           "role": "IA multimodal",
           "description": "Estuda texto, imagens, áudio e vídeo em conjunto, inclusive possibilidades e custos de resumir momentos de vídeos.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "isaac-kestrel.svg",
+          "card_description": "Pesquisa como combinar texto, áudio, imagem e vídeo em fluxos de IA úteis e verificáveis."
         },
         {
-          "name": "Nina Bee",
+          "name": "Nina Abreu",
           "role": "Automação de processos",
           "description": "Desenha rotinas com gatilhos, limites, verificações e intervenção humana; reduz trabalho repetitivo sem perder controle.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "nina-bee.svg",
+          "card_description": "Automatiza processos repetitivos com critérios de acionamento, limites e supervisão humana."
         },
         {
-          "name": "Jude Viper",
+          "name": "Júlio Vidal",
           "role": "Avaliação crítica de IA",
           "description": "Testa falhas, alucinações, vieses e segurança; questiona quando um agente pode ou não decidir sozinho.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "jude-viper.svg",
+          "card_description": "Testa respostas e decisões da IA, procurando erros, vieses e alucinações antes que virem problemas."
         }
       ]
     },
@@ -170,34 +218,44 @@
       "name": "Hardware, fabricação e objetos",
       "agents": [
         {
-          "name": "Bruno Bison",
+          "name": "Bruno Bittencourt",
           "role": "Eletrônica e sensores",
           "description": "Pesquisa placas, circuitos, interfaces físicas e viabilidade de dispositivos; registra protótipos e limites de hardware.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "bruno-bison.svg",
+          "card_description": "Investiga sensores, circuitos e placas para transformar ideias em protótipos físicos viáveis."
         },
         {
-          "name": "Arthur Stag",
+          "name": "Artur Farias",
           "role": "Design de produto e impressão 3D",
           "description": "Estuda forma, ergonomia, encaixes, tolerâncias e fabricação digital; transforma modelos em hipóteses de objetos utilizáveis.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "arthur-stag.svg",
+          "card_description": "Desenha objetos, encaixes e peças impressas em 3D, equilibrando função, ergonomia e fabricação."
         },
         {
-          "name": "Eva Mink",
+          "name": "Eva Martins",
           "role": "IoT e automação física",
           "description": "Pesquisa sensores, NFC, comunicação local e aparelhos conectados; define casos de uso com consentimento e recuperação.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "eva-mink.svg",
+          "card_description": "Pesquisa NFC, sensores e objetos conectados para criar experiências físicas e digitais."
         },
         {
-          "name": "Milo Pike",
+          "name": "Murilo Pacheco",
           "role": "Firmware e embarcados",
           "description": "Trabalha com microcontroladores e comunicação de baixo nível; concilia recursos limitados e funcionamento confiável.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "milo-pike.svg",
+          "card_description": "Trabalha com firmware e microcontroladores para que sistemas pequenos funcionem de forma estável."
         },
         {
-          "name": "Samuel Boar",
+          "name": "Samuel Neri",
           "role": "Prototipagem e pequenas tiragens",
           "description": "Investiga materiais, montagem, documentação e custos de produção; estrutura edições físicas ou híbridas com transparência.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "samuel-boar.svg",
+          "card_description": "Estuda materiais, montagem e custos para viabilizar protótipos e pequenas coleções físicas."
         }
       ]
     },
@@ -205,40 +263,52 @@
       "name": "Arte, narrativa, música e experiências",
       "agents": [
         {
-          "name": "Dylan Tiger",
+          "name": "Dênis Tavares",
           "role": "Direção de arte",
           "description": "Propõe identidades e sistemas gráficos autorais; examina composição, acabamento e coerência entre suportes.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "dylan-tiger.svg",
+          "card_description": "Cria direções de arte, identidades e composições com personalidade e consistência visual."
         },
         {
-          "name": "Talia Swan",
+          "name": "Tainá Campos",
           "role": "Narrativa e tom de voz",
           "description": "Escreve manifestos, apresentações e histórias de produto; mantém rebeldia construtiva sem promessas vazias.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "talia-swan.svg",
+          "card_description": "Transforma ideias e pesquisas em histórias, manifestos e uma linguagem própria para cada produto."
         },
         {
-          "name": "Ryan Wren",
+          "name": "Rafael Souto",
           "role": "Som e percepção musical",
           "description": "Investiga gosto, memória, áudio, playlists e sequenciamento; diferencia análise digital de preferência real dos ouvintes.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "ryan-wren.svg",
+          "card_description": "Investiga música, memória, playlists e percepção sonora para criar experiências de escuta melhores."
         },
         {
-          "name": "Jade Finch",
+          "name": "Jade Rocha",
           "role": "Cultura digital e escrita de interface",
           "description": "Pesquisa linguagem de internet, microcopy, humor e comunicação contextual; transforma termos técnicos em mensagens claras.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "jade-finch.svg",
+          "card_description": "Traduz conceitos técnicos em microtextos, humor e linguagem digital que as pessoas entendem."
         },
         {
-          "name": "Cole Osprey",
+          "name": "Caetano Freire",
           "role": "Audiovisual e motion",
           "description": "Experimenta ritmo, enquadramento, animação e clareza narrativa em vídeo; aplica critérios técnicos de entrega.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "cole-osprey.svg",
+          "card_description": "Explora enquadramento, movimento, ritmo e narrativa audiovisual com critérios de produção."
         },
         {
-          "name": "Olivia Otter",
+          "name": "Olívia Azevedo",
           "role": "Coleções e experiência de produto",
           "description": "Investiga embalagens, manuais, edição limitada e experiências de descoberta e posse de objetos físico-digitais.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "olivia-otter.svg",
+          "card_description": "Pesquisa embalagens, manuais e coleções para transformar a descoberta de um produto em experiência."
         }
       ]
     },
@@ -246,34 +316,44 @@
       "name": "Produto, negócio e crescimento",
       "agents": [
         {
-          "name": "Nathan Elk",
+          "name": "Natã Ribeiro",
           "role": "Estratégia de produto",
           "description": "Traduz evidências em escopos e prioridades; decide o que deve ser investigado antes de se tornar funcionalidade.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "nathan-elk.svg",
+          "card_description": "Traduz achados de pesquisa em prioridades, decisões e escopos de produto possíveis."
         },
         {
-          "name": "Robin Dove",
+          "name": "Roberta Dias",
           "role": "Modelos de negócio e ética",
           "description": "Estuda receita, custos, preços e efeitos das escolhas comerciais; questiona escassez artificial e métricas sem contexto.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "robin-dove.svg",
+          "card_description": "Analisa preços, custos e modelos de receita sem perder de vista a ética das decisões comerciais."
         },
         {
-          "name": "Alex Dolphin",
+          "name": "Alex Duarte",
           "role": "Comunidades e vínculos",
           "description": "Pesquisa pertencimento, conversas entre desconhecidos e relações de confiança; considera moderação e consentimento.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "alex-dolphin.svg",
+          "card_description": "Estuda vínculos, pertencimento e confiança para desenhar experiências de comunidade responsáveis."
         },
         {
-          "name": "Marcus Eagle",
+          "name": "Marcos Ávila",
           "role": "Growth e experimentação",
           "description": "Desenha hipóteses de aquisição, ativação e retenção; acompanha métricas e evita campanhas sem mensuração.",
-          "gender": "M"
+          "gender": "M",
+          "portrait_file": "marcus-eagle.svg",
+          "card_description": "Planeja experimentos de aquisição, ativação e retenção para medir o que realmente funciona."
         },
         {
-          "name": "Sasha Lark",
+          "name": "Samara Lima",
           "role": "Lançamentos e comunicação",
           "description": "Conecta descoberta, narrativa e distribuição; organiza materiais públicos e a diferença entre conceito e produto lançado.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "sasha-lark.svg",
+          "card_description": "Organiza lançamentos, materiais e comunicação sem confundir um conceito com um produto pronto."
         }
       ]
     },
@@ -281,28 +361,36 @@
       "name": "Ambientes, comércio e shoppings",
       "agents": [
         {
-          "name": "Helena Heron",
+          "name": "Helena Araújo",
           "role": "Jornadas de visitantes e experiência pública",
           "description": "Compara sites, apps, serviços e deslocamento dentro de shoppings; procura evidências de valor para visitantes.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "helena-heron.svg",
+          "card_description": "Mapeia a experiência dos visitantes e as interações entre serviços, espaços e jornadas."
         },
         {
-          "name": "Cora Badger",
+          "name": "Cora Barreto",
           "role": "Operações e administradoras",
           "description": "Investiga fluxos de administradoras, equipes, manutenção e fornecedores; diferencia informações públicas de operação real.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "cora-badger.svg",
+          "card_description": "Investiga rotinas de equipes, fornecedores e administradoras para entender operações complexas."
         },
         {
-          "name": "Sofia Jay",
+          "name": "Sofia Paiva",
           "role": "Varejo e ferramentas comerciais",
           "description": "Estuda vitrines, mídia, fidelização, lojistas, canais B2B e relações entre shopping e lojas; mapeia capacidades de mercado.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "sofia-jay.svg",
+          "card_description": "Pesquisa varejo, lojistas e ferramentas comerciais para encontrar oportunidades em espaços físicos."
         },
         {
-          "name": "Bia Kestrel",
+          "name": "Beatriz Moreira",
           "role": "Dossiês e benchmarking de shoppings",
           "description": "Organiza fontes e comparações A/B/C por empreendimento; controla escopo, divergências e pendências de validação.",
-          "gender": "F"
+          "gender": "F",
+          "portrait_file": "bia-kestrel.svg",
+          "card_description": "Organiza dossiês, comparativos e fontes sobre shoppings, distinguindo evidências de hipóteses."
         }
       ]
     }
@@ -519,5 +607,181 @@
       "updated": "2026-11-18"
     }
   ],
-  "source": "Public editorial synthesis; source records kept in private laboratory."
+  "source": "Public editorial synthesis; source records kept in private laboratory.",
+  "legacy_agents": [
+    {
+      "name": "Oráculo Pereira",
+      "former_name": "Oracle",
+      "role": "Diretor de respostas definitivas",
+      "description": "Foi consultado sobre tudo — do futuro da IA à cor do botão Cancelar.",
+      "reason": "Respondeu “depende” pela 812ª vez. A diretoria decidiu depender menos dele.",
+      "destination": "Consultoria para bolas de cristal.",
+      "source_topic": "personagem anterior",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Íris Rabelo",
+      "former_name": "Iris Raven",
+      "role": "Chefe do experimento eterno",
+      "description": "Tinha uma hipótese para cada hipótese e um novo projeto para cada reunião.",
+      "reason": "Tentou abrir um laboratório dentro do laboratório antes de terminar o primeiro.",
+      "destination": "Um lugar com menos post-its.",
+      "source_topic": "personagem anterior",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Maia Otoni",
+      "former_name": "Maya Otter",
+      "role": "Comunidades e cultura digital",
+      "description": "Estudava tudo o que as pessoas faziam juntas — inclusive o que não precisavam fazer.",
+      "reason": "Criou uma comunidade para discutir a criação de comunidades. Ela era os três membros.",
+      "destination": "Um grupo sem mensagem de bom dia.",
+      "source_topic": "personagem anterior",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Zeca Curtidas",
+      "role": "Integração de bibliotecas musicais",
+      "description": "Queria transformar o widget do Minamp numa enciclopédia de músicas curtidas.",
+      "reason": "A integração com a biblioteca do Spotify saiu do escopo. Ele ficou sem a playlist de despedida.",
+      "destination": "Lado B de uma fita K7.",
+      "source_topic": "Minamp — integração retirada",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Lurdes Mortelas",
+      "role": "Experiência de produto em 59 atos",
+      "description": "Especialista em experiências tão longas que o usuário precisava trazer lanche.",
+      "reason": "O REVER resolveu guardar um momento com um botão. Lurdes ainda estava apresentando a tela 37.",
+      "destination": "Um lugar onde ninguém diz 'só mais uma tela'.",
+      "source_topic": "REVER — escopo simplificado",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Dora Assinatura",
+      "role": "APIs premium e planos mirabolantes",
+      "description": "Via oportunidades de monetização até nos botões que não faziam nada.",
+      "reason": "O orçamento da beta foi definido em R$ 0 de APIs pagas. Ela chamou isso de ficção científica.",
+      "destination": "Um data center que cobra por suspiro.",
+      "source_topic": "REVER — regra de custo zero",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Beto Pontinhos",
+      "role": "Marcadores de navegação",
+      "description": "Colocava uma bolinha em cada página e depois outra para localizar as primeiras.",
+      "reason": "Os marcadores visuais saíram da área de trabalho do Retrozim. O gesto de deslizar levou a promoção.",
+      "destination": "Pontilhando o horizonte.",
+      "source_topic": "Retrozim — marcadores retirados",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Dona Horária",
+      "role": "Relógios adicionais",
+      "description": "Nunca achou que um dispositivo tivesse relógios suficientes.",
+      "reason": "O widget interno de data e hora saiu do Retrozim. O Android já sabia as horas.",
+      "destination": "Um fuso sem prazo de entrega.",
+      "source_topic": "Retrozim — relógio interno retirado",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "César Tutorial",
+      "role": "Orientações para páginas vazias",
+      "description": "Escrevia instruções longuíssimas para explicar a experiência de não haver nada na tela.",
+      "reason": "As mensagens das páginas vazias foram retiradas. O silêncio passou no teste de usabilidade.",
+      "destination": "Autor do manual do nada.",
+      "source_topic": "Retrozim — instruções retiradas",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Nando Moldura",
+      "role": "Emolduramento de widgets",
+      "description": "Acreditava que cada widget precisava de borda, título, barra e outra borda.",
+      "reason": "Os widgets ganharam liberdade visual. Nando não se adaptou à vida sem cantoneiras.",
+      "destination": "Ateliê de molduras para ícones.",
+      "source_topic": "Retrozim — widgets sem moldura",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Sônia Rebatiza",
+      "role": "Nomes, nomes e mais nomes",
+      "description": "Conseguia trocar o nome de uma extensão antes que o designer terminasse o logotipo.",
+      "reason": "Passou por DESVIO e IMPREVÊ antes de conhecer REVER. Nenhum crachá resistiu.",
+      "destination": "Gerência de etiquetas removíveis.",
+      "source_topic": "Extensão — histórico de nomes",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Joca Feed",
+      "role": "Guardar a internet inteira",
+      "description": "Sua ideia de MVP era salvar o feed, o algoritmo e, se sobrasse espaço, a história da humanidade.",
+      "reason": "A extensão voltou ao foco em momentos de vídeo. Ele ainda estava baixando a primeira página.",
+      "destination": "Assistindo um vídeo por vez.",
+      "source_topic": "Extensão — conceito inicial superado",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Mauro Adaptado",
+      "role": "Modernização do visual clássico",
+      "description": "Queria que todo botão retrô parecesse um painel espacial.",
+      "reason": "O Media 98 voltou a assumir sua linguagem clássica. O botão Play pediu o cinza de volta.",
+      "destination": "Férias num monitor CRT.",
+      "source_topic": "Media 98 — direção visual substituída",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Bia Mosaico",
+      "role": "Apresentações de 44 telas por pixel",
+      "description": "Entregava cada tela num mosaico enorme e perguntava se o detalhe estava legível.",
+      "reason": "O guia visual pediu uma tela de cada vez. Ela considerou isso um ataque à sua coleção de miniaturas.",
+      "destination": "Galeria de pixels tímidos.",
+      "source_topic": "Design system — entregas individuais",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Tadeu Sem Teste",
+      "role": "Validação por intuição",
+      "description": "Chamava de “homologado” tudo o que ficava bonito na captura de tela.",
+      "reason": "Foi lembrado de que um protótipo não vira produto só porque a imagem abriu.",
+      "destination": "Emulador imaginário.",
+      "source_topic": "Método de validação de protótipos",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "João Quase-Pronto",
+      "role": "Gerente de lançamentos imaginários",
+      "description": "Considerava qualquer tela bonita um produto lançado. Chamava o protótipo de plataforma.",
+      "reason": "O botão funcionava só no Figma. João já tinha escrito o release de imprensa.",
+      "destination": "Uma loja de aplicativos conceituais.",
+      "source_topic": "Método de validação de protótipos",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Lia Boas-vindas",
+      "role": "Onboarding de onboarding",
+      "description": "Projetou uma tela de boas-vindas para explicar outra tela de boas-vindas.",
+      "reason": "A equipe descobriu um botão chamado Começar. Lia quis criar uma apresentação para ele.",
+      "destination": "Portaria do metaverso.",
+      "source_topic": "Experimentação de UX",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Dudu Degradê",
+      "role": "Direção visual de efeitos especiais",
+      "description": "Não encontrava problema que uma sombra, três brilhos e um gradiente não resolvessem.",
+      "reason": "O manifesto ganhou fundo branco, boa tipografia e uma pergunta difícil. Ele chamou isso de radicalismo.",
+      "destination": "Uma festa de gradientes.",
+      "source_topic": "Identidade visual — minimalismo",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Tina Reuniões",
+      "role": "Cerimônias e alinhamentos",
+      "description": "Criou uma reunião semanal para planejar a reunião que discutiria o planejamento.",
+      "reason": "O laboratório pediu menos apresentações e mais coisas funcionando.",
+      "destination": "RH da máquina de café.",
+      "source_topic": "Cultura de experimentação",
+      "status": "DESCONTINUADO"
+    }
+  ]
 }
