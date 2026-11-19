@@ -661,7 +661,9 @@
       "reason": "Passou por DESVIO e IMPREVÊ antes de conhecer REVER. Nenhum crachá resistiu.",
       "destination": "Gerência de etiquetas removíveis.",
       "source_topic": "Extensão — histórico de nomes",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/sonia-rebatiza.webp",
+      "portrait_quality": "individual"
     },
     {
       "name": "Joca Feed",
@@ -670,7 +672,9 @@
       "reason": "A extensão voltou ao foco em momentos de vídeo. Ele ainda estava baixando a primeira página.",
       "destination": "Assistindo um vídeo por vez.",
       "source_topic": "Extensão — conceito inicial superado",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/joca-feed.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Mauro Adaptado",
@@ -679,7 +683,9 @@
       "reason": "O Media 98 voltou a assumir sua linguagem clássica. O botão Play pediu o cinza de volta.",
       "destination": "Férias num monitor CRT.",
       "source_topic": "Media 98 — direção visual substituída",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/mauro-adaptado.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Bia Mosaico",
@@ -688,7 +694,9 @@
       "reason": "O guia visual pediu uma tela de cada vez. Ela considerou isso um ataque à sua coleção de miniaturas.",
       "destination": "Galeria de pixels tímidos.",
       "source_topic": "Design system — entregas individuais",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/bia-mosaico.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Tadeu Sem Teste",
@@ -697,7 +705,9 @@
       "reason": "Foi lembrado de que um protótipo não vira produto só porque a imagem abriu.",
       "destination": "Emulador imaginário.",
       "source_topic": "Método de validação de protótipos",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/tadeu-sem-teste.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "João Quase-Pronto",
@@ -706,7 +716,9 @@
       "reason": "O botão funcionava só no Figma. João já tinha escrito o release de imprensa.",
       "destination": "Uma loja de aplicativos conceituais.",
       "source_topic": "Método de validação de protótipos",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/joao-quase-pronto.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Lia Boas-vindas",
@@ -715,7 +727,9 @@
       "reason": "A equipe descobriu um botão chamado Começar. Lia quis criar uma apresentação para ele.",
       "destination": "Portaria do metaverso.",
       "source_topic": "Experimentação de UX",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/lia-boas-vindas.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Dudu Degradê",
@@ -724,7 +738,9 @@
       "reason": "O manifesto ganhou fundo branco, boa tipografia e uma pergunta difícil. Ele chamou isso de radicalismo.",
       "destination": "Uma festa de gradientes.",
       "source_topic": "Identidade visual — minimalismo",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/dudu-degrade.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Tina Reuniões",
@@ -733,7 +749,9 @@
       "reason": "O laboratório pediu menos apresentações e mais coisas funcionando.",
       "destination": "RH da máquina de café.",
       "source_topic": "Cultura de experimentação",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/tina-reunioes.webp",
+      "portrait_quality": "preview-upscaled"
     }
   ],
   "team_policy": {
