@@ -10,8 +10,8 @@
   <meta property="og:type" content="website">
   <title>Soft Wild — Laboratório independente</title>
   <link rel="icon" href="./assets/softwild-logo.webp" type="image/webp">
-  <link rel="stylesheet" href="./styles.css?v=8">
-  <script src="./app.js?v=8" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=9">
+  <script src="./app.js?v=9" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -52,6 +52,7 @@
       <div class="side-sections">
         <h3>Explorar</h3>
         <a class="side-active" href="#time"><span aria-hidden="true">♧</span> Agentes e colaboradores</a>
+        <a href="#legado"><span aria-hidden="true">◷</span> Agentes descontinuados</a>
         <a href="#manifesto"><span aria-hidden="true">✳</span> Manifesto</a>
         <a href="#explorar"><span aria-hidden="true">▦</span> Experimentos</a>
         <a href="#futuros"><span aria-hidden="true">◇</span> Ideias futuras</a>
@@ -132,7 +133,7 @@
           </article>
         </div>
         <div class="carousel-heading team-heading">
-          <div><span class="section-note">NOSSO TIME DE COLABORADORES DIGITAIS</span><h3>Conheça nossos colaboradores <span class="card-count">44</span></h3></div>
+          <div><span class="section-note">NOSSO TIME DE COLABORADORES DIGITAIS · NOMES BRASILEIROS EM PROPOSTA</span><h3>Conheça nossos colaboradores <span class="card-count">44</span></h3></div>
           <div class="carousel-actions"><span class="track-counter" id="counter-agents" aria-live="off">01 / 44</span><button type="button" class="autoplay-toggle" data-auto="agents" aria-pressed="false" aria-label="Pausar autoplay dos agentes" title="Pausar animação automática">Ⅱ</button><button type="button" class="slide-arrow" data-for="agents" data-dir="-1" aria-label="Ver agentes anteriores">‹</button><button type="button" class="slide-arrow" data-for="agents" data-dir="1" aria-label="Ver próximos agentes">›</button></div>
         </div>
         <div class="agent-track" id="track-agents" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Agentes de inteligência artificial por especialidade"><p class="loading-text">Carregando os agentes…</p></div>
@@ -142,6 +143,19 @@
           <div class="directory-toolbar"><label for="agent-area">Filtrar por núcleo</label><select id="agent-area"><option value="todos">Todos os núcleos</option></select></div>
           <div class="directory-grid" id="directory-grid"></div>
         </div>
+      </section>
+
+      <section class="legacy-section" id="legado" aria-labelledby="legacy-title">
+        <div class="section-kicker"><span>01B / ARQUIVO DE EX-COLABORADORES</span><span class="section-rule"></span><span>MEMÓRIA DO LABORATÓRIO</span></div>
+        <div class="legacy-intro">
+          <div>
+            <span class="section-note">OS QUE FORAM PARA UM LUGAR MELHOR</span>
+            <h2 id="legacy-title">Nem todo agente chega à versão 2.0<span class="dot-cyan">.</span></h2>
+          </div>
+          <p>Alguns fizeram história. Outros fizeram o que puderam. Não foram demitidos: foram <strong>descontinuados</strong>. Hoje vivem em um lugar melhor — provavelmente com mais memória RAM.</p>
+        </div>
+        <div class="legacy-grid" id="legacy-grid" aria-live="polite"><p class="loading-text">Consultando os registros do laboratório…</p></div>
+        <p class="legacy-disclaimer">Arquivo de <strong>personagens editoriais de versões anteriores</strong> do perfil. Não representa desligamentos de funcionários humanos nem comprova operações autônomas passadas.</p>
       </section>
 
       <section class="manifesto-section" id="manifesto" aria-labelledby="manifesto-title">
