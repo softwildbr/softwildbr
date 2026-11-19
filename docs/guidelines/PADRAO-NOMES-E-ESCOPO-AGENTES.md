@@ -124,6 +124,7 @@ O arquivo dos descontinuados permanece uma seção própria, independente do lim
 - [ ] O novo cargo traz clareza, sem duplicar autonomia ou responsabilidades?
 - [ ] O nome tem trocadilho brasileiro forte e original?
 - [ ] A grafia é consistente no JSON, README, site, handoff e arquivos?
+- [ ] Os cards iniciais pré-renderizados em `docs/index.html` foram sincronizados com `content.json`, garantindo que a equipe apareça mesmo sem JavaScript?
 - [ ] O retrato é individual, legível no card e não recicla rosto alheio?
 - [ ] A documentação explica responsabilidades e limites?
 - [ ] Se houver mudança de elenco, foi explicitamente autorizada e testada?
