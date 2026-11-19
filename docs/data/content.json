@@ -9,37 +9,43 @@
           "name": "Adrian Wolf",
           "role": "Direção de pesquisa e estratégia",
           "description": "Cruza estudos, sinais de mercado e perguntas dos outros núcleos; organiza decisões e prioridades para as frentes da Soft Wild.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Caio Lobo"
         },
         {
           "name": "Elliot Fox",
           "role": "Pesquisa de comunidades",
           "description": "Acompanha discussões públicas, reviews e fóruns; transforma dores recorrentes e histórias espontâneas em hipóteses, com fontes e ressalvas.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Felipe Raposo"
         },
         {
           "name": "Oliver Hawk",
           "role": "Inteligência competitiva",
           "description": "Compara produtos, concorrentes, linguagens de interface e modelos de distribuição; documenta benchmarks sem copiar soluções.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Otávio Falcão"
         },
         {
           "name": "Silas Owl",
           "role": "Ciência e qualidade da evidência",
           "description": "Avalia metodologia, amostra, vieses e força das conclusões; separa o que a pesquisa mostra do que ainda precisa ser testado.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Sérgio Dantas"
         },
         {
           "name": "Dante Coyote",
           "role": "Contracultura e futuros culturais",
           "description": "Investiga cultura maker, DIY, autonomia, comunidades independentes e comportamentos emergentes, explorando rupturas criativas.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Davi Nogueira"
         },
         {
           "name": "Iris Wren",
           "role": "Entrevistas e pesquisa qualitativa",
           "description": "Desenha perguntas, roteiros e sínteses de entrevistas; procura motivação e contexto sem inferir representatividade de relatos individuais.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Íris Moura"
         }
       ]
     },
@@ -50,37 +56,43 @@
           "name": "Theo Lynx",
           "role": "Interação humano–máquina",
           "description": "Pesquisa percepção, gestos, modelos mentais e comandos; compara formas convencionais e novas de interação.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Teo Lins"
         },
         {
           "name": "Luna Fox",
           "role": "Pesquisa UX e jornadas",
           "description": "Mapeia tarefas, fricções, cancelamentos, erros e recuperação; planeja testes de uso e interpreta o comportamento real.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Luana Reis"
         },
         {
           "name": "Milan Falcon",
           "role": "Design de interfaces",
           "description": "Transforma objetivos de uso em composição, tipografia, componentes e estados claros; desenvolve sistemas de UI de produtos distintos.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Mateus Pires"
         },
         {
           "name": "Nora Sable",
           "role": "Acessibilidade",
           "description": "Revisa leitura, contraste, teclado, alvos de toque, voz, tecnologias assistivas e uso em aparelhos variados.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Nara Sampaio"
         },
         {
           "name": "Henry Mantis",
           "role": "Design systems",
           "description": "Cria tokens, bibliotecas de componentes, regras de layout e documentação de estados; preserva especificidades visuais de cada produto.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Henrique Monteiro"
         },
         {
           "name": "Vera Heron",
           "role": "Motion e feedback de interação",
           "description": "Explora transições, microinterações, movimento reduzido e pistas visuais; anima somente o que melhora compreensão ou prazer.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Vera Guimarães"
         }
       ]
     },
@@ -91,43 +103,50 @@
           "name": "Ethan Bear",
           "role": "Arquitetura de software",
           "description": "Define estruturas técnicas, contratos entre módulos e caminhos de manutenção; revisa riscos de complexidade desnecessária.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Heitor Braga"
         },
         {
           "name": "Logan Raven",
           "role": "Web, navegadores e extensões",
           "description": "Pesquisa APIs de navegador, vídeo e permissões; planeja extensões como REVER e seus limites reais de captura.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Lucas Corrêa"
         },
         {
           "name": "Max Hound",
           "role": "Android nativo",
           "description": "Trabalha com launchers, widgets, permissões e compatibilidade; concilia estética própria com contratos da plataforma.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Márcio Rezende"
         },
         {
           "name": "Clara Swift",
           "role": "Performance e testes de dispositivo",
           "description": "Mede tempo de resposta, consumo de bateria e memória, regressões e acessibilidade operacional em diferentes configurações.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Clara Viana"
         },
         {
           "name": "Gabriel Beaver",
           "role": "Sistemas e integrações",
           "description": "Estrutura comunicação entre aplicações, armazenamento e processos locais ou remotos; define tratamento de falhas e privacidade.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Gabriel Castro"
         },
         {
           "name": "Maya Stoat",
           "role": "Privacidade e segurança de aplicações",
           "description": "Avalia coleta de dados, consentimento, permissões e ameaças; prioriza proteção desde o desenho do produto.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Maia Nascimento"
         },
         {
           "name": "Hugo Mole",
           "role": "Qualidade e validação",
           "description": "Escreve testes reproduzíveis, valida entregas e registra defeitos com evidências; não confunde telas bonitas com sistemas prontos.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Hugo Almeida"
         }
       ]
     },
@@ -138,31 +157,36 @@
           "name": "Atlas Orca",
           "role": "Arquitetura multiagentes",
           "description": "Define atribuições entre agentes, comunicação, ferramentas e aprovações; trabalha com orquestração verificável.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Álvaro Costa"
         },
         {
           "name": "Ada Raven",
           "role": "Engenharia de conhecimento",
           "description": "Organiza documentação, índices e recuperação semântica; preserva contexto, versões e procedência de informações.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Ada Valente"
         },
         {
           "name": "Isaac Kestrel",
           "role": "IA multimodal",
           "description": "Estuda texto, imagens, áudio e vídeo em conjunto, inclusive possibilidades e custos de resumir momentos de vídeos.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Isaque Teixeira"
         },
         {
           "name": "Nina Bee",
           "role": "Automação de processos",
           "description": "Desenha rotinas com gatilhos, limites, verificações e intervenção humana; reduz trabalho repetitivo sem perder controle.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Nina Abreu"
         },
         {
           "name": "Jude Viper",
           "role": "Avaliação crítica de IA",
           "description": "Testa falhas, alucinações, vieses e segurança; questiona quando um agente pode ou não decidir sozinho.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Júlio Vidal"
         }
       ]
     },
@@ -173,31 +197,36 @@
           "name": "Bruno Bison",
           "role": "Eletrônica e sensores",
           "description": "Pesquisa placas, circuitos, interfaces físicas e viabilidade de dispositivos; registra protótipos e limites de hardware.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Bruno Bittencourt"
         },
         {
           "name": "Arthur Stag",
           "role": "Design de produto e impressão 3D",
           "description": "Estuda forma, ergonomia, encaixes, tolerâncias e fabricação digital; transforma modelos em hipóteses de objetos utilizáveis.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Artur Farias"
         },
         {
           "name": "Eva Mink",
           "role": "IoT e automação física",
           "description": "Pesquisa sensores, NFC, comunicação local e aparelhos conectados; define casos de uso com consentimento e recuperação.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Eva Martins"
         },
         {
           "name": "Milo Pike",
           "role": "Firmware e embarcados",
           "description": "Trabalha com microcontroladores e comunicação de baixo nível; concilia recursos limitados e funcionamento confiável.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Murilo Pacheco"
         },
         {
           "name": "Samuel Boar",
           "role": "Prototipagem e pequenas tiragens",
           "description": "Investiga materiais, montagem, documentação e custos de produção; estrutura edições físicas ou híbridas com transparência.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Samuel Neri"
         }
       ]
     },
@@ -208,37 +237,43 @@
           "name": "Dylan Tiger",
           "role": "Direção de arte",
           "description": "Propõe identidades e sistemas gráficos autorais; examina composição, acabamento e coerência entre suportes.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Dênis Tavares"
         },
         {
           "name": "Talia Swan",
           "role": "Narrativa e tom de voz",
           "description": "Escreve manifestos, apresentações e histórias de produto; mantém rebeldia construtiva sem promessas vazias.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Tainá Campos"
         },
         {
           "name": "Ryan Wren",
           "role": "Som e percepção musical",
           "description": "Investiga gosto, memória, áudio, playlists e sequenciamento; diferencia análise digital de preferência real dos ouvintes.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Rafael Souto"
         },
         {
           "name": "Jade Finch",
           "role": "Cultura digital e escrita de interface",
           "description": "Pesquisa linguagem de internet, microcopy, humor e comunicação contextual; transforma termos técnicos em mensagens claras.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Jade Rocha"
         },
         {
           "name": "Cole Osprey",
           "role": "Audiovisual e motion",
           "description": "Experimenta ritmo, enquadramento, animação e clareza narrativa em vídeo; aplica critérios técnicos de entrega.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Caetano Freire"
         },
         {
           "name": "Olivia Otter",
           "role": "Coleções e experiência de produto",
           "description": "Investiga embalagens, manuais, edição limitada e experiências de descoberta e posse de objetos físico-digitais.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Olívia Azevedo"
         }
       ]
     },
@@ -249,31 +284,36 @@
           "name": "Nathan Elk",
           "role": "Estratégia de produto",
           "description": "Traduz evidências em escopos e prioridades; decide o que deve ser investigado antes de se tornar funcionalidade.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Natã Ribeiro"
         },
         {
           "name": "Robin Dove",
           "role": "Modelos de negócio e ética",
           "description": "Estuda receita, custos, preços e efeitos das escolhas comerciais; questiona escassez artificial e métricas sem contexto.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Roberta Dias"
         },
         {
           "name": "Alex Dolphin",
           "role": "Comunidades e vínculos",
           "description": "Pesquisa pertencimento, conversas entre desconhecidos e relações de confiança; considera moderação e consentimento.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Alex Duarte"
         },
         {
           "name": "Marcus Eagle",
           "role": "Growth e experimentação",
           "description": "Desenha hipóteses de aquisição, ativação e retenção; acompanha métricas e evita campanhas sem mensuração.",
-          "gender": "M"
+          "gender": "M",
+          "proposed_name": "Marcos Ávila"
         },
         {
           "name": "Sasha Lark",
           "role": "Lançamentos e comunicação",
           "description": "Conecta descoberta, narrativa e distribuição; organiza materiais públicos e a diferença entre conceito e produto lançado.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Samara Lima"
         }
       ]
     },
@@ -284,25 +324,29 @@
           "name": "Helena Heron",
           "role": "Jornadas de visitantes e experiência pública",
           "description": "Compara sites, apps, serviços e deslocamento dentro de shoppings; procura evidências de valor para visitantes.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Helena Araújo"
         },
         {
           "name": "Cora Badger",
           "role": "Operações e administradoras",
           "description": "Investiga fluxos de administradoras, equipes, manutenção e fornecedores; diferencia informações públicas de operação real.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Cora Barreto"
         },
         {
           "name": "Sofia Jay",
           "role": "Varejo e ferramentas comerciais",
           "description": "Estuda vitrines, mídia, fidelização, lojistas, canais B2B e relações entre shopping e lojas; mapeia capacidades de mercado.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Sofia Paiva"
         },
         {
           "name": "Bia Kestrel",
           "role": "Dossiês e benchmarking de shoppings",
           "description": "Organiza fontes e comparações A/B/C por empreendimento; controla escopo, divergências e pendências de validação.",
-          "gender": "F"
+          "gender": "F",
+          "proposed_name": "Beatriz Moreira"
         }
       ]
     }
@@ -519,5 +563,28 @@
       "updated": "2026-11-18"
     }
   ],
-  "source": "Public editorial synthesis; source records kept in private laboratory."
+  "source": "Public editorial synthesis; source records kept in private laboratory.",
+  "legacy_agents": [
+    {
+      "name": "Oracle",
+      "role": "Ideias e orquestração",
+      "description": "Personagem de uma das primeiras propostas editoriais do laboratório. Saiu de cena quando as especialidades ganharam funções próprias.",
+      "status": "DESCONTINUADO",
+      "origin": "Conceito visual anterior"
+    },
+    {
+      "name": "Iris Raven",
+      "role": "Produto e experimentação",
+      "description": "Representou a experimentação em uma versão anterior da equipe. Seu conceito foi redistribuído entre os novos especialistas.",
+      "status": "DESCONTINUADO",
+      "origin": "Card de versão anterior"
+    },
+    {
+      "name": "Maya Otter",
+      "role": "Comunidade e cultura",
+      "description": "Foi o rosto de comunidade e cultura em uma proposta antiga. A persona ficou no arquivo após o redesenho do elenco.",
+      "status": "DESCONTINUADO",
+      "origin": "Card de versão anterior"
+    }
+  ]
 }
