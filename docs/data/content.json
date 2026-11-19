@@ -1,0 +1,523 @@
+{
+  "updated": "2026-11-18",
+  "slogan": "Se for pra fazer mais do mesmo, agente nem faz.",
+  "groups": [
+    {
+      "name": "Pesquisa, cultura e descoberta",
+      "agents": [
+        {
+          "name": "Adrian Wolf",
+          "role": "Direção de pesquisa e estratégia",
+          "description": "Cruza estudos, sinais de mercado e perguntas dos outros núcleos; organiza decisões e prioridades para as frentes da Soft Wild.",
+          "gender": "M"
+        },
+        {
+          "name": "Elliot Fox",
+          "role": "Pesquisa de comunidades",
+          "description": "Acompanha discussões públicas, reviews e fóruns; transforma dores recorrentes e histórias espontâneas em hipóteses, com fontes e ressalvas.",
+          "gender": "M"
+        },
+        {
+          "name": "Oliver Hawk",
+          "role": "Inteligência competitiva",
+          "description": "Compara produtos, concorrentes, linguagens de interface e modelos de distribuição; documenta benchmarks sem copiar soluções.",
+          "gender": "M"
+        },
+        {
+          "name": "Silas Owl",
+          "role": "Ciência e qualidade da evidência",
+          "description": "Avalia metodologia, amostra, vieses e força das conclusões; separa o que a pesquisa mostra do que ainda precisa ser testado.",
+          "gender": "M"
+        },
+        {
+          "name": "Dante Coyote",
+          "role": "Contracultura e futuros culturais",
+          "description": "Investiga cultura maker, DIY, autonomia, comunidades independentes e comportamentos emergentes, explorando rupturas criativas.",
+          "gender": "M"
+        },
+        {
+          "name": "Iris Wren",
+          "role": "Entrevistas e pesquisa qualitativa",
+          "description": "Desenha perguntas, roteiros e sínteses de entrevistas; procura motivação e contexto sem inferir representatividade de relatos individuais.",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "name": "Experiência, UX e sistemas visuais",
+      "agents": [
+        {
+          "name": "Theo Lynx",
+          "role": "Interação humano–máquina",
+          "description": "Pesquisa percepção, gestos, modelos mentais e comandos; compara formas convencionais e novas de interação.",
+          "gender": "M"
+        },
+        {
+          "name": "Luna Fox",
+          "role": "Pesquisa UX e jornadas",
+          "description": "Mapeia tarefas, fricções, cancelamentos, erros e recuperação; planeja testes de uso e interpreta o comportamento real.",
+          "gender": "F"
+        },
+        {
+          "name": "Milan Falcon",
+          "role": "Design de interfaces",
+          "description": "Transforma objetivos de uso em composição, tipografia, componentes e estados claros; desenvolve sistemas de UI de produtos distintos.",
+          "gender": "M"
+        },
+        {
+          "name": "Nora Sable",
+          "role": "Acessibilidade",
+          "description": "Revisa leitura, contraste, teclado, alvos de toque, voz, tecnologias assistivas e uso em aparelhos variados.",
+          "gender": "F"
+        },
+        {
+          "name": "Henry Mantis",
+          "role": "Design systems",
+          "description": "Cria tokens, bibliotecas de componentes, regras de layout e documentação de estados; preserva especificidades visuais de cada produto.",
+          "gender": "M"
+        },
+        {
+          "name": "Vera Heron",
+          "role": "Motion e feedback de interação",
+          "description": "Explora transições, microinterações, movimento reduzido e pistas visuais; anima somente o que melhora compreensão ou prazer.",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "name": "Engenharia de software e qualidade",
+      "agents": [
+        {
+          "name": "Ethan Bear",
+          "role": "Arquitetura de software",
+          "description": "Define estruturas técnicas, contratos entre módulos e caminhos de manutenção; revisa riscos de complexidade desnecessária.",
+          "gender": "M"
+        },
+        {
+          "name": "Logan Raven",
+          "role": "Web, navegadores e extensões",
+          "description": "Pesquisa APIs de navegador, vídeo e permissões; planeja extensões como REVER e seus limites reais de captura.",
+          "gender": "M"
+        },
+        {
+          "name": "Max Hound",
+          "role": "Android nativo",
+          "description": "Trabalha com launchers, widgets, permissões e compatibilidade; concilia estética própria com contratos da plataforma.",
+          "gender": "M"
+        },
+        {
+          "name": "Clara Swift",
+          "role": "Performance e testes de dispositivo",
+          "description": "Mede tempo de resposta, consumo de bateria e memória, regressões e acessibilidade operacional em diferentes configurações.",
+          "gender": "F"
+        },
+        {
+          "name": "Gabriel Beaver",
+          "role": "Sistemas e integrações",
+          "description": "Estrutura comunicação entre aplicações, armazenamento e processos locais ou remotos; define tratamento de falhas e privacidade.",
+          "gender": "M"
+        },
+        {
+          "name": "Maya Stoat",
+          "role": "Privacidade e segurança de aplicações",
+          "description": "Avalia coleta de dados, consentimento, permissões e ameaças; prioriza proteção desde o desenho do produto.",
+          "gender": "F"
+        },
+        {
+          "name": "Hugo Mole",
+          "role": "Qualidade e validação",
+          "description": "Escreve testes reproduzíveis, valida entregas e registra defeitos com evidências; não confunde telas bonitas com sistemas prontos.",
+          "gender": "M"
+        }
+      ]
+    },
+    {
+      "name": "Inteligência artificial e automação",
+      "agents": [
+        {
+          "name": "Atlas Orca",
+          "role": "Arquitetura multiagentes",
+          "description": "Define atribuições entre agentes, comunicação, ferramentas e aprovações; trabalha com orquestração verificável.",
+          "gender": "M"
+        },
+        {
+          "name": "Ada Raven",
+          "role": "Engenharia de conhecimento",
+          "description": "Organiza documentação, índices e recuperação semântica; preserva contexto, versões e procedência de informações.",
+          "gender": "F"
+        },
+        {
+          "name": "Isaac Kestrel",
+          "role": "IA multimodal",
+          "description": "Estuda texto, imagens, áudio e vídeo em conjunto, inclusive possibilidades e custos de resumir momentos de vídeos.",
+          "gender": "M"
+        },
+        {
+          "name": "Nina Bee",
+          "role": "Automação de processos",
+          "description": "Desenha rotinas com gatilhos, limites, verificações e intervenção humana; reduz trabalho repetitivo sem perder controle.",
+          "gender": "F"
+        },
+        {
+          "name": "Jude Viper",
+          "role": "Avaliação crítica de IA",
+          "description": "Testa falhas, alucinações, vieses e segurança; questiona quando um agente pode ou não decidir sozinho.",
+          "gender": "M"
+        }
+      ]
+    },
+    {
+      "name": "Hardware, fabricação e objetos",
+      "agents": [
+        {
+          "name": "Bruno Bison",
+          "role": "Eletrônica e sensores",
+          "description": "Pesquisa placas, circuitos, interfaces físicas e viabilidade de dispositivos; registra protótipos e limites de hardware.",
+          "gender": "M"
+        },
+        {
+          "name": "Arthur Stag",
+          "role": "Design de produto e impressão 3D",
+          "description": "Estuda forma, ergonomia, encaixes, tolerâncias e fabricação digital; transforma modelos em hipóteses de objetos utilizáveis.",
+          "gender": "M"
+        },
+        {
+          "name": "Eva Mink",
+          "role": "IoT e automação física",
+          "description": "Pesquisa sensores, NFC, comunicação local e aparelhos conectados; define casos de uso com consentimento e recuperação.",
+          "gender": "F"
+        },
+        {
+          "name": "Milo Pike",
+          "role": "Firmware e embarcados",
+          "description": "Trabalha com microcontroladores e comunicação de baixo nível; concilia recursos limitados e funcionamento confiável.",
+          "gender": "M"
+        },
+        {
+          "name": "Samuel Boar",
+          "role": "Prototipagem e pequenas tiragens",
+          "description": "Investiga materiais, montagem, documentação e custos de produção; estrutura edições físicas ou híbridas com transparência.",
+          "gender": "M"
+        }
+      ]
+    },
+    {
+      "name": "Arte, narrativa, música e experiências",
+      "agents": [
+        {
+          "name": "Dylan Tiger",
+          "role": "Direção de arte",
+          "description": "Propõe identidades e sistemas gráficos autorais; examina composição, acabamento e coerência entre suportes.",
+          "gender": "M"
+        },
+        {
+          "name": "Talia Swan",
+          "role": "Narrativa e tom de voz",
+          "description": "Escreve manifestos, apresentações e histórias de produto; mantém rebeldia construtiva sem promessas vazias.",
+          "gender": "F"
+        },
+        {
+          "name": "Ryan Wren",
+          "role": "Som e percepção musical",
+          "description": "Investiga gosto, memória, áudio, playlists e sequenciamento; diferencia análise digital de preferência real dos ouvintes.",
+          "gender": "M"
+        },
+        {
+          "name": "Jade Finch",
+          "role": "Cultura digital e escrita de interface",
+          "description": "Pesquisa linguagem de internet, microcopy, humor e comunicação contextual; transforma termos técnicos em mensagens claras.",
+          "gender": "F"
+        },
+        {
+          "name": "Cole Osprey",
+          "role": "Audiovisual e motion",
+          "description": "Experimenta ritmo, enquadramento, animação e clareza narrativa em vídeo; aplica critérios técnicos de entrega.",
+          "gender": "M"
+        },
+        {
+          "name": "Olivia Otter",
+          "role": "Coleções e experiência de produto",
+          "description": "Investiga embalagens, manuais, edição limitada e experiências de descoberta e posse de objetos físico-digitais.",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "name": "Produto, negócio e crescimento",
+      "agents": [
+        {
+          "name": "Nathan Elk",
+          "role": "Estratégia de produto",
+          "description": "Traduz evidências em escopos e prioridades; decide o que deve ser investigado antes de se tornar funcionalidade.",
+          "gender": "M"
+        },
+        {
+          "name": "Robin Dove",
+          "role": "Modelos de negócio e ética",
+          "description": "Estuda receita, custos, preços e efeitos das escolhas comerciais; questiona escassez artificial e métricas sem contexto.",
+          "gender": "F"
+        },
+        {
+          "name": "Alex Dolphin",
+          "role": "Comunidades e vínculos",
+          "description": "Pesquisa pertencimento, conversas entre desconhecidos e relações de confiança; considera moderação e consentimento.",
+          "gender": "M"
+        },
+        {
+          "name": "Marcus Eagle",
+          "role": "Growth e experimentação",
+          "description": "Desenha hipóteses de aquisição, ativação e retenção; acompanha métricas e evita campanhas sem mensuração.",
+          "gender": "M"
+        },
+        {
+          "name": "Sasha Lark",
+          "role": "Lançamentos e comunicação",
+          "description": "Conecta descoberta, narrativa e distribuição; organiza materiais públicos e a diferença entre conceito e produto lançado.",
+          "gender": "F"
+        }
+      ]
+    },
+    {
+      "name": "Ambientes, comércio e shoppings",
+      "agents": [
+        {
+          "name": "Helena Heron",
+          "role": "Jornadas de visitantes e experiência pública",
+          "description": "Compara sites, apps, serviços e deslocamento dentro de shoppings; procura evidências de valor para visitantes.",
+          "gender": "F"
+        },
+        {
+          "name": "Cora Badger",
+          "role": "Operações e administradoras",
+          "description": "Investiga fluxos de administradoras, equipes, manutenção e fornecedores; diferencia informações públicas de operação real.",
+          "gender": "F"
+        },
+        {
+          "name": "Sofia Jay",
+          "role": "Varejo e ferramentas comerciais",
+          "description": "Estuda vitrines, mídia, fidelização, lojistas, canais B2B e relações entre shopping e lojas; mapeia capacidades de mercado.",
+          "gender": "F"
+        },
+        {
+          "name": "Bia Kestrel",
+          "role": "Dossiês e benchmarking de shoppings",
+          "description": "Organiza fontes e comparações A/B/C por empreendimento; controla escopo, divergências e pendências de validação.",
+          "gender": "F"
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "Retrozim Launcher",
+      "description": "Launcher Android retrô, nativo e offline, inspirado na linguagem dos desktops 1995/98 e reinterpretado para o toque.",
+      "status": "Candidata de teste 0.6.3; sem lançamento na Play Store",
+      "stage": "prototype"
+    },
+    {
+      "name": "Minamp",
+      "description": "Widget e controlador de mídia Android com estética clássica, fila quando o player disponibiliza e opções de personalização.",
+      "status": "Alfa 0.4.3-alpha.1; não publicado na loja",
+      "stage": "prototype"
+    },
+    {
+      "name": "Suíte 98",
+      "description": "Visão de integração de oito ferramentas Android num ecossistema e instalador de configuração com linguagem clássica.",
+      "status": "Integração em desenvolvimento; handoff pendente, não release",
+      "stage": "prototype"
+    },
+    {
+      "name": "Arquivos",
+      "description": "Gerenciador local Android para organizar, buscar, copiar, mover e compartilhar arquivos com a estética de desktop reinterpretada.",
+      "status": "Protótipo 0.1.0 de avaliação; não publicado na loja",
+      "stage": "prototype"
+    },
+    {
+      "name": "Teclado",
+      "description": "Teclado Android próprio, com referências à computação clássica e proteção do texto digitado.",
+      "status": "Em desenvolvimento; não pronto para uso diário",
+      "stage": "prototype"
+    },
+    {
+      "name": "Barra",
+      "description": "Prova de conceito de indicadores e controles retrô para Android sem root.",
+      "status": "Implementação exploratória; não pronta para distribuição",
+      "stage": "prototype"
+    },
+    {
+      "name": "Conexão (widget)",
+      "description": "Widget Android para informações de conectividade em estilo clássico. Não é a rede social de desconhecidos.",
+      "status": "Versão de testes 0.3.0",
+      "stage": "prototype"
+    },
+    {
+      "name": "Gravador",
+      "description": "Gravador Android com biblioteca local, visualização de onda e inspiração no Sound Recorder clássico.",
+      "status": "APK de desenvolvimento 0.2.0; testes em fila",
+      "stage": "prototype"
+    },
+    {
+      "name": "Media 98",
+      "description": "Aplicativo de áudio e vídeo local com experiências de controle, aparência clássica e visualização musical.",
+      "status": "Revisão R05 / 0.2.0 com documentação de builds",
+      "stage": "prototype"
+    },
+    {
+      "name": "Donki P2P",
+      "description": "Cliente de transferência P2P para arquivos autorizados e software livre; propõe filas, pausa, retomada e seleção.",
+      "status": "APK alfa de teste; telas em revisão",
+      "stage": "prototype"
+    },
+    {
+      "name": "Entrada 98",
+      "description": "Exploração de tela de entrada, papéis de parede e personalização visual, respeitando o controle nativo do Android.",
+      "status": "Documentação de implementação e testes; revisar aprovação da versão",
+      "stage": "prototype"
+    },
+    {
+      "name": "Central de Controle 98",
+      "description": "Proposta de central de atalhos, notificações e informações Android inspirada em interfaces de desktop.",
+      "status": "Pesquisa e telas; sem APK",
+      "stage": "prototype"
+    },
+    {
+      "name": "Galeria",
+      "description": "Planejamento de biblioteca de fotos e vídeos, organização, privacidade, edição e recuperação.",
+      "status": "Pesquisa e documentação; nenhum app compilado",
+      "stage": "prototype"
+    },
+    {
+      "name": "Controle físico-digital IR",
+      "description": "Protótipo Android para controle de receiver Sony por infravermelho; também pesquisa interfaces físicas e perfis de uso.",
+      "status": "Piloto 0.3-preview, com proposta visual v12 separada do APK",
+      "stage": "prototype"
+    },
+    {
+      "name": "REVER (extensão de navegador)",
+      "description": "Experimento para guardar um momento de vídeo e reencontrá-lo com contexto; pesquisa metadados, limitações e privacidade.",
+      "status": "Beta histórica 0.4; função Guardar Momento planejada para próxima iteração",
+      "stage": "prototype"
+    },
+    {
+      "name": "Conversas improváveis",
+      "description": "Rede de conversas entre desconhecidos inspirada na espontaneidade do Omegle, revisitada com identidade própria, interação leve, consentimento e segurança.",
+      "status": "Conceito exploratório de serviço, pesquisa e primeiras telas em discussão; não afirmar plataforma ativa",
+      "stage": "concept"
+    },
+    {
+      "name": "Histórias antes de seguidores",
+      "description": "Rede social brasileira de relatos, perrengues, confissões e amizades por afinidade. Uma história inicia a conversa, não a contagem de seguidores.",
+      "status": "Visão de produto documentada na pesquisa sobre relatos reais; nome/telas/features não finalizados",
+      "stage": "concept"
+    },
+    {
+      "name": "Ecossistemas para shopping centers",
+      "description": "Pesquisa de aplicações digitais, físicas e híbridas para visitantes, lojistas e operação; soluções ainda dependem de validação.",
+      "status": "Etapa 1: dossiês e fornecedores na branch de pesquisa; nenhuma plataforma de shopping aprovada",
+      "stage": "concept"
+    },
+    {
+      "name": "Objetos e cartões NFC",
+      "description": "Pequenos dispositivos e objetos configuráveis para rotinas, mídia, navegação e conexões simples entre mundos físico e digital.",
+      "status": "Conceitos maker com testes necessários de usabilidade, compatibilidade e custos",
+      "stage": "concept"
+    },
+    {
+      "name": "Kit colecionável de software + objetos",
+      "description": "Combinação de software, acessórios, embalagens autorais e peças eventualmente numeradas em séries pequenas.",
+      "status": "Hipótese comercial e criativa; sem estoque, tiragem ou preço aprovado",
+      "stage": "concept"
+    },
+    {
+      "name": "Microsserviços para trabalho real",
+      "description": "Ferramentas enxutas para acompanhar retorno de propostas, organizar tarefas ou resolver fricções de negócios locais sem invadir conversas.",
+      "status": "Pesquisa de oportunidades B2B; escopo e viabilidade a validar",
+      "stage": "concept"
+    },
+    {
+      "name": "Navegador de linguagem clássica",
+      "description": "Investigação de um navegador moderno com identidade inspirada em interfaces clássicas, sem abandonar segurança e compatibilidade atuais.",
+      "status": "Pesquisa de engenharia e design vinculada à Suíte 98; não afirmar software entregue",
+      "stage": "concept"
+    },
+    {
+      "name": "Ferramentas pessoais acessíveis e offline",
+      "description": "Aplicativos de voz em português, organização, notificações e interfaces mais simples que funcionem com pouco processamento e conexão.",
+      "status": "Radar de oportunidades, não produto anunciado",
+      "stage": "concept"
+    }
+  ],
+  "fronts": [
+    {
+      "name": "Interação humano–máquina e experiência",
+      "status": "Pesquisa documental e diretrizes de UI/UX",
+      "progress": "Estudos de cognição, carga mental, gestos, experiência, acessibilidade e animações associados a projetos Android",
+      "next": "Transformar recomendações em hipóteses com testes de pessoas e evidências de uso",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Software, Android e sistemas operacionais",
+      "status": "Protótipos e alfas; validação parcial",
+      "progress": "Retrozim, widgets e ferramentas Android com diferentes fases; projeto de integração Suíte 98 em andamento",
+      "next": "Reconciliar estados de builds, testar compatibilidade, segurança, acessibilidade e prontidão antes de anunciar versões",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Inteligência artificial, agentes e qualidade dos resultados",
+      "status": "Pesquisa e propostas de arquitetura",
+      "progress": "Estudos sobre sinais/frustrações de conteúdo com IA, qualidade funcional, automações e uso de agentes em processos criativos",
+      "next": "Definir requisitos reais, avaliação e permissões; construir agentes específicos somente após aprovação e testes",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Hardware, eletrônica e fabricação digital",
+      "status": "Pilotos e conceitos maker",
+      "progress": "Piloto de controle IR Android 0.3-preview; pesquisa de sensores, ESP32, NFC, objetos paramétricos e pequenos lotes",
+      "next": "Validar protótipos físicos, custos, segurança e repetibilidade com hardware real",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Música, som e memória",
+      "status": "Bibliografia e simulador estrutural",
+      "progress": "Music Lab experimental e reconstrução documental V3 de 27 playlists com 540 posições novas; sem validação acústica ou montagem Spotify confirmada",
+      "next": "Avaliar faixas com acesso legítimo a áudio e escuta humana; só depois recomendar sequências como resultados",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Comunidades, histórias e encontros improváveis",
+      "status": "Pesquisa de oportunidade e conceito",
+      "progress": "Visão de uma rede de histórias reais e amizades por afinidade documentada; proposta distinta de conversas espontâneas entre desconhecidos inspirada no Omegle segue em pesquisa",
+      "next": "Definir limites, público, segurança, moderação e resultados de uso antes de implementar uma plataforma",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Shopping centers, varejo e espaços híbridos",
+      "status": "Etapa 1 documental avançada em PR aberto; Etapa 2 suspensa",
+      "progress": "No PR #8: 30/30 dossiês documentais da amostra, 15 insights sintetizados e 12 ofertas de fornecedores comparadas por três trilhas A/B/C; o resultado não está mesclado à main",
+      "next": "Revisar fontes e aprofundar fornecedores/site/operadores dentro da Etapa 1; somente retomar auditoria UX visual ou desenvolvimento com autorização nova",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Branding, linguagem e identidade autoral",
+      "status": "Nome, identidade verbal e endosso aprovados em conceito; visual de GitHub aprovado como aplicação",
+      "progress": "Manifesto e diretrizes documentadas; estudos de 53 referências públicas e análises de autorias/microassinaturas, com dossiê Kagi/Orion",
+      "next": "Aplicar apenas conteúdo liberado; validar legibilidade e clareza pública sem expor a pesquisa interna ou confundir marca-mãe com cada produto",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Mercados, produtos e crescimento responsável",
+      "status": "Pesquisa documental",
+      "progress": "Radar de oportunidades de aplicativos e serviços, estudos de custos/negócio e biblioteca de growth com referências científicas e discussões comunitárias",
+      "next": "Definir segmentos e testar problemas, valor e viabilidade sem tratar pontuações editoriais como prova comercial",
+      "updated": "2026-11-18"
+    },
+    {
+      "name": "Produção criativa, design e qualidade editorial",
+      "status": "Guidelines e pesquisas estruturadas",
+      "progress": "Bases de revisão, motion, copy, criação, sistemas de aprovação e antipadrões de conteúdo IA; algumas fontes pertencem a contexto de agência/cliente",
+      "next": "Aplicar métodos genéricos sem publicar dados, trabalhos ou informações de clientes como produtos próprios da Soft Wild",
+      "updated": "2026-11-18"
+    }
+  ],
+  "source": "Public editorial synthesis; source records kept in private laboratory."
+}
