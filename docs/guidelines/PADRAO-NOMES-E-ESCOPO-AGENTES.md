@@ -5,6 +5,12 @@
 
 > **Se for pra fazer mais do mesmo, agente nem faz.**
 
+## Identidade do fundador — grafia fixa
+
+O fundador aparece publicamente como **Müller Multitarefa** — sempre com **M**, **ü** (u com trema), **ll** e **er**: **Müller**. Nunca escrever "Miller", "Muller" ou "Anks" como nome. O cargo do card é **Fundador · Adestrador de agentes**; a foto permanece real, e não recebe avatar ilustrado.
+
+Descrição aprovada para o card: **“Responsável por manter 20 agentes ocupados e 47 abas abertas. A única coisa que ainda não conseguiu automatizar foi a própria cabeça.”**
+
 ## 1. Regra da marca: nome de personagem com trocadilho
 
 Todo agente da Soft Wild deve receber um **nome brasileiro curto, sonoro e com duplo sentido relacionado ao trabalho**. A referência de tom é **Lourdes Multitelas**, **Dora Assinatura**, **Ana Lítica**, **Otto Mático** e **Sônia Decibéis**. Evitar listas de nomes convencionais sem personalidade ou traduções americanizadas.
