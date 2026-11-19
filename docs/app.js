@@ -206,8 +206,12 @@ function renderLegacy(){
   target.innerHTML=visible.length?visible.map((a,i)=>{
     const initials=a.name.trim().split(' ').map(s=>s[0]||'').slice(0,2).join('');
     const number=pad(i+1);
+    const hasPhoto=typeof a.portrait_file==='string' && a.portrait_file.startsWith('legacy/') && /^[a-z0-9-]+\.webp$/.test(a.portrait_file.slice(7));
+    const portrait=hasPhoto?
+      '<img class="legacy-photo" src="./assets/agents/'+esc(a.portrait_file)+'" alt="Retrato editorial de '+esc(a.name)+'" width="72" height="84" loading="lazy" decoding="async">':
+      '<span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>';
     return '<article class="legacy-card" aria-label="Ficha de '+esc(a.name)+' — descontinuado">'+
-      '<div class="legacy-card-head"><span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>'+
+      '<div class="legacy-card-head">'+portrait+
       '<span class="legacy-status">'+esc(a.status)+'</span></div>'+
       '<span class="legacy-file">ARQUIVO / '+number+'</span>'+
       '<h3>'+esc(a.name)+'</h3><p class="legacy-role">'+esc(a.role)+'</p>'+
