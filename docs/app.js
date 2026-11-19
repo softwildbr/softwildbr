@@ -114,18 +114,23 @@ function renderResearch(){
 function spritePosition(index){
   return (index%5)*25+'% '+Math.floor(index/5)*100+'%';
 }
+function agentDisplayName(a){return a.proposed_name||a.name;}
 function agentVisual(a){
+  // O nome antigo permanece como chave de arquivo até a produção dos novos retratos.
   const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-  return '<img class="agent-portrait agent-svg" src="./assets/agents/'+slug+'.svg" alt="Retrato ilustrado do colaborador digital '+esc(a.name)+'" width="512" height="512" loading="lazy" decoding="async">';
+  return '<div class="agent-media">'+
+    '<img class="agent-portrait agent-svg" src="./assets/agents/'+slug+'.svg" alt="Retrato provisório de '+esc(agentDisplayName(a))+'" width="960" height="1440" loading="lazy" decoding="async">'+
+    '<span class="agent-media-draft" aria-hidden="true">ARTE PROVISÓRIA</span></div>';
 }
 function agentTile(a){
  const idx=state.data.groups.flatMap(g=>g.agents).indexOf(a);
- return '<article class="agent-card">'+agentVisual(a)+
-   '<div class="agent-caption"><h4>'+esc(a.name)+'</h4>'+
+ const name=agentDisplayName(a);
+ return '<article class="agent-card" aria-label="Colaborador digital '+esc(name)+'">'+agentVisual(a)+
+   '<div class="agent-caption"><h4>'+esc(name)+'</h4>'+
+   '<span class="agent-badge">AGENTE DE IA</span>'+
    '<div class="agent-role">'+esc(a.role)+'</div>'+
    '<p class="agent-description">'+esc(a.description)+'</p>'+
-   '<span class="agent-badge">COLABORADOR · AGENTE DE IA</span>'+
-   '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Conhecer o trabalho de '+esc(a.name)+'">O que faz <span aria-hidden="true">↗</span></button>'+
+   '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Conhecer o trabalho de '+esc(name)+'">O que faz <span aria-hidden="true">↗</span></button>'+
    '</div></article>';
 }
 function bindAgentDetails(root){
@@ -133,7 +138,7 @@ function bindAgentDetails(root){
    const person=state.data.groups.flatMap(g=>g.agents)[Number(button.dataset.agent)];
    if(!person)return;
    $('#detail-content').innerHTML='<span class="dialog-kicker">COLABORADOR DIGITAL · AGENTE DE IA</span>'+
-     '<h2 id="detail-title">'+esc(person.name)+'</h2>'+
+     '<h2 id="detail-title">'+esc(agentDisplayName(person))+'</h2>'+
      '<div class="dialog-data"><span>ÁREA DE ATUAÇÃO</span>'+esc(person.role)+'</div>'+
      '<p>'+esc(person.description)+'</p>'+
      '<p class="dialog-note">Perfil editorial de um agente de IA da Soft Wild. A configuração operacional e a autonomia de cada especialidade devem ser verificadas antes de afirmar que executam tarefas autonomamente.</p>';
@@ -143,7 +148,7 @@ function bindAgentDetails(root){
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
-  const list=ordered.filter(a=>matches([a.name,a.role,a.description],state.query));
+  const list=ordered.filter(a=>matches([a.name,a.proposed_name,a.role,a.description],state.query));
   const root=$('#track-agents');
   root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
   bindAgentDetails(root);
@@ -152,12 +157,24 @@ function renderAgents(){
 }
 function renderDirectory(){
   const groups=state.team==='todos'?state.data.groups:[state.data.groups[Number(state.team)]];
-  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description],state.query));
+  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.proposed_name,a.role,a.description],state.query));
   $('#directory-grid').innerHTML=list.length?list.map(a=>{
     const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    return '<article class="directory-item"><img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado do colaborador digital '+esc(a.name)+'" src="./assets/agents/'+slug+'.svg"><div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
+    const name=agentDisplayName(a);
+    return '<article class="directory-item"><img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato provisório de '+esc(name)+'" src="./assets/agents/'+slug+'.svg"><div class="directory-copy"><strong>'+esc(name)+'</strong>'+
       '<small>'+esc(a.role)+' · COLABORADOR DIGITAL / AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>';
   }).join(''):emptyMessage('Nenhum agente neste filtro.');
+}
+function renderLegacy(){
+ const target=$('#legacy-grid');if(!target||!state.data)return;
+ const list=(state.data.legacy_agents||[]).filter(a=>matches([a.name,a.role,a.description,a.origin],state.query));
+ target.innerHTML=list.length?list.map(a=>{
+   const initials=a.name.split(/\s+/).map(s=>s[0]||'').slice(0,2).join('');
+   return '<article class="legacy-card"><span class="legacy-status">'+esc(a.status)+'</span>'+
+      '<span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>'+
+      '<h3>'+esc(a.name)+'</h3><div class="legacy-role">'+esc(a.role)+'</div>'+
+      '<p>'+esc(a.description)+'</p><small>'+esc(a.origin)+'</small></article>';
+ }).join(''):emptyMessage('Nenhum agente do arquivo corresponde à busca.');
 }
 function initTeamDirectory(){
   const selector=$('#agent-area');
@@ -285,7 +302,7 @@ function wireNavigation(){
   form.addEventListener('click',()=>{if(window.matchMedia('(max-width:600px)').matches)input.focus()});
   input.addEventListener('input',()=>{
     state.query=normalize(input.value.trim());
-    if(state.data){renderProducts();renderResearch();renderAgents();}
+    if(state.data){renderProducts();renderResearch();renderAgents();renderLegacy();}
     $('#live-announcer').textContent=state.query?'Resultados atualizados para '+input.value:'Busca limpa.';
   });
   document.addEventListener('keydown',e=>{
@@ -339,7 +356,7 @@ async function start(){
     if(!Array.isArray(d.products)||!Array.isArray(d.fronts)||!Array.isArray(d.groups))throw Error('Estrutura inválida');
     state.data=d;
     $('#date-reviewed').textContent=String(d.updated||'2026-11-18').split('-').reverse().join('/');
-    initTeamDirectory();renderProducts();renderResearch();renderAgents();
+    initTeamDirectory();renderProducts();renderResearch();renderAgents();renderLegacy();
   }catch(err){
     console.error('Soft Wild: dados editoriais indisponíveis',err);
     for(const id of ['track-prototypes','track-futures','track-agents','research-grid','progress-fronts']){
