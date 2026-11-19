@@ -1,7 +1,7 @@
 # Retratos da Soft Wild — rodada 01 (10 imagens individuais)
 
 **Data do registro:** 19/11/2026
-**Status:** arquivos gerados e validados no ambiente de trabalho; **binários ainda não enviados a este repositório**. Não substituir referências de imagens no site enquanto os arquivos não estiverem no GitHub.
+**Status:** **10 arquivos WebP binários enviados e verificados no GitHub**; referências dos dez primeiros agentes atualizadas no HTML e no JSON. A checagem local confirmou resolução de **928 × 1720 px** e modo **RGB** em todos os dez arquivos.
 
 ## Contrato técnico
 
@@ -24,7 +24,7 @@ Os dez retratos usam **WebP RGB**, resolução **928 × 1720 pixels**, sem cards
 
 **Diretório final de destino:** `docs/assets/agents/`.
 
-Os arquivos individuais estão empacotados na entrega da conversa como `softwild-agentes-rodada-01.zip`. **Esta documentação é apenas o registro de produção, não uma cópia das imagens.** O link de download da conversa não constitui um URL público permanente para o GitHub.
+Os arquivos individuais estão empacotados na entrega da conversa como `softwild-agentes-rodada-01.zip`. **Os dez arquivos individuais estão agora versionados neste repositório**, em `docs/assets/agents/`, e disponíveis para o GitHub Pages. A cópia ZIP permanece apenas como backup de entrega.
 
 ### Procedimento para importar o pacote quando os binários estiverem acessíveis ao executor
 
@@ -41,3 +41,12 @@ Os arquivos individuais estão empacotados na entrega da conversa como `softwild
 - **Jana Jornada:** mulher com tranças negras, jaqueta mostarda e fundo verde-pastel.
 - O fundo da imagem é limpo; o degradê pertence exclusivamente ao CSS.
 - A rodada 2 (agentes 11–20) permanece independente.
+
+## Publicação da rodada 01
+
+- Blobs de imagem conferidos no GitHub pelo SHA de conteúdo Git, idêntico ao hash calculado a partir dos WebPs locais.
+- `docs/data/content.json` aponta os dez primeiros `portrait_file` para seus respectivos WebPs.
+- `docs/index.html` inclui os dez caminhos WebP no fallback estático.
+- `docs/app.js` admite extensões `.webp` e `.svg` no caminho de imagem validado.
+- Os agentes 11–20 continuam usando retratos SVG provisórios.
+- A fotografia real do fundador não foi modificada.
