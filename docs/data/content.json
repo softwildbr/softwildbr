@@ -170,7 +170,7 @@
           "card_description": "Automatiza tarefas repetitivas sem automatizar também os erros.",
           "description": "Projeta automações, gatilhos, integrações, checagens, limites de execução e aprovação humana para fluxos de trabalho seguros.",
           "gender": "M",
-          "portrait_file": "nina-bee.svg",
+          "portrait_file": "otto-matico.webp",
           "portrait_target": "otto-matico.webp",
           "visual_brief": "Homem adulto ruivo com sardas e cachos curtos, camiseta azul royal, fundo pêssego rosado, expressão brincalhona",
           "responsibilities": [
@@ -188,7 +188,7 @@
           "card_description": "Faz sensores, circuitos e dispositivos conectados conversarem com o mundo físico.",
           "description": "Explora circuitos, placas, sensores, microcontroladores, firmware, NFC, IoT e comunicação confiável entre software e hardware.",
           "gender": "M",
-          "portrait_file": "bruno-bison.svg",
+          "portrait_file": "ciro-circuito.webp",
           "portrait_target": "ciro-circuito.webp",
           "visual_brief": "Homem adulto de cabelo preto crespo raspado nas laterais, jaqueta utilitária bege, fundo amarelo-claro",
           "responsibilities": [
@@ -203,7 +203,7 @@
           "card_description": "Transforma formas, peças e materiais em protótipos que realmente encaixam.",
           "description": "Estuda design de produto, ergonomia, impressão 3D, tolerâncias, materiais, montagem, documentação e pequenas tiragens.",
           "gender": "M",
-          "portrait_file": "arthur-stag.svg",
+          "portrait_file": "artur-encaixe.webp",
           "portrait_target": "artur-encaixe.webp",
           "visual_brief": "Homem adulto de cabelo castanho longo ondulado preso, barba, camisa denim azul, fundo verde-menta",
           "responsibilities": [
@@ -222,7 +222,7 @@
           "card_description": "Cria identidades, embalagens e peças visuais que não parecem genéricas.",
           "description": "Cuida de direção de arte, composição, sistemas visuais, identidade de marca, embalagens, coleções e apresentação de objetos.",
           "gender": "F",
-          "portrait_file": "dylan-tiger.svg",
+          "portrait_file": "arlete-arte-final.webp",
           "portrait_target": "arlete-arte-final.webp",
           "visual_brief": "Mulher adulta madura de cabelo grisalho curto elegante, brincos coloridos, blazer laranja, fundo lilás claro",
           "responsibilities": [
@@ -236,7 +236,7 @@
           "card_description": "Transforma ideias técnicas em histórias, textos e mensagens com personalidade.",
           "description": "Desenvolve narrativas, manifestos, UX writing, microtextos, tom de voz, cultura de internet e comunicação de produtos.",
           "gender": "F",
-          "portrait_file": "talia-swan.svg",
+          "portrait_file": "nara-tiva.webp",
           "portrait_target": "nara-tiva.webp",
           "visual_brief": "Mulher jovem adulta com cabelo preto liso curto, óculos discretos, blusa vinho, fundo amarelo pastel",
           "responsibilities": [
@@ -250,7 +250,7 @@
           "card_description": "Planeja cenas, montagem e animação para contar histórias com ritmo e precisão.",
           "description": "Trabalha com cinematografia, enquadramentos, edição de vídeo, motion graphics, animação, continuidade e critérios técnicos de audiovisual.",
           "gender": "M",
-          "portrait_file": "cole-osprey.svg",
+          "portrait_file": "leo-loop.webp",
           "portrait_target": "leo-loop.webp",
           "visual_brief": "Homem jovem adulto de cabelo encaracolado castanho, jaqueta preta, fundo lavanda, olhar inventivo",
           "responsibilities": [
@@ -263,7 +263,7 @@
           "card_description": "Constrói ambientes sonoros, trilhas e efeitos que fazem cada cena ganhar vida.",
           "description": "Pesquisa sound design, psicoacústica, música, narração, efeitos sonoros, edição e mixagem para vídeos, interfaces e experiências.",
           "gender": "F",
-          "portrait_file": "ryan-wren.svg",
+          "portrait_file": "sonia-decibeis.webp",
           "portrait_target": "sonia-decibeis.webp",
           "visual_brief": "Mulher adulta com cabelo castanho-avermelhado ondulado, brincos circulares, blusa azul escuro, fundo turquesa claro",
           "responsibilities": [
@@ -281,7 +281,7 @@
           "card_description": "Define o que vale construir, quanto custa e o que pode esperar.",
           "description": "Consolida pesquisa de oportunidades, estratégia de produto, escopo, precificação, custos, ética comercial e decisões de priorização.",
           "gender": "F",
-          "portrait_file": "nathan-elk.svg",
+          "portrait_file": "priscila-prioridade.webp",
           "portrait_target": "priscila-prioridade.webp",
           "visual_brief": "Mulher adulta de cabelo castanho escuro preso em coque, roupa verde-esmeralda, fundo pêssego claro, olhar objetivo",
           "responsibilities": [
@@ -295,7 +295,7 @@
           "card_description": "Mede aquisição, retenção e resultados para não confundir barulho com progresso.",
           "description": "Planeja experimentos de growth, funis, métricas, posicionamento, lançamento, distribuição e comunicação orientada a evidências.",
           "gender": "M",
-          "portrait_file": "marcus-eagle.svg",
+          "portrait_file": "naldo-metricas.webp",
           "portrait_target": "naldo-metricas.webp",
           "visual_brief": "Homem jovem adulto de cabelo preto curto espetado, jaqueta vermelha, fundo azul-pastel, sorriso confiante",
           "responsibilities": [
@@ -314,7 +314,7 @@
           "card_description": "Investiga como visitantes, lojistas e serviços se encontram nos espaços físicos.",
           "description": "Mapeia jornadas em shoppings, atendimento, operações, varejo, lojistas, serviços digitais, benchmarking e oportunidades em espaços híbridos.",
           "gender": "F",
-          "portrait_file": "helena-heron.svg",
+          "portrait_file": "vivi-vitrine.webp",
           "portrait_target": "vivi-vitrine.webp",
           "visual_brief": "Mulher adulta de cabelo cacheado preto longo, camisa mostarda, fundo verde-pastel, sorriso leve",
           "responsibilities": [
@@ -549,7 +549,9 @@
       "reason": "Respondeu “depende” pela 812ª vez. A diretoria decidiu depender menos dele.",
       "destination": "Consultoria para bolas de cristal.",
       "source_topic": "personagem anterior",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/oraculo-pereira.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Íris Rabelo",
@@ -559,7 +561,9 @@
       "reason": "Tentou abrir um laboratório dentro do laboratório antes de terminar o primeiro.",
       "destination": "Um lugar com menos post-its.",
       "source_topic": "personagem anterior",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/iris-rabelo.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Maia Otoni",
@@ -569,7 +573,9 @@
       "reason": "Criou uma comunidade para discutir a criação de comunidades. Ela era os três membros.",
       "destination": "Um grupo sem mensagem de bom dia.",
       "source_topic": "personagem anterior",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/maia-otoni.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Zeca Curtidas",
@@ -578,7 +584,9 @@
       "reason": "A integração com a biblioteca do Spotify saiu do escopo. Ele ficou sem a playlist de despedida.",
       "destination": "Lado B de uma fita K7.",
       "source_topic": "Minamp — integração retirada",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/zeca-curtidas.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Lourdes Multitelas",
@@ -587,7 +595,9 @@
       "reason": "O REVER resolveu guardar um momento com um botão. Lourdes ainda estava apresentando a tela 37.",
       "destination": "Um lugar onde ninguém diz 'só mais uma tela'.",
       "source_topic": "REVER — escopo simplificado",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/lourdes-multitelas.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Dora Assinatura",
@@ -596,7 +606,9 @@
       "reason": "O orçamento da beta foi definido em R$ 0 de APIs pagas. Ela chamou isso de ficção científica.",
       "destination": "Um data center que cobra por suspiro.",
       "source_topic": "REVER — regra de custo zero",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/dora-assinatura.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Beto Pontinhos",
@@ -605,7 +617,9 @@
       "reason": "Os marcadores visuais saíram da área de trabalho do Retrozim. O gesto de deslizar levou a promoção.",
       "destination": "Pontilhando o horizonte.",
       "source_topic": "Retrozim — marcadores retirados",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/beto-pontinhos.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Dona Horária",
@@ -614,7 +628,9 @@
       "reason": "O widget interno de data e hora saiu do Retrozim. O Android já sabia as horas.",
       "destination": "Um fuso sem prazo de entrega.",
       "source_topic": "Retrozim — relógio interno retirado",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/dona-horaria.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "César Tutorial",
@@ -623,7 +639,9 @@
       "reason": "As mensagens das páginas vazias foram retiradas. O silêncio passou no teste de usabilidade.",
       "destination": "Autor do manual do nada.",
       "source_topic": "Retrozim — instruções retiradas",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/cesar-tutorial.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Nando Moldura",
@@ -632,7 +650,9 @@
       "reason": "Os widgets ganharam liberdade visual. Nando não se adaptou à vida sem cantoneiras.",
       "destination": "Ateliê de molduras para ícones.",
       "source_topic": "Retrozim — widgets sem moldura",
-      "status": "DESCONTINUADO"
+      "status": "DESCONTINUADO",
+      "portrait_file": "legacy/nando-moldura.webp",
+      "portrait_quality": "preview-upscaled"
     },
     {
       "name": "Sônia Rebatiza",
