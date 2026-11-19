@@ -1,5 +1,7 @@
 # Soft Wild — manutenção da página GitHub Pages
 
+**VERSÃO VISUAL ATUAL: v7 — 19/11/2026.** Ordem: colaboradores digitais → manifesto integral (visual README do GitHub) → catálogo → pesquisas → progresso. Os três carrosséis possuem autoplay com controles e respeito a preferências de movimento. Os 44 perfis contam com arquivos vetoriais individuais em `docs/assets/agents/`; a fotografia original de Müller foi reenquadrada e publicada em `docs/assets/muller.webp` com 65.074 bytes, substituindo o arquivo antigo de 1.864 bytes. Consulte [MANIFESTO-E-AUTOPLAY-V7.md](MANIFESTO-E-AUTOPLAY-V7.md) para decisões e validação. Não produzir GIF nesta etapa.
+
 > **VERSÃO VISUAL ATUAL: v6 — 19/11/2026.** O layout v5 descrito abaixo foi substituído pela estrutura de descoberta inspirada no Hugging Face e pelos carrosséis com cartões inspirados no Together AI. A referência operacional mais recente está em [DIRECAO-VISUAL-V6.md](DIRECAO-VISUAL-V6.md). O conteúdo anterior permanece como histórico, não como instrução vigente de composição.
 
 **Versão visual vigente:** v5, aprovada em direção a partir do mockup de perfil branco enviado pelo fundador em 18/11/2026.
