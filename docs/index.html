@@ -10,8 +10,8 @@
   <meta property="og:type" content="website">
   <title>Soft Wild — Laboratório independente</title>
   <link rel="icon" href="./assets/softwild-logo.webp" type="image/webp">
-  <link rel="stylesheet" href="./styles.css?v=7">
-  <script src="./app.js?v=7" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=8">
+  <script src="./app.js?v=8" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -80,13 +80,57 @@
         </div>
       </section>
 
+      <div class="powered-strip" aria-labelledby="powered-heading">
+        <div class="powered-row">
+          <span class="powered-label" id="powered-heading">POWERED BY</span>
+          <div class="powered-viewport">
+            <div class="powered-track" id="powered-track">
+              <div class="powered-cycle" role="list" aria-label="Ferramentas e plataformas usadas ou pesquisadas pela Soft Wild">
+                <span class="powered-item" role="listitem"><img src="./assets/brands/chatgpt.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>ChatGPT</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/elevenlabs.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>ElevenLabs</span></span>
+                <span class="powered-item powered-item-wordmark" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Epidemic_Sound_Logo_Black.svg" alt="Epidemic Sound" width="150" height="30" loading="lazy" referrerpolicy="no-referrer"></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/google.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Google</span></span>
+                <span class="powered-item powered-item-wordmark" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Google_Flow_logo.svg" alt="Google Flow" width="80" height="30" loading="lazy" referrerpolicy="no-referrer"></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/adobe.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Adobe</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/figma.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Figma</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/clickup.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>ClickUp</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/higgsfield.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Higgsfield</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/huggingface.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Hugging Face</span></span>
+              </div>
+              <div class="powered-cycle" aria-hidden="true">
+                <span class="powered-item" role="listitem"><img src="./assets/brands/chatgpt.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>ChatGPT</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/elevenlabs.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>ElevenLabs</span></span>
+                <span class="powered-item powered-item-wordmark" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Epidemic_Sound_Logo_Black.svg" alt="Epidemic Sound" width="150" height="30" loading="lazy" referrerpolicy="no-referrer"></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/google.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Google</span></span>
+                <span class="powered-item powered-item-wordmark" role="listitem"><img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Google_Flow_logo.svg" alt="Google Flow" width="80" height="30" loading="lazy" referrerpolicy="no-referrer"></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/adobe.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Adobe</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/figma.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Figma</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/clickup.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>ClickUp</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/higgsfield.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Higgsfield</span></span>
+                <span class="powered-item" role="listitem"><img src="./assets/brands/huggingface.svg" alt="" width="28" height="28" loading="lazy" aria-hidden="true"><span>Hugging Face</span></span>
+              </div>
+            </div>
+          </div>
+          <button class="powered-pause" type="button" id="powered-toggle" aria-pressed="false" aria-label="Pausar o movimento das marcas" title="Pausar a faixa">Ⅱ</button>
+        </div>
+        <p class="powered-note">Ferramentas e plataformas usadas ou pesquisadas. Marcas de seus titulares; sem patrocínio ou afiliação.</p>
+      </div>
+
       <section class="team-section" id="time" aria-labelledby="team-title">
         <div class="section-kicker"><span>01 / A GENTE E OS AGENTES</span><span class="section-rule"></span><span>COLABORADORES DIGITAIS</span></div>
         <div class="section-heading-row"><div><h2 id="team-title">A gente. E os agentes<span class="dot-cyan">.</span></h2><p>A gente faz com agentes. Os agentes fazem com a gente. Nosso time reúne colaboradores digitais de pesquisa, criação, engenharia, comportamento e novas tecnologias. Cada perfil apresenta uma especialidade e responsabilidades; são agentes de IA, não funcionários humanos contratados.</p></div></div>
-        <article class="founder-card">
+        <div class="leadership-grid">
+          <article class="founder-card">
           <div class="founder-photo"><img src="./assets/muller.webp" alt="Müller, fundador da Soft Wild, em fotografia ao ar livre" width="280" height="280" loading="lazy"></div>
-          <div class="founder-text"><div class="founder-top"><span class="micro-tag">DIREÇÃO CRIATIVA</span><span class="founder-symbol" aria-hidden="true">✳</span></div><h3>Müller</h3><p>Fundador da Soft Wild. Conecta perguntas, pesquisa, produto e tecnologia. Define o que deve ser explorado, construído ou deixado de lado.</p><span class="founder-skills">Produto &nbsp;·&nbsp; Pesquisa &nbsp;·&nbsp; Direção criativa</span></div>
+          <div class="founder-text"><div class="founder-top"><span class="micro-tag">FUNDADOR · ADESTRADOR DE AGENTES</span><span class="founder-symbol" aria-hidden="true">✳</span></div><h3>Müller</h3><p>Fundador da Soft Wild. Liga pesquisa, design e engenharia a ideias que se recusam a ficar quietas. Decide o que vale explorar, construir — e quando mandar um agente refazer a tarefa.</p><span class="founder-skills">Direção criativa &nbsp;·&nbsp; Produto &nbsp;·&nbsp; Adestramento de agentes</span></div>
         </article>
+          <article class="voices-card" aria-labelledby="voices-title">
+            <div class="voices-top"><span class="voices-kicker">DEPARTAMENTO DE IDEIAS POUCO OBEDIENTES</span><span class="voices-spark" aria-hidden="true">✳</span></div>
+            <h3 id="voices-title">As vozes na<br>minha cabeça<span class="dot-cyan">.</span></h3>
+            <p>Era só uma ideia às três da manhã. Agora são 44 agentes querendo discutir UX, firmware e se uma torradeira merece Bluetooth. Dei nome, cargo e backlog pra cada um. Pronto: o caos ganhou organograma.</p>
+            <div class="voices-foot"><span>Fora de controle? Não. Em versão beta.</span><span aria-hidden="true">↗</span></div>
+          </article>
+        </div>
         <div class="carousel-heading team-heading">
           <div><span class="section-note">NOSSO TIME DE COLABORADORES DIGITAIS</span><h3>Conheça nossos colaboradores <span class="card-count">44</span></h3></div>
           <div class="carousel-actions"><span class="track-counter" id="counter-agents" aria-live="off">01 / 44</span><button type="button" class="autoplay-toggle" data-auto="agents" aria-pressed="false" aria-label="Pausar autoplay dos agentes" title="Pausar animação automática">Ⅱ</button><button type="button" class="slide-arrow" data-for="agents" data-dir="-1" aria-label="Ver agentes anteriores">‹</button><button type="button" class="slide-arrow" data-for="agents" data-dir="1" aria-label="Ver próximos agentes">›</button></div>

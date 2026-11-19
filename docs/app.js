@@ -305,8 +305,33 @@ function wireNavigation(){
   $('#close-dialog').addEventListener('click',()=>dlg.close());
   dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 }
+function setupPoweredStrip(){
+  const strip=$('.powered-strip');
+  const toggle=$('#powered-toggle');
+  if(!strip||!toggle)return;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  let paused=reduced.matches;
+  const apply=()=>{
+    strip.classList.toggle('is-paused',paused);
+    toggle.textContent=paused?'▶':'Ⅱ';
+    toggle.setAttribute('aria-pressed',String(paused));
+    toggle.setAttribute('aria-label',paused?'Iniciar movimento da faixa de marcas':'Pausar movimento da faixa de marcas');
+    toggle.title=paused?'Reproduzir a faixa':'Pausar a faixa';
+  };
+  apply();
+  toggle.addEventListener('click',()=>{paused=!paused;apply()});
+  document.addEventListener('visibilitychange',()=>strip.classList.toggle('is-tab-hidden',document.hidden));
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>{
+      for(const entry of entries)strip.classList.toggle('is-out-of-view',!entry.isIntersecting);
+    },{threshold:.05});
+    observer.observe(strip);
+  }
+  reduced.addEventListener?.('change',event=>{if(event.matches){paused=true;apply()}});
+}
+
 async function start(){
-  wireNavigation();activateCarousels();setupAutoplay();
+  wireNavigation();activateCarousels();setupAutoplay();setupPoweredStrip();
   try{
     const res=await fetch('./data/content.json',{cache:'no-store'});
     if(!res.ok)throw Error('Falha de acesso ao catálogo: HTTP '+res.status);
