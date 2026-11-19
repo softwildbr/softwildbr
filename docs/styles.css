@@ -796,3 +796,16 @@ section{scroll-margin-top:88px}
 @media(max-width:1130px){.legacy-section .legacy-grid.legacy-track{display:flex;grid-template-columns:none}}
 @media(max-width:600px){.legacy-section .legacy-grid.legacy-track{display:flex;grid-template-columns:none}.legacy-section .legacy-track .legacy-card{flex-basis:207px;width:207px}.legacy-carousel-heading{align-items:flex-start;gap:12px;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.legacy-section .legacy-grid.legacy-track{scroll-behavior:auto}}
+
+/* Memorial portraits: imagem editorial dominante, coerente com os cards dos agentes ativos. */
+.legacy-section .legacy-track .legacy-card{padding:0;overflow:hidden;min-height:0;box-shadow:0 5px 20px rgba(21,56,65,.06);border:1px solid #d6e2e5}
+.legacy-section .legacy-track .legacy-card-head{position:relative;display:block;margin:0;min-height:260px;background:#e6efef}
+.legacy-section .legacy-track .legacy-card-head .legacy-photo{width:100%;height:300px;max-height:none;display:block;object-fit:cover;object-position:center 24%;border:0;border-radius:0;filter:none}
+.legacy-section .legacy-track .legacy-card-head .legacy-status{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.94);box-shadow:0 2px 10px rgba(0,0,0,.08);z-index:1}
+.legacy-section .legacy-track .legacy-card-head .legacy-monogram{width:100%;height:300px;border:0;border-radius:0;font-size:60px}
+.legacy-section .legacy-track .legacy-card>.legacy-file,.legacy-section .legacy-track .legacy-card>h3,.legacy-section .legacy-track .legacy-card>.legacy-role,.legacy-section .legacy-track .legacy-card>.legacy-bio{margin-left:14px;margin-right:14px}
+.legacy-section .legacy-track .legacy-card>.legacy-file{margin-top:15px}
+.legacy-section .legacy-track .legacy-card>.legacy-bio{min-height:54px}
+.legacy-section .legacy-track .legacy-reason{padding:14px 14px 0}
+.legacy-section .legacy-track .legacy-destination{margin:12px 14px 16px}
+@media(max-width:600px){.legacy-section .legacy-track .legacy-card-head .legacy-photo,.legacy-section .legacy-track .legacy-card-head .legacy-monogram{height:267px}}
