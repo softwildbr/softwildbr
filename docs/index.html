@@ -1,103 +1,173 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width,initial-scale=1">
- <meta name="theme-color" content="#f6f8fa">
- <meta name="description" content="Soft Wild: software, hardware, pesquisa, experiências e outras invenções. Se for pra fazer mais do mesmo, agente nem faz.">
- <title>Soft Wild — agente nem faz</title>
- <link rel="icon" href="./assets/softwild-logo.webp" type="image/webp">
- <link rel="stylesheet" href="./styles.css?v=5">
- <script defer src="./app.js?v=5"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8fafb">
+  <meta name="description" content="Soft Wild é um laboratório independente de software, hardware, inteligência artificial, design e experimentos. Se for pra fazer mais do mesmo, agente nem faz.">
+  <meta property="og:title" content="Soft Wild — laboratório de ideias e invenções">
+  <meta property="og:description" content="Software, hardware, IA, interfaces, pessoas e agentes. Descubra nossos projetos e pesquisas.">
+  <meta property="og:type" content="website">
+  <title>Soft Wild — Laboratório independente</title>
+  <link rel="icon" href="./assets/softwild-logo.webp" type="image/webp">
+  <link rel="stylesheet" href="./styles.css?v=6">
+  <script src="./app.js?v=6" defer></script>
 </head>
 <body>
-<a class="skip-link" href="#conteudo">Pular para conteúdo</a>
-<header class="sitebar">
- <div class="sitebar-inner">
-  <a class="sitebar-brand" href="#inicio" aria-label="Ir ao início da Soft Wild"><img alt="" src="./assets/softwild-logo.webp" width="29" height="29"><span>Soft Wild</span><span class="sitebar-separator">/</span><span class="sitebar-light">Laboratório</span></a>
-  <nav class="sitebar-nav" aria-label="Navegação principal"><a href="#manifesto">Manifesto</a><a href="#pesquisas">Pesquisa</a><a href="#equipe">Time</a><a href="#produtos">Produtos</a><a href="#progresso">Progresso</a></nav>
-  <a class="github-nav" href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil da Soft Wild no GitHub">GitHub <span aria-hidden="true">↗</span></a>
- </div>
-</header>
-<div class="layout" id="inicio">
- <aside class="profile" aria-label="Perfil da Soft Wild">
-  <img class="profile-avatar" src="./assets/softwild-logo.webp" alt="Símbolo SW da Soft Wild" width="114" height="114">
-  <h2>Soft Wild</h2><p class="username">@softwildbr</p>
-  <p class="profile-description">Software, hardware, IA, design e experimentos entre pessoas, máquinas e cultura.</p>
-  <div class="profile-meta"><p><span aria-hidden="true">◎</span> Brasil · Terra</p><p><span aria-hidden="true">✳</span> Independent maker lab</p><p><span aria-hidden="true">◇</span> Em pesquisa e construção</p></div>
-  <a class="profile-github" href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">Ver GitHub <span aria-hidden="true">↗</span></a>
-  <div class="profile-side-note">NÃO É SOBRE FAZER MAIS.<br>É SOBRE FAZER DIFERENTE.</div>
- </aside>
- <main id="conteudo" class="panel">
-  <div class="panel-top"><span><span class="panel-indicator">▤</span> Perfil público <span class="panel-filename">/ README</span></span><span class="panel-edition">SW · 2026</span></div>
-  <div class="panel-body">
-   <section class="intro" aria-labelledby="headline">
-    <div class="intro-lockup"><img src="./assets/softwild-logo.webp" alt="" width="53" height="53"><strong>SOFT<span>WILD</span></strong></div>
-    <h1 id="headline">Se for pra fazer mais<br>do mesmo, <em>agente</em> nem faz.</h1>
-   </section>
-   <p class="intro-description">A Soft Wild é uma iniciativa maker independente que pesquisa, experimenta e constrói <strong>software, hardware, IA, design</strong> e outras invenções que não cabem muito bem numa categoria.</p>
-
-   <section id="manifesto" class="section manifesto" aria-labelledby="manifesto-title">
-    <h2 id="manifesto-title" class="section-heading">Manifesto</h2>
-    <p>Questionamos o óbvio, desmontamos fórmulas prontas e exploramos possibilidades incomuns. Preferimos investigar, prototipar e aprender na prática, cruzando áreas e perspectivas para criar coisas que façam sentido de verdade.</p>
-    <p class="manifesto-punch">Algumas criações resolvem problemas. Outras simplesmente merecem existir.</p>
-   </section>
-
-   <section id="pesquisas" class="section" aria-labelledby="research-title">
-    <div class="section-heading-row"><h2 class="section-heading" id="research-title">Frentes de pesquisa</h2><span class="heading-detail">10 frentes documentadas</span></div>
-    <div class="research-chips" aria-label="Territórios de pesquisa">
-     <span class="chip"><b aria-hidden="true">⌘</b> Interação humano–máquina</span>
-     <span class="chip"><b aria-hidden="true">⌁</b> Software e sistemas</span>
-     <span class="chip"><b aria-hidden="true">✳</b> IA e agentes</span>
-     <span class="chip"><b aria-hidden="true">▤</b> Design, UX e comportamento</span>
-     <span class="chip"><b aria-hidden="true">⚙</b> Eletrônica e hardware</span>
-     <span class="chip"><b aria-hidden="true">⬡</b> Fabricação digital</span>
-     <span class="chip"><b aria-hidden="true">≋</b> Cultura, som e percepção</span>
-     <span class="chip"><b aria-hidden="true">♧</b> Comunidades e futuros</span>
-     <span class="chip"><b aria-hidden="true">⌂</b> Shoppings e espaços físicos</span>
-     <span class="chip"><b aria-hidden="true">↗</b> Mercado e crescimento</span>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topbar" id="inicio">
+    <div class="topbar-inner">
+      <a class="brand" href="#inicio" aria-label="Soft Wild — voltar ao início">
+        <img src="./assets/softwild-logo.webp" alt="" width="36" height="36">
+        <span class="brand-text">Soft <strong>Wild</strong></span>
+        <span class="brand-separator">/</span><span class="brand-sub">Laboratório</span>
+      </a>
+      <form class="search" id="site-search-form" role="search">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.6" cy="10.6" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+        <label class="sr-only" for="site-search">Buscar projetos, pesquisas e agentes</label>
+        <input type="search" id="site-search" placeholder="Buscar projetos, pesquisas, agentes..." autocomplete="off">
+        <kbd aria-hidden="true">⌘ K</kbd>
+      </form>
+      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+        <a href="#explorar">Explorar</a>
+        <a href="#pesquisas">Pesquisa</a>
+        <a href="#time">Agentes</a>
+        <a href="#manifesto">Manifesto</a>
+      </nav>
+      <a class="github-link" href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     </div>
-    <details class="expand-row" id="research-details"><summary>Explorar as 10 pesquisas e seus próximos marcos <span aria-hidden="true">↗</span></summary><div class="expanded-content" id="research-list"></div></details>
-   </section>
+  </header>
 
-   <section id="direcao" class="section" aria-labelledby="direcao-title">
-    <h2 class="section-heading" id="direcao-title">Quem está por trás</h2>
-    <div class="leadership-grid">
-     <article class="leader"><img class="leader-photo" src="./assets/muller.webp" alt="Fotografia de Müller" width="84" height="84"><div><h3>Müller</h3><span class="pill cyan">Fundador · Direção criativa</span><p>Conecta ideias, pesquisas e produto. Decide o que vale explorar, construir ou deixar de lado.</p></div></article>
-     <article class="leader"><div class="leader-ai" aria-label="Símbolo da inteligência artificial colaboradora"><img src="./assets/softwild-logo.webp" alt="" width="52" height="52"></div><div><h3>ChatGPT</h3><span class="pill cyan">Pesquisa · Cocriação com IA</span><p>Contribui com investigação, síntese e desenvolvimento conceitual, sob direção humana.</p></div></article>
-    </div>
-   </section>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="Perfil e seções do laboratório">
+      <div class="identity">
+        <img class="identity-logo" src="./assets/softwild-logo.webp" alt="Marca Soft Wild — monograma SW" width="112" height="112">
+        <h2>Soft Wild</h2>
+        <p class="handle">@softwildbr</p>
+        <p class="identity-text">Um laboratório independente para perguntas difíceis, software, hardware, IA e invenções que não cabem numa categoria.</p>
+        <div class="identity-meta"><span><span aria-hidden="true">◎</span> Brasil · Terra</span><span><span aria-hidden="true">✳</span> Independent maker lab</span></div>
+        <a class="profile-link" href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">Perfil no GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="side-sections">
+        <h3>Explorar</h3>
+        <a class="side-active" href="#explorar"><span aria-hidden="true">▦</span> Experimentos</a>
+        <a href="#futuros"><span aria-hidden="true">◇</span> Ideias futuras</a>
+        <a href="#pesquisas"><span aria-hidden="true">⌘</span> Frentes de pesquisa</a>
+        <a href="#progresso"><span aria-hidden="true">◷</span> Progresso</a>
+        <a href="#time"><span aria-hidden="true">♧</span> Nosso time</a>
+        <a href="#manifesto"><span aria-hidden="true">✳</span> Manifesto</a>
+      </div>
+      <div class="sidebar-note"><span>ESTADO DO LABORATÓRIO</span><p><i class="status-dot" aria-hidden="true"></i> Pesquisa e prototipação</p><small>Os registros descrevem estágios documentados, não disponibilidade comercial.</small></div>
+    </aside>
 
-   <section id="equipe" class="section team" aria-labelledby="team-title">
-    <div class="section-heading-row"><h2 class="section-heading" id="team-title">Time</h2><span class="heading-detail">Gente e agentes</span></div>
-    <p class="section-description">Personagens de agentes de IA com especialidades diferentes. Trabalhamos para transformar pesquisas em experimentos — sem fingir que máquinas são pessoas.</p>
-    <div id="team-featured" class="team-grid" aria-live="polite"><p>Organizando o time…</p></div>
-    <details class="expand-row"><summary>Conhecer os 44 agentes e suas especialidades <span aria-hidden="true">↗</span></summary><div class="expanded-content"><div class="directory-tools"><label for="team-select">Mostrar núcleo</label><select id="team-select"><option value="all">Todos os núcleos</option></select></div><div id="team-directory" class="team-directory"></div></div></details>
-   </section>
+    <main id="conteudo" class="main">
+      <div class="breadcrumb"><span class="cyan-star" aria-hidden="true">✳</span> SOFT WILD <span class="crumb-slash">/</span> <span>Laboratório aberto</span> <span class="breadcrumb-right">EDIÇÃO 2026</span></div>
 
-   <section id="produtos" class="section products" aria-labelledby="product-title">
-    <div class="section-heading-row"><h2 class="section-heading" id="product-title">Produtos e experimentos</h2><span class="heading-detail">Construir ≠ lançar</span></div>
-    <p class="section-description">Projetos reais e ideias futuras da Soft Wild. Da ideia ao protótipo, respeitando o estágio e os limites de cada pesquisa.</p>
-    <div id="product-featured" class="product-grid" aria-live="polite"><p>Organizando experimentos…</p></div>
-    <details class="expand-row"><summary>Explorar os 23 projetos e conceitos, com status e descrição <span aria-hidden="true">↗</span></summary><div class="expanded-content"><div class="directory-tools"><label for="product-select">Filtrar projetos</label><select id="product-select"><option value="all">Todos</option><option value="prototype">Projetos e protótipos</option><option value="concept">Conceitos futuros</option></select></div><div id="all-products" class="product-directory"></div></div></details>
-   </section>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <span class="eyebrow"><span class="live-dot"></span> UM LABORATÓRIO DE POSSIBILIDADES</span>
+          <h1 id="hero-title">Se for pra fazer<br>mais do mesmo,<br><em>agente</em> nem faz<span class="dot-cyan">.</span></h1>
+          <p>A gente mistura código, circuitos, design e pesquisa para construir coisas que merecem existir. Algumas resolvem problemas. Outras fazem perguntas melhores.</p>
+          <div class="hero-actions"><a href="#explorar" class="button-primary">Explorar experimentos <span aria-hidden="true">↗</span></a><a href="#manifesto" class="button-link">Ler manifesto <span aria-hidden="true">↓</span></a></div>
+        </div>
+        <div class="hero-aside" aria-label="O que você encontra aqui">
+          <div class="hero-aside-head"><span>NO NOSSO LABORATÓRIO</span><span aria-hidden="true">✳</span></div>
+          <div class="hero-aside-item"><span class="hero-aside-icon">▧</span><span><b>Produtos e experimentos</b><small>Do conceito aos primeiros testes.</small></span><span aria-hidden="true">↗</span></div>
+          <div class="hero-aside-item"><span class="hero-aside-icon">⌘</span><span><b>Pesquisa aplicada</b><small>IHC, IA, eletrônica, cultura e mais.</small></span><span aria-hidden="true">↗</span></div>
+          <div class="hero-aside-item"><span class="hero-aside-icon">✳</span><span><b>Pessoas e agentes</b><small>Especialidades cruzando fronteiras.</small></span><span aria-hidden="true">↗</span></div>
+          <div class="hero-aside-foot"><span>INDEPENDENTE · EXPERIMENTAL</span><span>SW / 001</span></div>
+        </div>
+      </section>
 
-   <section id="progresso" class="section progress" aria-labelledby="progress-title">
-    <div class="section-heading-row"><h2 class="section-heading" id="progress-title">Pesquisa em andamento</h2><span class="heading-detail">Revisão: 18.11.2026</span></div>
-    <div class="progress-summary"><div class="progress-intro"><span class="tiny-label">EM FOCO / ESPAÇOS HÍBRIDOS</span><h3>Shoppings também são<br>laboratórios de interação.</h3><p>Investigamos experiência pública, operação e modelos de negócio antes de definir qualquer produto.</p></div><div class="progress-metrics"><div><strong>30</strong><span>dossiês documentais</span></div><div><strong>15</strong><span>insights na síntese</span></div><div><strong>12</strong><span>ofertas de fornecedores</span></div></div></div>
-    <p class="provenance">Etapa 1 documental em branch de pesquisa, ainda sem merge; etapa 2 visual/UX suspensa. Não equivale a 30 visitas, testes de usuário ou produto lançado.</p>
-    <details class="expand-row"><summary>Ver o progresso de todas as frentes <span aria-hidden="true">↗</span></summary><div class="expanded-content" id="progress-list"></div></details>
-   </section>
+      <section class="discovery" id="explorar" aria-labelledby="explore-title">
+        <div class="section-kicker"><span>01 / DESCOBRIR</span><span class="section-rule"></span><span>EXPERIMENTOS EM MOVIMENTO</span></div>
+        <div class="section-heading-row"><div><h2 id="explore-title">Explore o que estamos criando<span class="dot-cyan">.</span></h2><p>Um catálogo de protótipos, aplicativos e ideias independentes. Pesquise ou explore por área.</p></div><div class="total-caption"><strong>23</strong><span>projetos<br>e conceitos</span></div></div>
+        <div class="category-bar" role="group" aria-label="Filtrar os produtos do laboratório">
+          <button class="category active" type="button" data-category="todos" aria-pressed="true">Todos</button>
+          <button class="category" type="button" data-category="android" aria-pressed="false">▣ &nbsp;Android</button>
+          <button class="category" type="button" data-category="web" aria-pressed="false">⌁ &nbsp;Web e extensões</button>
+          <button class="category" type="button" data-category="audio" aria-pressed="false">♫ &nbsp;Áudio e mídia</button>
+          <button class="category" type="button" data-category="fisico" aria-pressed="false">⬡ &nbsp;Hardware e maker</button>
+          <button class="category" type="button" data-category="social" aria-pressed="false">♧ &nbsp;Comunidades</button>
+          <button class="category" type="button" data-category="pesquisa" aria-pressed="false">✳ &nbsp;Pesquisa</button>
+        </div>
+        <div class="carousel-heading">
+          <div><span class="section-note">LAB / BUILD</span><h3>Em construção <span class="card-count" id="count-prototypes">15</span></h3></div>
+          <div class="carousel-actions"><span class="track-counter" id="counter-prototypes" aria-live="polite">01 / 15</span><button type="button" class="slide-arrow" data-for="prototypes" data-dir="-1" aria-label="Ver cartões anteriores">‹</button><button type="button" class="slide-arrow" data-for="prototypes" data-dir="1" aria-label="Ver próximos cartões">›</button></div>
+        </div>
+        <div class="tile-track" id="track-prototypes" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Projetos em construção"><p class="loading-text">Carregando experimentos…</p></div>
+        <div class="scroll-track-progress"><span id="progress-prototypes"></span></div>
 
-   <section id="sinais" class="section signals" aria-labelledby="signals-title">
-    <h2 class="section-heading" id="signals-title">Sinais do futuro</h2>
-    <p class="section-description">Seis perguntas nascidas de pesquisas diferentes. Não são profecias nem produtos anunciados.</p>
-    <div class="signals-grid"><p><b>01.</b> A próxima interface talvez dure apenas um segundo.</p><p><b>02.</b> Um shopping também é uma cidade de sistemas invisíveis.</p><p><b>03.</b> Desconhecidos podem se encontrar por histórias, não por rostos.</p><p><b>04.</b> A IA mais útil pode ser a que sabe não agir.</p><p><b>05.</b> O código pode virar matéria.</p><p><b>06.</b> O usuário pode deixar de ser consumidor e virar coautor.</p></div>
-   </section>
+        <div id="futuros" class="carousel-heading future-header">
+          <div><span class="section-note">LAB / EXPLORE</span><h3>Ideias no radar <span class="card-count" id="count-futures">8</span></h3></div>
+          <div class="carousel-actions"><span class="track-counter" id="counter-futures" aria-live="polite">01 / 08</span><button type="button" class="slide-arrow" data-for="futures" data-dir="-1" aria-label="Ver ideias anteriores">‹</button><button type="button" class="slide-arrow" data-for="futures" data-dir="1" aria-label="Ver próximas ideias">›</button></div>
+        </div>
+        <div class="tile-track" id="track-futures" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Ideias futuras em investigação"><p class="loading-text">Carregando ideias…</p></div>
+        <div class="scroll-track-progress"><span id="progress-futures"></span></div>
+        <p class="catalog-notice" id="catalog-notice"><span aria-hidden="true">ⓘ</span> Os estágios são documentais. Nenhum projeto é apresentado como lançado sem confirmação.</p>
+      </section>
 
-   <footer class="page-footer"><h2>Soft Wild</h2><p>Pessoas, agentes, experimentos e futuros menos previsíveis.</p><div class="footer-mark"></div><a href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">GitHub ↗</a><span>Conteúdo editorial revisado em 18/11/2026.</span></footer>
+      <section class="research-section" id="pesquisas" aria-labelledby="research-title">
+        <div class="section-kicker"><span>02 / PESQUISAR</span><span class="section-rule"></span><span>QUESTÕES QUE NOS MOVEM</span></div>
+        <div class="section-heading-row"><div><h2 id="research-title">Onde a curiosidade nos leva<span class="dot-cyan">.</span></h2><p>O Hugging Face organiza modelos por tarefas. Nós organizamos pesquisas pelas perguntas que tentamos responder.</p></div></div>
+        <div class="research-grid" id="research-grid"><p class="loading-text">Consultando frentes de pesquisa…</p></div>
+      </section>
+
+      <section class="progress-section" id="progresso" aria-labelledby="progress-title">
+        <div class="section-kicker"><span>03 / ACOMPANHAR</span><span class="section-rule"></span><span>PROGRESSO DOCUMENTADO</span></div>
+        <div class="progress-card">
+          <div class="progress-copy"><span class="micro-tag"><i class="status-dot"></i> PESQUISA / ESPAÇOS HÍBRIDOS</span><h2 id="progress-title">O que um shopping pode ensinar sobre sistemas?</h2><p>Investigamos serviços digitais, a experiência de visitantes e lojistas, operações e oportunidades de integração no mundo físico.</p><div class="abc-tags"><span>A · Visitantes</span><span>B · Operações</span><span>C · Negócios</span></div></div>
+          <div class="progress-numbers"><div><strong>30</strong><span>dossiês documentais</span></div><div><strong>15</strong><span>insights da amostra</span></div><div><strong>12</strong><span>ofertas comparadas</span></div><small>Etapa 1 documental em PR aberto. Sem testes de UX, auditoria visual ou produto lançado. Etapa 2 suspensa.</small></div>
+        </div>
+        <div class="progress-other"><h3>Outros estudos em movimento</h3><div id="progress-fronts"><p class="loading-text">Carregando marcos…</p></div></div>
+      </section>
+
+      <section class="team-section" id="time" aria-labelledby="team-title">
+        <div class="section-kicker"><span>04 / PESSOAS + IA</span><span class="section-rule"></span><span>AGENTES COM ESPECIALIDADES</span></div>
+        <div class="section-heading-row"><div><h2 id="team-title">A gente. E os agentes<span class="dot-cyan">.</span></h2><p>A gente faz com agentes. Os agentes fazem com a gente. Representações editoriais identificadas como IA — sem fingir que são funcionários humanos.</p></div></div>
+        <article class="founder-card">
+          <div class="founder-photo"><img src="./assets/muller.webp" alt="Müller, fundador da Soft Wild, em fotografia ao ar livre" width="190" height="190" loading="lazy"></div>
+          <div class="founder-text"><div class="founder-top"><span class="micro-tag">DIREÇÃO CRIATIVA</span><span class="founder-symbol" aria-hidden="true">✳</span></div><h3>Müller</h3><p>Fundador da Soft Wild. Conecta perguntas, pesquisa, produto e tecnologia. Define o que deve ser explorado, construído ou deixado de lado.</p><span class="founder-skills">Produto &nbsp;·&nbsp; Pesquisa &nbsp;·&nbsp; Direção criativa</span></div>
+        </article>
+        <div class="carousel-heading team-heading">
+          <div><span class="section-note">NOSSO ELENCO EDITORIAL</span><h3>Conheça os agentes <span class="card-count">44</span></h3></div>
+          <div class="carousel-actions"><span class="track-counter" id="counter-agents" aria-live="polite">01 / 44</span><button type="button" class="slide-arrow" data-for="agents" data-dir="-1" aria-label="Ver agentes anteriores">‹</button><button type="button" class="slide-arrow" data-for="agents" data-dir="1" aria-label="Ver próximos agentes">›</button></div>
+        </div>
+        <div class="agent-track" id="track-agents" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Agentes de inteligência artificial por especialidade"><p class="loading-text">Carregando os agentes…</p></div>
+        <div class="scroll-track-progress"><span id="progress-agents"></span></div>
+        <div class="team-directory-tools"><button type="button" class="outline-button" id="show-directory" aria-controls="agent-directory" aria-expanded="false">Explorar o diretório completo <span aria-hidden="true">↓</span></button><p>Os 44 perfis têm uma especialidade e descrição. A configuração operacional de cada agente deve ser verificada separadamente.</p></div>
+        <div class="agent-directory" id="agent-directory" hidden>
+          <div class="directory-toolbar"><label for="agent-area">Filtrar por núcleo</label><select id="agent-area"><option value="todos">Todos os núcleos</option></select></div>
+          <div class="directory-grid" id="directory-grid"></div>
+        </div>
+      </section>
+
+      <section class="manifesto-section" id="manifesto" aria-labelledby="manifesto-title">
+        <div class="section-kicker"><span>05 / NOSSA IDEIA DE FUTURO</span><span class="section-rule"></span><span>CONSTRUÇÃO NÃO É MODA</span></div>
+        <div class="manifesto-layout">
+          <div><span class="eyebrow"><span class="cyan-star" aria-hidden="true">✳</span> O QUE NOS MOVE</span><h2 id="manifesto-title">O óbvio já tem gente demais fazendo<span class="dot-cyan">.</span></h2></div>
+          <div class="manifesto-copy"><p>Questionamos o que parece natural, desmontamos fórmulas prontas e cruzamos áreas do conhecimento. A tecnologia deveria ampliar possibilidades — não reduzir nossa imaginação a modelos prontos.</p><p>Software, hardware, firmware, sistemas embarcados, fabricação digital, música e cultura. Algumas criações resolvem problemas. Outras simplesmente merecem existir.</p><p class="manifesto-strong">Experimentar exige coragem. Entregar exige cuidado.</p></div>
+        </div>
+        <div class="insight-heading"><h3>Sinais do futuro</h3><span>SEIS PERGUNTAS EM ABERTO</span></div>
+        <div class="insights-grid">
+          <article><span>01 / IHC</span><h4>A próxima interface talvez dure apenas um segundo.</h4></article>
+          <article><span>02 / ESPAÇOS</span><h4>Um shopping também é uma cidade de sistemas invisíveis.</h4></article>
+          <article><span>03 / COMUNIDADES</span><h4>Desconhecidos podem se encontrar por histórias, não por rostos.</h4></article>
+          <article><span>04 / IA</span><h4>A IA mais útil pode ser a que sabe não agir.</h4></article>
+          <article><span>05 / MAKER</span><h4>O código pode virar matéria.</h4></article>
+          <article><span>06 / COAUTORIA</span><h4>Quem usa tecnologia também pode reconstruí-la.</h4></article>
+        </div>
+      </section>
+
+      <footer class="footer"><div class="footer-brand"><img src="./assets/softwild-logo.webp" alt="" width="32" height="32"><strong>SOFT <span>WILD</span></strong></div><div><p>Se for pra fazer mais do mesmo, agente nem faz.</p><small>Conteúdo editorial revisado em <span id="date-reviewed">18/11/2026</span> · Estágios não são atualizados em tempo real.</small></div><a href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+    </main>
   </div>
- </main>
-</div>
+
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+    <button class="dialog-close" id="close-dialog" aria-label="Fechar detalhes" type="button">×</button>
+    <div id="detail-content"></div>
+  </dialog>
+  <p class="sr-only" id="live-announcer" role="status" aria-live="polite"></p>
 </body>
 </html>

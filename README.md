@@ -2,6 +2,10 @@
   <img src="assets/softwild-banner-minimal.svg" alt="Soft Wild — assinatura tipográfica em fundo branco" width="100%" />
 </p>
 
+<p align="center"><strong><a href="https://softwildbr.github.io/softwildbr/">✳ Explorar o laboratório da Soft Wild — projetos, pesquisas e agentes ↗</a></strong></p>
+
+
+
 <h2 align="center">Se for pra fazer mais do mesmo, agente nem faz.</h2>
 
 <p align="center"><strong>Software · Hardware · IA · Design · Outras invenções.</strong></p>
