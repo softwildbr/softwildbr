@@ -516,3 +516,100 @@ section{scroll-margin-top:88px}
 @media(prefers-reduced-motion:reduce){
  .powered-track{animation:none!important;transform:none!important;will-change:auto}
 }
+
+/* v9 — retratos em formato pôster; artes existentes temporárias.
+   Área-final de produção: 960 × 1440 px, imagem 2:3 com margem de corte. */
+.agent-track{gap:14px;padding-bottom:16px}
+.agent-track .agent-card{
+  flex:0 0 232px;position:relative;isolation:isolate;display:block;
+  height:420px;min-height:420px;min-width:0;overflow:hidden;
+  border:0;border-radius:15px;background:#314355;color:#fff;
+  box-shadow:0 7px 18px rgba(15,35,46,.11);scroll-snap-align:start
+}
+.agent-track .agent-card:hover{box-shadow:0 12px 28px rgba(15,35,46,.19)}
+.agent-track .agent-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:linear-gradient(to bottom,transparent 16%,rgba(9,17,27,.08) 39%,rgba(7,15,24,.68) 65%,rgba(5,12,19,.97) 100%)
+}
+.agent-card .agent-media{position:absolute;inset:0;z-index:0;overflow:hidden;background:#a6c3cb}
+.agent-card .agent-media img.agent-portrait{
+  display:block;position:absolute;inset:0;width:100%;height:100%;max-width:none;
+  border:0;border-radius:0;margin:0;padding:0;object-fit:cover;
+  object-position:center 22%;background:#d2dfe2;transition:transform .28s ease
+}
+.agent-card:hover .agent-media img.agent-portrait{transform:scale(1.025)}
+.agent-media-draft{
+  position:absolute;z-index:2;top:12px;right:11px;padding:4px 6px;
+  border-radius:5px;color:#fff;background:rgba(9,19,25,.54);
+  font-size:8px;font-weight:800;letter-spacing:.075em
+}
+.agent-card .agent-caption{
+  position:absolute;z-index:2;inset:auto 0 0;display:flex;
+  flex-direction:column;align-items:flex-start;gap:3px;
+  padding:22px 16px 15px;color:#fff;background:transparent
+}
+.agent-card .agent-caption h4{
+  color:#fff;font-size:20px;font-weight:800;letter-spacing:-.045em;
+  line-height:1.13;margin:0 0 3px;text-shadow:0 1px 5px rgba(0,0,0,.3)
+}
+.agent-card .agent-badge{
+  margin:2px 0 5px;padding:3px 8px;border:1px solid rgba(255,255,255,.7);
+  border-radius:100px;background:rgba(2,151,159,.34);
+  color:#eaffff;font-size:9px;line-height:1.25;font-weight:780;
+  letter-spacing:.015em;align-self:flex-start
+}
+.agent-card .agent-role{
+  margin:0 0 3px;color:#fff;font-size:11px;line-height:1.32;
+  font-weight:780;text-shadow:0 1px 5px rgba(0,0,0,.38)
+}
+.agent-card .agent-description{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;
+  overflow:hidden;min-height:0;flex:0 0 auto;
+  font-size:11px;line-height:1.44;color:#f0f5f7;
+  margin:2px 0 4px;text-shadow:0 1px 4px rgba(0,0,0,.25)
+}
+.agent-card .agent-detail{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  border:0;border-top:1px solid rgba(255,255,255,.36);
+  color:#d4f8f9;padding:9px 0 0;margin:5px 0 0;
+  background:transparent;font-size:10px;font-weight:760;line-height:1.3
+}
+.agent-card .agent-detail:hover,.agent-card .agent-detail:focus-visible{color:#fff}
+.agent-card .agent-detail span{font-size:14px}
+.legacy-section{padding:38px 0 48px;border-top:1px solid var(--line)}
+.legacy-intro{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr);gap:27px;align-items:end;margin:15px 0 24px}
+.legacy-intro h2{font-size:clamp(25px,3vw,37px);letter-spacing:-.052em;line-height:1.16;margin:8px 0 0}
+.legacy-intro p{font-size:13px;line-height:1.8;color:#687783;margin:0 0 3px}
+.legacy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.legacy-card{
+  position:relative;border:1px dashed #bdc8cd;border-radius:13px;
+  padding:20px 19px 18px;min-height:250px;
+  background:linear-gradient(135deg,#fafbfd,#f2f5f7)
+}
+.legacy-status{position:absolute;right:17px;top:18px;color:#7f8a92;font-size:9px;font-weight:800;letter-spacing:.09em}
+.legacy-monogram{
+  display:grid;place-items:center;width:52px;height:52px;margin-bottom:14px;
+  border:1px solid #ccd4d9;border-radius:11px;color:#78868d;
+  background:#eef1f3;font-size:21px;font-weight:760;letter-spacing:-.04em
+}
+.legacy-card h3{font-size:19px;letter-spacing:-.04em;margin:0 0 4px}
+.legacy-role{font-size:11px;font-weight:770;color:#62727d;margin-bottom:10px}
+.legacy-card p{font-size:11px;line-height:1.55;color:#687783;margin:0 0 12px}
+.legacy-card small{display:block;font-size:9px;color:#97a2a8;font-weight:660}
+.legacy-disclaimer{margin:13px 0 0;color:#84929b;font-size:10px;line-height:1.6}
+@media(max-width:800px){
+ .legacy-intro{grid-template-columns:1fr;gap:10px}
+ .legacy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ .agent-track .agent-card{flex-basis:228px;height:416px;min-height:416px}
+ .agent-card .agent-caption{padding:19px 15px 14px}
+ .agent-card .agent-caption h4{font-size:19px}
+ .agent-card .agent-description{font-size:11px}
+ .legacy-section{padding:31px 0 36px}
+ .legacy-grid{grid-template-columns:1fr}
+ .legacy-card{min-height:0}
+}
+@media(prefers-reduced-motion:reduce){
+ .agent-card .agent-media img.agent-portrait{transition:none!important;transform:none!important}
+}
