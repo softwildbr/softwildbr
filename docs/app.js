@@ -118,11 +118,11 @@ function spritePosition(index){
    portrait_file mantém os SVGs de transição sem impedir nomes brasileiros definitivos. */
 function agentImagePath(a){
   const file=String(a.portrait_file||'');
-  return './assets/agents/'+(/^[a-z0-9-]+\.svg$/.test(file)?file:'placeholder.svg');
+  return './assets/agents/'+(/^[a-z0-9-]+\.(?:svg|webp)$/.test(file)?file:'placeholder.svg');
 }
 function agentVisual(a){
   return '<div class="agent-media">'+
-    '<img class="agent-portrait" src="'+esc(agentImagePath(a))+'" alt="Retrato ilustrado de '+esc(a.name)+'" width="512" height="512" loading="lazy" decoding="async">'+
+    '<img class="agent-portrait" src="'+esc(agentImagePath(a))+'" alt="Retrato ilustrado de '+esc(a.name)+'" width="928" height="1720" loading="lazy" decoding="async">'+
     '</div>';
 }
 function agentTile(a){
