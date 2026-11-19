@@ -221,21 +221,9 @@ function renderLegacy(){
       '</article>';
   }).join(''):emptyMessage('Nenhum agente descontinuado corresponde à busca.');
   const count=$('#legacy-count');if(count)count.textContent=pad(list.length)+' fichas no arquivo';
-  const more=$('#legacy-more');
-  if(more){
-    more.hidden=list.length<=6||!!state.query;
-    more.setAttribute('aria-expanded',String(state.legacyExpanded));
-    more.innerHTML=state.legacyExpanded?'Recolher arquivo <span aria-hidden="true">↑</span>':'Ver as '+pad(list.length)+' fichas <span aria-hidden="true">↓</span>';
-  }
-}
-function initLegacy(){
-  const more=$('#legacy-more');if(!more)return;
-  more.addEventListener('click',()=>{
-    state.legacyExpanded=!state.legacyExpanded;
-    renderLegacy();
-    if(!state.legacyExpanded)$('#legado')?.scrollIntoView({block:'start',behavior:prefersReducedMotion.matches?'auto':'smooth'});
-  });
-}
+   updateTrack('legacy');
+ }
+ function initLegacy(){ /* Memorial com navegação compartilhada. */ }
 function initTeamDirectory(){
   const selector=$('#agent-area');
   state.team='todos';
