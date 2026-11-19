@@ -36,7 +36,7 @@ const productArt={
 const researchIcons=['⌘','▧','✳','⬡','♫','♧','◈','◌','↗','▤'];
 const state={data:null,category:'todos',query:'',team:null,directoryOpen:false,legacyExpanded:false};
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-const tracks={prototypes:'#track-prototypes',futures:'#track-futures',agents:'#track-agents'};
+const tracks={prototypes:'#track-prototypes',futures:'#track-futures',agents:'#track-agents',legacy:'#legacy-grid'};
 const autoplayState=Object.fromEntries(Object.keys(tracks).map(name=>[name,{
   paused:prefersReducedMotion.matches,visible:false,hover:false,focus:false,touch:false
 }]));
@@ -202,7 +202,7 @@ function renderLegacy(){
   const target=$('#legacy-grid');if(!target||!state.data)return;
   const all=state.data.legacy_agents||[];
   const list=all.filter(a=>matches([a.name,a.former_name,a.role,a.description,a.reason,a.destination,a.source_topic],state.query));
-  const visible=state.legacyExpanded||state.query?list:list.slice(0,6);
+  const visible=list;
   target.innerHTML=visible.length?visible.map((a,i)=>{
     const initials=a.name.trim().split(' ').map(s=>s[0]||'').slice(0,2).join('');
     const number=pad(i+1);
@@ -253,7 +253,7 @@ function initTeamDirectory(){
 }
 function updateTrack(which){
   const track=$(tracks[which]);if(!track)return;
-  const cards=Array.from(track.querySelectorAll(which==='agents'?'.agent-card':'.experiment-card'));
+  const cards=Array.from(track.querySelectorAll(which==='agents'?'.agent-card':(which==='legacy'?'.legacy-card':'.experiment-card')));
   const total=cards.length;
   const first=cards[0];
   const step=first?(first.getBoundingClientRect().width+parseFloat(getComputedStyle(track).gap||'0')):1;
@@ -305,7 +305,7 @@ function setupAutoplay(){
     s.visible=observer?false:true;
     if(observer)observer.observe(track);
     const pauseButton=$('button.autoplay-toggle[data-auto="'+name+'"]');
-    const label=name==='agents'?'colaboradores':(name==='prototypes'?'produtos':'ideias futuras');
+    const label=name==='agents'?'colaboradores':(name==='legacy'?'ex-agentes':(name==='prototypes'?'produtos':'ideias futuras'));
     const refresh=()=>{
       if(!pauseButton)return;
       pauseButton.textContent=s.paused?'▶':'Ⅱ';
@@ -322,11 +322,11 @@ function setupAutoplay(){
     track.addEventListener('touchstart',()=>{s.touch=true},{passive:true});
     track.addEventListener('touchend',()=>{s.touch=false},{passive:true});
     track.addEventListener('touchcancel',()=>{s.touch=false},{passive:true});
-    const interval=name==='agents'?4300:5000;
+    const interval=(name==='agents'||name==='legacy')?4300:5000;
     setInterval(()=>{
       if(!state.data||document.hidden||!s.visible||s.paused||s.hover||s.focus||s.touch)return;
       if($('#detail-dialog')?.open)return;
-      const cards=track.querySelectorAll(name==='agents'?'.agent-card':'.experiment-card');
+      const cards=track.querySelectorAll(name==='agents'?'.agent-card':(name==='legacy'?'.legacy-card':'.experiment-card'));
       if(cards.length<2||track.scrollWidth<=track.clientWidth+4)return;
       const gap=parseFloat(getComputedStyle(track).gap||'0');
       const delta=cards[0].getBoundingClientRect().width+gap;
