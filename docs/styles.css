@@ -34,6 +34,7 @@ h2 em,h1 em,h3 em{font-family:var(--serif);font-weight:400;letter-spacing:-.055e
 .site-header{height:91px;position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(20,33,41,.08);background:rgba(250,251,248,.94);backdrop-filter:blur(18px)}
 .nav{height:100%;display:flex;gap:28px;align-items:center}
 .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand-logo{width:42px;height:42px;border-radius:9px;object-fit:cover;display:block;flex-shrink:0}
 .brand-symbol{width:37px;height:37px;border:2px solid #102337;border-radius:9px;display:grid;place-items:center;transform:rotate(-8deg);position:relative;overflow:hidden;font:800 15px/1 var(--display);letter-spacing:-.16em}
 .brand-symbol span{transform:rotate(8deg);margin-right:3px}
 .brand-symbol i{width:17px;height:5px;background:var(--teal);position:absolute;right:-5px;top:7px;transform:rotate(-45deg)}
