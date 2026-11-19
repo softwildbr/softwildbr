@@ -1,19 +1,18 @@
-# Soft Wild · Proposta de nomes e estrutura de retratos (pré-aprovação)
+# Soft Wild · Equipe brasileira, cards editoriais e memorial digital (v10)
 
-> Documento de trabalho. Os nomes abaixo são **propostas**, não identidades aprovadas.
-> Esta branch não altera o perfil público enquanto não houver revisão e merge.
+> Os 44 nomes brasileiros foram aprovados pelo fundador em 19/11/2026. Esta versão implementa HTML/CSS/JS e documenta a etapa posterior de criação dos retratos. A publicação em `main` depende da integração do PR.
 
 ## Decisões aplicadas nesta branch
 
 - Cards em formato **pôster fotográfico/ilustrado full bleed**, seguindo a referência visual enviada pelo fundador.
 - A informação fica visível na própria peça, na ordem: **nome → selo AGENTE DE IA → cargo → descrição objetiva → ação para ficha completa**.
 - Os 44 agentes continuam divididos nos mesmos 8 núcleos, preservando função, texto documental, ordem editorial e origem dos avatares.
-- `proposed_name` é somente o nome de exibição; `name` permanece como referência de versão anterior e chave estável do SVG existente. **Não renomear os arquivos de retrato agora.**
+- `name` é o nome brasileiro definitivo; `portrait_file` preserva o nome técnico do SVG existente até a produção e a migração dos novos retratos.
 - Não foram geradas imagens nesta etapa. Os SVGs existentes são arte provisória.
 - A fotografia real do fundador e o card “As vozes na minha cabeça” permanecem sem alterações.
 - Seção **Agentes descontinuados**: recupera personagens editoriais de versões visuais anteriores, sem alegar que foram funcionários ou sistemas autônomos ativos.
 
-## Nomes propostos por núcleo
+## Nomes aprovados por núcleo
 
 ### Pesquisa, cultura e descoberta
 - Caio Lobo
@@ -78,9 +77,9 @@
 ## Guia para geração das imagens — etapa posterior
 
 - **Tamanho principal de produção:** 960 × 1440 px (proporção 2:3), entrega por agente em arquivo individual.
-- **Tamanho do card CSS no desktop:** 232 × 420 px. **No celular:** 228 × 416 px. A imagem ocupa o card inteiro e recebe crop responsivo pelo `object-fit: cover`.
+- **Tamanho do card CSS no desktop:** 232 × 430 px. **No celular:** 222 × 420 px. A imagem ocupa o card inteiro e recebe crop responsivo pelo `object-fit: cover`.
 - **Área útil superior:** manter o rosto, o cabelo e a silhueta principal na região central e superior, com margem horizontal para crop. Evitar texto ou detalhes essenciais dentro da própria imagem.
-- **Faixa inferior:** reservar aproximadamente 45% da altura para o gradiente escuro e a sobreposição de textos; evitar elementos narrativos importantes nessa área.
+- **Faixa inferior:** reservar aproximadamente 50% da altura para o gradiente e a sobreposição de nome, selo, cargo, descrição curta e acesso aos detalhes. Evitar elementos essenciais nessa região.
 - **Visual:** retratos próximos com personalidade, diversidade de rostos e figurinos, enquadramento semelhante ao exemplo aprovado; manter identidade própria por agente, sem clonar uma face.
 - **Acessibilidade:** não incorporar o nome ou o cargo na imagem; os textos devem permanecer HTML editável, legível, pesquisável e acessível.
 - **Etapa de SVG animado:** somente depois de aprovar as imagens estáticas; cada personagem receberá animação individual, discreta, opcional, com alternativa estática para `prefers-reduced-motion`.
@@ -104,7 +103,7 @@ O memorial é parte do universo de personagens digitais e do humor do laboratór
 5. **POR QUE SAIU** — punchline;
 6. **FOI PARA UM LUGAR MELHOR** — destino absurdo e seco.
 
-Há 18 fichas nesta rodada; mostrar 6 e oferecer **Ver as 18 fichas**. A busca do site encontra também motivos, destinos e nomes antigos. Não gerar retratos desses personagens nesta etapa.
+Há **19 fichas** nesta versão (incluindo João Quase-Pronto e Lurdes Mortelas); mostrar 6 e oferecer **Ver as 19 fichas**. A busca do site encontra também motivos, destinos e nomes antigos. Não gerar retratos desses personagens nesta etapa.
 
 ### Fontes de inspiração verificadas nos repositórios (19/11/2026)
 
@@ -133,7 +132,17 @@ Há 18 fichas nesta rodada; mostrar 6 e oferecer **Ver as 18 fichas**. A busca d
 2. Textos grandes não são ocultados sem que a ficha completa esteja acessível.
 3. O carrossel funciona com teclado e swipe, sem impedir a navegação, e usa pausa/autoplay já existentes.
 4. O diretório, a busca e os detalhes utilizam o mesmo nome público e o mesmo cargo.
-5. O arquivo com 18 perfis descontinuados aparece depois da equipe ativa e antes do manifesto; 6 fichas iniciais, expansão acessível e busca em todo o arquivo.
+5. O memorial com 19 perfis descontinuados e um agradecimento explícito aparece depois da equipe ativa e antes do manifesto; 6 fichas iniciais, expansão acessível e busca em todo o arquivo.
 6. Sem novas imagens, sem geração de SVG animado e sem alteração da fotografia do fundador nesta fase.
-7. Ao aprovar os nomes, atualizar README e demais menções para eliminar divergência entre site e perfil principal.
+7. README atualizado com os nomes brasileiros e o memorial. Testar a versão publicada após a integração do PR.
 
+
+## Registro da implementação v10 — 19/11/2026
+
+- `docs/index.html`: navegação para a homenagem, cards com contagem, pontos de carrossel e bloco especial de agradecimento.
+- `docs/styles.css`: retratos em formato full-bleed, legibilidade sobre gradiente, responsividade e acessibilidade de movimento reduzido; memorial separado em fichas com campos editoriais.
+- `docs/app.js`: nomes canônicos, chave `portrait_file`, descrições curtas dos cards, detalhes completos, busca, carrossel com pontos e arquivo expansível.
+- `docs/data/content.json`: 44 nomes definitivos, 44 descrições curtas e 19 perfis de ex-agentes.
+- `README.md`: equipe com nomes brasileiros e memorial colapsável.
+
+**Importante:** nesta entrega foram reutilizados os SVGs existentes como retratos temporários. A etapa de geração de 44 imagens individuais ainda não ocorreu; os arquivos futuros devem usar nomes novos estáveis e acompanhar um mapa de migração dos `portrait_file`.
