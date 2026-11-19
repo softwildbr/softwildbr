@@ -622,6 +622,7 @@ section{scroll-margin-top:88px}
   display:flex;justify-content:center;align-items:center;gap:9px;
   flex-wrap:wrap;min-height:30px;margin:0 0 16px
 }
+.agent-dots[hidden]{display:none}
 .agent-dots button{
   display:inline-block;width:9px;height:9px;padding:0;
   border:0;border-radius:100px;background:#cbd5dc;
