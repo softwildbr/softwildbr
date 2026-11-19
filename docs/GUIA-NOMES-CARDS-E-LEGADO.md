@@ -1,6 +1,6 @@
-# Soft Wild · Equipe brasileira, cards editoriais e memorial digital (v10)
+# Soft Wild · Arquivo histórico de layout e elenco v10 (44 personagens)
 
-> Os 44 nomes brasileiros foram aprovados pelo fundador em 19/11/2026. Esta versão implementa HTML/CSS/JS e documenta a etapa posterior de criação dos retratos. A publicação em `main` depende da integração do PR.
+> **DOCUMENTO HISTÓRICO — SUPERADO EM 19/11/2026.** A política vigente passou a limitar a equipe a **20 agentes ativos**, consolidando 44 especialidades. A lista de 44 nomes abaixo permanece apenas como acervo de decisão anterior. Consulte [o padrão atual](guidelines/PADRAO-NOMES-E-ESCOPO-AGENTES.md) e [o catálogo em uso](data/content.json). O nome correto da agente do memorial é **Lourdes Multitelas**.
 
 ## Decisões aplicadas nesta branch
 
@@ -103,7 +103,7 @@ O memorial é parte do universo de personagens digitais e do humor do laboratór
 5. **POR QUE SAIU** — punchline;
 6. **FOI PARA UM LUGAR MELHOR** — destino absurdo e seco.
 
-Há **19 fichas** nesta versão (incluindo João Quase-Pronto e Lurdes Mortelas); mostrar 6 e oferecer **Ver as 19 fichas**. A busca do site encontra também motivos, destinos e nomes antigos. Não gerar retratos desses personagens nesta etapa.
+Há **19 fichas** nesta versão (incluindo João Quase-Pronto e Lourdes Multitelas); mostrar 6 e oferecer **Ver as 19 fichas**. A busca do site encontra também motivos, destinos e nomes antigos. Não gerar retratos desses personagens nesta etapa.
 
 ### Fontes de inspiração verificadas nos repositórios (19/11/2026)
 

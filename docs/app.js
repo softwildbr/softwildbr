@@ -7,7 +7,7 @@ const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const pad=n=>String(n).padStart(2,'0');
-const featuredNames=['Caio Lobo','Teo Lins','Mateus Pires','Heitor Braga','Álvaro Costa','Dênis Tavares','Luana Reis','Íris Moura','Maia Nascimento','Tainá Campos'];
+const featuredNames=['Ana Lítica','Lia Layout','Beto Backend','Malu Multimodal','Léo Loop','Sônia Decibéis','Priscila Prioridade','Vivi Vitrine'];
 const productArt={
   'Retrozim Launcher':['android','ANDROID · INTERFACE','▣','navy'],
   'Minamp':['audio','ÁUDIO · WIDGET','♫','teal'],
@@ -180,7 +180,7 @@ function updateAgentDots(){
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
-  const list=ordered.filter(a=>matches([a.name,a.role,a.description,a.card_description],state.query));
+  const list=ordered.filter(a=>matches([a.name,a.role,a.description,a.card_description,...(a.responsibilities||[])],state.query));
   const root=$('#track-agents');
   root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
   const count=$('#count-agents');if(count)count.textContent=list.length;
@@ -190,7 +190,7 @@ function renderAgents(){
 }
 function renderDirectory(){
   const groups=state.team==='todos'?state.data.groups:[state.data.groups[Number(state.team)]];
-  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description,a.card_description],state.query));
+  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description,a.card_description,...(a.responsibilities||[])],state.query));
   $('#directory-grid').innerHTML=list.length?list.map(a=>
     '<article class="directory-item">'+
     '<img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado de '+esc(a.name)+'" src="'+esc(agentImagePath(a))+'">'+
@@ -416,10 +416,15 @@ async function start(){
     initTeamDirectory();initLegacy();renderProducts();renderResearch();renderAgents();renderLegacy();
   }catch(err){
     console.error('Soft Wild: dados editoriais indisponíveis',err);
-    for(const id of ['track-prototypes','track-futures','track-agents','research-grid','progress-fronts']){
-      const target=document.getElementById(id);if(target)target.innerHTML=emptyMessage('Não foi possível carregar o catálogo. Consulte o repositório público no GitHub.');
+    // Mantém os 20 cards e o memorial já presentes no HTML estático quando o JSON falha.
+    // Uma falha de rede não deve ocultar o elenco da Soft Wild.
+    for(const id of ['track-prototypes','track-futures','research-grid','progress-fronts']){
+      const target=document.getElementById(id);
+      if(target)target.innerHTML=emptyMessage('Não foi possível carregar esta seção do catálogo. Consulte o repositório público no GitHub.');
     }
-    $('#catalog-notice').textContent='O conteúdo estruturado está temporariamente indisponível.';
+    const target=document.getElementById('track-agents');
+    if(target&&!target.querySelector('.agent-card'))target.innerHTML=emptyMessage('Não foi possível carregar os agentes.');
+    const note=$('#catalog-notice');if(note)note.textContent='O catálogo interativo está temporariamente indisponível. O elenco e o memorial continuam visíveis nesta página.';
   }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
