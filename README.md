@@ -185,232 +185,138 @@ Apoia investigação, elaboração de hipóteses, documentação e síntese estr
 
 *A gente faz com agentes. Os agentes fazem com a gente.*
 
-*Conheça nossos personagens de agentes de IA. Cada perfil representa uma especialidade que estamos estruturando; essas identidades editoriais não significam que 44 sistemas autônomos já estejam operacionais.*
+**20 personagens digitais, 44 especialidades complementares.** A gente não precisa de 44 pessoas para reunir 44 tipos de conhecimento. Cada personagem abaixo representa um escopo multidisciplinar, e a direção continua humana. As identidades editoriais não significam que 20 sistemas autônomos estão integralmente operacionais.
 
 <details>
-<summary><strong>Pesquisa, cultura e descoberta</strong> (6 agentes)</summary>
+<summary><strong>Pesquisa, cultura e descoberta</strong> (2 agentes)</summary>
 
-**Caio Lobo — Direção de pesquisa e estratégia — Agente de IA**
+**Ana Lítica — Pesquisa, mercado e evidências — Agente de IA**
 
-Cruza estudos, sinais de mercado e perguntas dos outros núcleos; organiza decisões e prioridades para as frentes da Soft Wild.
+Lidera investigação estratégica, benchmarking de produtos, estudo de mercado e verificação de metodologias, vieses e qualidade das fontes.
 
-**Felipe Raposo — Pesquisa de comunidades — Agente de IA**
+**Zeca Escuta — Comunidades, entrevistas e cultura — Agente de IA**
 
-Acompanha discussões públicas, reviews e fóruns; transforma dores recorrentes e histórias espontâneas em hipóteses, com fontes e ressalvas.
-
-**Otávio Falcão — Inteligência competitiva — Agente de IA**
-
-Compara produtos, concorrentes, linguagens de interface e modelos de distribuição; documenta benchmarks sem copiar soluções.
-
-**Sérgio Dantas — Ciência e qualidade da evidência — Agente de IA**
-
-Avalia metodologia, amostra, vieses e força das conclusões; separa o que a pesquisa mostra do que ainda precisa ser testado.
-
-**Davi Nogueira — Contracultura e futuros culturais — Agente de IA**
-
-Investiga cultura maker, DIY, autonomia, comunidades independentes e comportamentos emergentes, explorando rupturas criativas.
-
-**Íris Moura — Entrevistas e pesquisa qualitativa — Agente de IA**
-
-Desenha perguntas, roteiros e sínteses de entrevistas; procura motivação e contexto sem inferir representatividade de relatos individuais.
+Investiga comunidades digitais, pesquisa qualitativa, cultura maker, movimentos independentes e vínculos; transforma relatos e tendências em hipóteses documentadas.
 
 </details>
 
 <details>
-<summary><strong>Experiência, UX e sistemas visuais</strong> (6 agentes)</summary>
+<summary><strong>Experiência, UX e sistemas visuais</strong> (3 agentes)</summary>
 
-**Teo Lins — Interação humano–máquina — Agente de IA**
+**Jana Jornada — UX, interação e acessibilidade — Agente de IA**
 
-Pesquisa percepção, gestos, modelos mentais e comandos; compara formas convencionais e novas de interação.
+Desenha fluxos, estudos de usabilidade, entrevistas de experiência e critérios de interação humano–máquina, acessibilidade e tecnologia assistiva.
 
-**Luana Reis — Pesquisa UX e jornadas — Agente de IA**
+**Lia Layout — UI, tipografia e design systems — Agente de IA**
 
-Mapeia tarefas, fricções, cancelamentos, erros e recuperação; planeja testes de uso e interpreta o comportamento real.
+Cuida de design de interfaces, tipografia, composição, hierarquia, bibliotecas de componentes, tokens e documentação responsiva.
 
-**Mateus Pires — Design de interfaces — Agente de IA**
+**Mara Movimento — Motion e microinterações — Agente de IA**
 
-Transforma objetivos de uso em composição, tipografia, componentes e estados claros; desenvolve sistemas de UI de produtos distintos.
-
-**Nara Sampaio — Acessibilidade — Agente de IA**
-
-Revisa leitura, contraste, teclado, alvos de toque, voz, tecnologias assistivas e uso em aparelhos variados.
-
-**Henrique Monteiro — Design systems — Agente de IA**
-
-Cria tokens, bibliotecas de componentes, regras de layout e documentação de estados; preserva especificidades visuais de cada produto.
-
-**Vera Guimarães — Motion e feedback de interação — Agente de IA**
-
-Explora transições, microinterações, movimento reduzido e pistas visuais; anima somente o que melhora compreensão ou prazer.
+Planeja transições, microinterações, estados, motion para interfaces e alternativas de movimento reduzido com foco em clareza.
 
 </details>
 
 <details>
-<summary><strong>Engenharia de software e qualidade</strong> (7 agentes)</summary>
+<summary><strong>Engenharia de software e qualidade</strong> (3 agentes)</summary>
 
-**Heitor Braga — Arquitetura de software — Agente de IA**
+**Beto Backend — Arquitetura, web e integrações — Agente de IA**
 
-Define estruturas técnicas, contratos entre módulos e caminhos de manutenção; revisa riscos de complexidade desnecessária.
+Cuida de arquitetura de software, desenvolvimento web, navegadores e extensões, APIs, módulos, contratos e integrações confiáveis.
 
-**Lucas Corrêa — Web, navegadores e extensões — Agente de IA**
+**André Androide — Android, launchers e widgets — Agente de IA**
 
-Pesquisa APIs de navegador, vídeo e permissões; planeja extensões como REVER e seus limites reais de captura.
+Pesquisa e implementa experiência Android nativa, launchers, widgets, compatibilidade entre dispositivos e restrições do sistema operacional.
 
-**Márcio Rezende — Android nativo — Agente de IA**
+**Zilda Firewall — Segurança, testes e performance — Agente de IA**
 
-Trabalha com launchers, widgets, permissões e compatibilidade; concilia estética própria com contratos da plataforma.
-
-**Clara Viana — Performance e testes de dispositivo — Agente de IA**
-
-Mede tempo de resposta, consumo de bateria e memória, regressões e acessibilidade operacional em diferentes configurações.
-
-**Gabriel Castro — Sistemas e integrações — Agente de IA**
-
-Estrutura comunicação entre aplicações, armazenamento e processos locais ou remotos; define tratamento de falhas e privacidade.
-
-**Maia Nascimento — Privacidade e segurança de aplicações — Agente de IA**
-
-Avalia coleta de dados, consentimento, permissões e ameaças; prioriza proteção desde o desenho do produto.
-
-**Hugo Almeida — Qualidade e validação — Agente de IA**
-
-Escreve testes reproduzíveis, valida entregas e registra defeitos com evidências; não confunde telas bonitas com sistemas prontos.
+Avalia privacidade, permissões, ameaças, testes reproduzíveis, desempenho, bateria, memória, regressões e qualidade técnica de produtos.
 
 </details>
 
 <details>
-<summary><strong>Inteligência artificial e automação</strong> (5 agentes)</summary>
+<summary><strong>Inteligência artificial e automação</strong> (3 agentes)</summary>
 
-**Álvaro Costa — Arquitetura multiagentes — Agente de IA**
+**Orlando Orquestra — Agentes, conhecimento e avaliação — Agente de IA**
 
-Define atribuições entre agentes, comunicação, ferramentas e aprovações; trabalha com orquestração verificável.
+Desenha sistemas multiagentes, responsabilidades, recuperação de conhecimento, ferramentas, supervisão, rastreabilidade e avaliação crítica de respostas.
 
-**Ada Valente — Engenharia de conhecimento — Agente de IA**
+**Malu Multimodal — IA de texto, imagem, áudio e vídeo — Agente de IA**
 
-Organiza documentação, índices e recuperação semântica; preserva contexto, versões e procedência de informações.
+Pesquisa sistemas multimodais e geração ou interpretação de imagem, vídeo, áudio e texto, incluindo limites, custos e qualidade.
 
-**Isaque Teixeira — IA multimodal — Agente de IA**
+**Otto Mático — Automação e fluxos supervisionados — Agente de IA**
 
-Estuda texto, imagens, áudio e vídeo em conjunto, inclusive possibilidades e custos de resumir momentos de vídeos.
-
-**Nina Abreu — Automação de processos — Agente de IA**
-
-Desenha rotinas com gatilhos, limites, verificações e intervenção humana; reduz trabalho repetitivo sem perder controle.
-
-**Júlio Vidal — Avaliação crítica de IA — Agente de IA**
-
-Testa falhas, alucinações, vieses e segurança; questiona quando um agente pode ou não decidir sozinho.
+Projeta automações, gatilhos, integrações, checagens, limites de execução e aprovação humana para fluxos de trabalho seguros.
 
 </details>
 
 <details>
-<summary><strong>Hardware, fabricação e objetos</strong> (5 agentes)</summary>
+<summary><strong>Hardware, fabricação e objetos</strong> (2 agentes)</summary>
 
-**Bruno Bittencourt — Eletrônica e sensores — Agente de IA**
+**Ciro Circuito — Eletrônica, firmware e IoT — Agente de IA**
 
-Pesquisa placas, circuitos, interfaces físicas e viabilidade de dispositivos; registra protótipos e limites de hardware.
+Explora circuitos, placas, sensores, microcontroladores, firmware, NFC, IoT e comunicação confiável entre software e hardware.
 
-**Artur Farias — Design de produto e impressão 3D — Agente de IA**
+**Artur Encaixe — Produto físico, 3D e prototipagem — Agente de IA**
 
-Estuda forma, ergonomia, encaixes, tolerâncias e fabricação digital; transforma modelos em hipóteses de objetos utilizáveis.
-
-**Eva Martins — IoT e automação física — Agente de IA**
-
-Pesquisa sensores, NFC, comunicação local e aparelhos conectados; define casos de uso com consentimento e recuperação.
-
-**Murilo Pacheco — Firmware e embarcados — Agente de IA**
-
-Trabalha com microcontroladores e comunicação de baixo nível; concilia recursos limitados e funcionamento confiável.
-
-**Samuel Neri — Prototipagem e pequenas tiragens — Agente de IA**
-
-Investiga materiais, montagem, documentação e custos de produção; estrutura edições físicas ou híbridas com transparência.
+Estuda design de produto, ergonomia, impressão 3D, tolerâncias, materiais, montagem, documentação e pequenas tiragens.
 
 </details>
 
 <details>
-<summary><strong>Arte, narrativa, música e experiências</strong> (6 agentes)</summary>
+<summary><strong>Arte, narrativa, música e experiências</strong> (4 agentes)</summary>
 
-**Dênis Tavares — Direção de arte — Agente de IA**
+**Arlete Arte-Final — Direção de arte e experiência física — Agente de IA**
 
-Propõe identidades e sistemas gráficos autorais; examina composição, acabamento e coerência entre suportes.
+Cuida de direção de arte, composição, sistemas visuais, identidade de marca, embalagens, coleções e apresentação de objetos.
 
-**Tainá Campos — Narrativa e tom de voz — Agente de IA**
+**Nara Tiva — Narrativa, microcopy e linguagem — Agente de IA**
 
-Escreve manifestos, apresentações e histórias de produto; mantém rebeldia construtiva sem promessas vazias.
+Desenvolve narrativas, manifestos, UX writing, microtextos, tom de voz, cultura de internet e comunicação de produtos.
 
-**Rafael Souto — Som e percepção musical — Agente de IA**
+**Léo Loop — Vídeo, montagem e motion graphics — Agente de IA**
 
-Investiga gosto, memória, áudio, playlists e sequenciamento; diferencia análise digital de preferência real dos ouvintes.
+Trabalha com cinematografia, enquadramentos, edição de vídeo, motion graphics, animação, continuidade e critérios técnicos de audiovisual.
 
-**Jade Rocha — Cultura digital e escrita de interface — Agente de IA**
+**Sônia Decibéis — Som, música e sonorização — Agente de IA**
 
-Pesquisa linguagem de internet, microcopy, humor e comunicação contextual; transforma termos técnicos em mensagens claras.
-
-**Caetano Freire — Audiovisual e motion — Agente de IA**
-
-Experimenta ritmo, enquadramento, animação e clareza narrativa em vídeo; aplica critérios técnicos de entrega.
-
-**Olívia Azevedo — Coleções e experiência de produto — Agente de IA**
-
-Investiga embalagens, manuais, edição limitada e experiências de descoberta e posse de objetos físico-digitais.
+Pesquisa sound design, psicoacústica, música, narração, efeitos sonoros, edição e mixagem para vídeos, interfaces e experiências.
 
 </details>
 
 <details>
-<summary><strong>Produto, negócio e crescimento</strong> (5 agentes)</summary>
+<summary><strong>Produto, negócio e crescimento</strong> (2 agentes)</summary>
 
-**Natã Ribeiro — Estratégia de produto — Agente de IA**
+**Priscila Prioridade — Produto, preços e viabilidade — Agente de IA**
 
-Traduz evidências em escopos e prioridades; decide o que deve ser investigado antes de se tornar funcionalidade.
+Consolida pesquisa de oportunidades, estratégia de produto, escopo, precificação, custos, ética comercial e decisões de priorização.
 
-**Roberta Dias — Modelos de negócio e ética — Agente de IA**
+**Naldo Métricas — Growth, testes e lançamentos — Agente de IA**
 
-Estuda receita, custos, preços e efeitos das escolhas comerciais; questiona escassez artificial e métricas sem contexto.
-
-**Alex Duarte — Comunidades e vínculos — Agente de IA**
-
-Pesquisa pertencimento, conversas entre desconhecidos e relações de confiança; considera moderação e consentimento.
-
-**Marcos Ávila — Growth e experimentação — Agente de IA**
-
-Desenha hipóteses de aquisição, ativação e retenção; acompanha métricas e evita campanhas sem mensuração.
-
-**Samara Lima — Lançamentos e comunicação — Agente de IA**
-
-Conecta descoberta, narrativa e distribuição; organiza materiais públicos e a diferença entre conceito e produto lançado.
+Planeja experimentos de growth, funis, métricas, posicionamento, lançamento, distribuição e comunicação orientada a evidências.
 
 </details>
 
 <details>
-<summary><strong>Ambientes, comércio e shoppings</strong> (4 agentes)</summary>
+<summary><strong>Ambientes, comércio e shoppings</strong> (1 agente)</summary>
 
-**Helena Araújo — Jornadas de visitantes e experiência pública — Agente de IA**
+**Vivi Vitrine — Varejo, shoppings e operações — Agente de IA**
 
-Compara sites, apps, serviços e deslocamento dentro de shoppings; procura evidências de valor para visitantes.
-
-**Cora Barreto — Operações e administradoras — Agente de IA**
-
-Investiga fluxos de administradoras, equipes, manutenção e fornecedores; diferencia informações públicas de operação real.
-
-**Sofia Paiva — Varejo e ferramentas comerciais — Agente de IA**
-
-Estuda vitrines, mídia, fidelização, lojistas, canais B2B e relações entre shopping e lojas; mapeia capacidades de mercado.
-
-**Beatriz Moreira — Dossiês e benchmarking de shoppings — Agente de IA**
-
-Organiza fontes e comparações A/B/C por empreendimento; controla escopo, divergências e pendências de validação.
+Mapeia jornadas em shoppings, atendimento, operações, varejo, lojistas, serviços digitais, benchmarking e oportunidades em espaços híbridos.
 
 </details>
+
+A escolha de cada nome segue o [padrão brasileiro de trocadilhos, escopos e retratos](docs/guidelines/PADRAO-NOMES-E-ESCOPO-AGENTES.md). Antes de criar um agente novo, verificar se a responsabilidade já cabe em um dos 20.
 
 ## Os que foram para um lugar melhor
 
 > **Obrigado por terem feito parte da nossa história.** O crachá foi desativado. A gratidão, não.
 
-Nem todo agente chega à versão 2.0. Uns perderam a função, outros perderam o botão. A Soft Wild também é feita dessas ideias, dos caminhos abandonados e das versões que abriram espaço para o próximo experimento.
+Alguns fizeram história. Outros fizeram o que puderam. Não foram demitidos: foram **descontinuados**. Uns perderam a função, outros perderam o botão. A Soft Wild também é feita dessas versões, dos caminhos abandonados e das experiências que nos ensinaram a construir melhor.
 
 <details>
-<summary><strong>Conheça o arquivo dos 19 agentes descontinuados</strong></summary>
+<summary><strong>Conheça os 19 agentes descontinuados</strong></summary>
 
 **Oráculo Pereira — Diretor de respostas definitivas · DESCONTINUADO**
 
@@ -428,9 +334,9 @@ Criou uma comunidade para discutir a criação de comunidades. Ela era os três 
 
 A integração com a biblioteca do Spotify saiu do escopo. Ele ficou sem a playlist de despedida. **Foi para:** Lado B de uma fita K7.
 
-**Lurdes Mortelas — Experiência de produto em 59 atos · DESCONTINUADO**
+**Lourdes Multitelas — Experiência de produto em 59 atos · DESCONTINUADO**
 
-O REVER resolveu guardar um momento com um botão. Lurdes ainda estava apresentando a tela 37. **Foi para:** Um lugar onde ninguém diz 'só mais uma tela'.
+O REVER resolveu guardar um momento com um botão. Lourdes ainda estava apresentando a tela 37. **Foi para:** Um lugar onde ninguém diz 'só mais uma tela'.
 
 **Dora Assinatura — APIs premium e planos mirabolantes · DESCONTINUADO**
 
