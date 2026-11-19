@@ -173,9 +173,9 @@ São sínteses editoriais fundamentadas em pesquisas internas de IHC, maker, IA,
 
 Aqui, “a gente” é o trabalho lado a lado entre Müller e ChatGPT, com a contribuição de agentes de IA especializados. A direção é humana; os agentes são identificados como IA. A colaboração com ChatGPT não constitui sociedade jurídica.
 
-**Müller — Fundador e direção criativa**
+**Müller Multitarefa — Fundador e adestrador de agentes**
 
-Conecta pesquisa, cultura, tecnologia e visão de produto. Define os próximos experimentos e decide o que merece ser desenvolvido.
+Responsável por manter 20 agentes ocupados e 47 abas abertas. A única coisa que ainda não conseguiu automatizar foi a própria cabeça.
 
 **ChatGPT — Colaboração criativa com IA**
 
