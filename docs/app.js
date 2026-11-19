@@ -171,7 +171,7 @@ function renderLegacy(){
   const list=all.filter(a=>matches([a.name,a.former_name,a.role,a.description,a.reason,a.destination,a.source_topic],state.query));
   const visible=state.legacyExpanded||state.query?list:list.slice(0,6);
   target.innerHTML=visible.length?visible.map((a,i)=>{
-    const initials=a.name.split(/\\s+/).map(s=>s[0]||'').slice(0,2).join('');
+    const initials=a.name.trim().split(' ').map(s=>s[0]||'').slice(0,2).join('');
     const number=pad(i+1);
     return '<article class="legacy-card" aria-label="Ficha de '+esc(a.name)+' — descontinuado">'+
       '<div class="legacy-card-head"><span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>'+
@@ -196,7 +196,7 @@ function initLegacy(){
   more.addEventListener('click',()=>{
     state.legacyExpanded=!state.legacyExpanded;
     renderLegacy();
-    if(!state.legacyExpanded)$('#legado')?.scrollIntoView({block:'start',behavior:prefersReducedMotion.matches?'instant':'smooth'});
+    if(!state.legacyExpanded)$('#legado')?.scrollIntoView({block:'start',behavior:prefersReducedMotion.matches?'auto':'smooth'});
   });
 }
 function initTeamDirectory(){
