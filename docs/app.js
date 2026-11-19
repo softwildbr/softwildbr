@@ -34,7 +34,7 @@ const productArt={
   'Ferramentas pessoais acessíveis e offline':['android','SOFTWARE · OFFLINE','✳','green']
 };
 const researchIcons=['⌘','▧','✳','⬡','♫','♧','◈','◌','↗','▤'];
-const state={data:null,category:'todos',query:'',team:null,directoryOpen:false};
+const state={data:null,category:'todos',query:'',team:null,directoryOpen:false,legacyExpanded:false};
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const tracks={prototypes:'#track-prototypes',futures:'#track-futures',agents:'#track-agents'};
 const autoplayState=Object.fromEntries(Object.keys(tracks).map(name=>[name,{
@@ -166,15 +166,38 @@ function renderDirectory(){
   }).join(''):emptyMessage('Nenhum agente neste filtro.');
 }
 function renderLegacy(){
- const target=$('#legacy-grid');if(!target||!state.data)return;
- const list=(state.data.legacy_agents||[]).filter(a=>matches([a.name,a.role,a.description,a.origin],state.query));
- target.innerHTML=list.length?list.map(a=>{
-   const initials=a.name.split(/\s+/).map(s=>s[0]||'').slice(0,2).join('');
-   return '<article class="legacy-card"><span class="legacy-status">'+esc(a.status)+'</span>'+
-      '<span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>'+
-      '<h3>'+esc(a.name)+'</h3><div class="legacy-role">'+esc(a.role)+'</div>'+
-      '<p>'+esc(a.description)+'</p><small>'+esc(a.origin)+'</small></article>';
- }).join(''):emptyMessage('Nenhum agente do arquivo corresponde à busca.');
+  const target=$('#legacy-grid');if(!target||!state.data)return;
+  const all=state.data.legacy_agents||[];
+  const list=all.filter(a=>matches([a.name,a.former_name,a.role,a.description,a.reason,a.destination,a.source_topic],state.query));
+  const visible=state.legacyExpanded||state.query?list:list.slice(0,6);
+  target.innerHTML=visible.length?visible.map((a,i)=>{
+    const initials=a.name.split(/\\s+/).map(s=>s[0]||'').slice(0,2).join('');
+    const number=pad(i+1);
+    return '<article class="legacy-card" aria-label="Ficha de '+esc(a.name)+' — descontinuado">'+
+      '<div class="legacy-card-head"><span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>'+
+      '<span class="legacy-status">'+esc(a.status)+'</span></div>'+
+      '<span class="legacy-file">ARQUIVO / '+number+'</span>'+
+      '<h3>'+esc(a.name)+'</h3><p class="legacy-role">'+esc(a.role)+'</p>'+
+      '<p class="legacy-bio">'+esc(a.description)+'</p>'+
+      '<div class="legacy-reason"><strong>POR QUE SAIU</strong><p>'+esc(a.reason)+'</p></div>'+
+      '<div class="legacy-destination"><strong>FOI PARA UM LUGAR MELHOR</strong><p>'+esc(a.destination)+'</p></div>'+
+      '</article>';
+  }).join(''):emptyMessage('Nenhum agente descontinuado corresponde à busca.');
+  const count=$('#legacy-count');if(count)count.textContent=pad(list.length)+' fichas no arquivo';
+  const more=$('#legacy-more');
+  if(more){
+    more.hidden=list.length<=6||!!state.query;
+    more.setAttribute('aria-expanded',String(state.legacyExpanded));
+    more.innerHTML=state.legacyExpanded?'Recolher arquivo <span aria-hidden="true">↑</span>':'Ver as '+pad(list.length)+' fichas <span aria-hidden="true">↓</span>';
+  }
+}
+function initLegacy(){
+  const more=$('#legacy-more');if(!more)return;
+  more.addEventListener('click',()=>{
+    state.legacyExpanded=!state.legacyExpanded;
+    renderLegacy();
+    if(!state.legacyExpanded)$('#legado')?.scrollIntoView({block:'start',behavior:prefersReducedMotion.matches?'instant':'smooth'});
+  });
 }
 function initTeamDirectory(){
   const selector=$('#agent-area');
@@ -356,7 +379,7 @@ async function start(){
     if(!Array.isArray(d.products)||!Array.isArray(d.fronts)||!Array.isArray(d.groups))throw Error('Estrutura inválida');
     state.data=d;
     $('#date-reviewed').textContent=String(d.updated||'2026-11-18').split('-').reverse().join('/');
-    initTeamDirectory();renderProducts();renderResearch();renderAgents();renderLegacy();
+    initTeamDirectory();initLegacy();renderProducts();renderResearch();renderAgents();renderLegacy();
   }catch(err){
     console.error('Soft Wild: dados editoriais indisponíveis',err);
     for(const id of ['track-prototypes','track-futures','track-agents','research-grid','progress-fronts']){
