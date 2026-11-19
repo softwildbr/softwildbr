@@ -416,10 +416,15 @@ async function start(){
     initTeamDirectory();initLegacy();renderProducts();renderResearch();renderAgents();renderLegacy();
   }catch(err){
     console.error('Soft Wild: dados editoriais indisponíveis',err);
-    for(const id of ['track-prototypes','track-futures','track-agents','research-grid','progress-fronts']){
-      const target=document.getElementById(id);if(target)target.innerHTML=emptyMessage('Não foi possível carregar o catálogo. Consulte o repositório público no GitHub.');
+    // Mantém os 20 cards e o memorial já presentes no HTML estático quando o JSON falha.
+    // Uma falha de rede não deve ocultar o elenco da Soft Wild.
+    for(const id of ['track-prototypes','track-futures','research-grid','progress-fronts']){
+      const target=document.getElementById(id);
+      if(target)target.innerHTML=emptyMessage('Não foi possível carregar esta seção do catálogo. Consulte o repositório público no GitHub.');
     }
-    $('#catalog-notice').textContent='O conteúdo estruturado está temporariamente indisponível.';
+    const target=document.getElementById('track-agents');
+    if(target&&!target.querySelector('.agent-card'))target.innerHTML=emptyMessage('Não foi possível carregar os agentes.');
+    const note=$('#catalog-notice');if(note)note.textContent='O catálogo interativo está temporariamente indisponível. O elenco e o memorial continuam visíveis nesta página.';
   }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
