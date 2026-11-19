@@ -786,3 +786,13 @@ section{scroll-margin-top:88px}
 @media(max-width:600px){
   .legacy-card-head .legacy-photo{width:70px;height:82px;flex-basis:70px}
 }
+
+/* Memorial horizontal: mesmos controles e comportamento dos agentes ativos. */
+.legacy-section .legacy-grid.legacy-track{display:flex;flex-wrap:nowrap;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 2px 18px}
+.legacy-section .legacy-grid.legacy-track::-webkit-scrollbar{display:none}
+.legacy-section .legacy-track .legacy-card{flex:0 0 232px;width:232px;min-height:420px;scroll-snap-align:start}
+.legacy-carousel-heading{margin:18px 0 14px}
+.legacy-section .legacy-carousel-heading h3{margin:4px 0 0;font-size:clamp(20px,2.4vw,28px)}
+@media(max-width:1130px){.legacy-section .legacy-grid.legacy-track{display:flex;grid-template-columns:none}}
+@media(max-width:600px){.legacy-section .legacy-grid.legacy-track{display:flex;grid-template-columns:none}.legacy-section .legacy-track .legacy-card{flex-basis:207px;width:207px}.legacy-carousel-heading{align-items:flex-start;gap:12px;flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){.legacy-section .legacy-grid.legacy-track{scroll-behavior:auto}}
