@@ -152,6 +152,31 @@ function bindAgentDetails(root){
     if(dialog?.showModal)dialog.showModal();
   }));
 }
+function buildAgentDots(){
+  const track=$('#track-agents'),holder=$('#agent-dots');
+  if(!track||!holder)return;
+  const cards=track.querySelectorAll('.agent-card');
+  const pages=cards.length?Math.min(9,Math.max(1,Math.ceil(track.scrollWidth/Math.max(track.clientWidth,1)))):0;
+  if(holder.childElementCount!==pages){
+    holder.innerHTML=Array.from({length:pages},(_,i)=>
+      '<button type="button" data-agent-page="'+i+'" aria-label="Ver região '+(i+1)+' de '+pages+' do carrossel de agentes" aria-current="false"></button>'
+    ).join('');
+    $('button[data-agent-page]',holder).forEach((b,i)=>b.addEventListener('click',()=>{
+      const max=Math.max(0,track.scrollWidth-track.clientWidth);
+      track.scrollTo({left:pages>1?max*i/(pages-1):0,behavior:prefersReducedMotion.matches?'auto':'smooth'});
+    }));
+  }
+  holder.hidden=pages<=1;
+  updateAgentDots();
+}
+function updateAgentDots(){
+  const track=$('#track-agents'),holder=$('#agent-dots');
+  if(!track||!holder)return;
+  const dots=$('button[data-agent-page]',holder);
+  const max=Math.max(0,track.scrollWidth-track.clientWidth);
+  const current=dots.length>1&&max>0?Math.round(track.scrollLeft/max*(dots.length-1)):0;
+  dots.forEach((b,i)=>b.setAttribute('aria-current',String(i===current)));
+}
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
@@ -160,7 +185,7 @@ function renderAgents(){
   root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
   const count=$('#count-agents');if(count)count.textContent=list.length;
   bindAgentDetails(root);
-  root.scrollLeft=0;updateTrack('agents');
+  root.scrollLeft=0;buildAgentDots();updateTrack('agents');
   if(state.directoryOpen)renderDirectory();
 }
 function renderDirectory(){
@@ -233,6 +258,7 @@ function updateTrack(which){
   const progress=$('#progress-'+which);
   const fraction=track.scrollWidth>0?Math.min(1,(track.scrollLeft+track.clientWidth)/track.scrollWidth):1;
   if(progress)progress.style.width=Math.max(4,100*fraction)+'%';
+  if(which==='agents')updateAgentDots();
   $$('button.slide-arrow[data-for="'+which+'"]').forEach(btn=>{
     btn.disabled=total===0||(btn.dataset.dir==="-1"?track.scrollLeft<3:track.scrollLeft>=track.scrollWidth-track.clientWidth-3);
   });
@@ -251,7 +277,7 @@ function activateCarousels(){
     });
   });
   $$('.slide-arrow').forEach(btn=>btn.addEventListener('click',()=>scrollTrack(btn.dataset.for,Number(btn.dataset.dir))));
-  window.addEventListener('resize',()=>Object.keys(tracks).forEach(updateTrack),{passive:true});
+  window.addEventListener('resize',()=>{buildAgentDots();Object.keys(tracks).forEach(updateTrack);},{passive:true});
 }
 function scrollTrack(which,dir){
   const track=$(tracks[which]);if(!track)return;
