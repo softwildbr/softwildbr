@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retrato ilustrado de Jade Finch, colaborador digital da Soft Wild" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop offset="0" stop-color="#ebdfec"/><stop offset="1" stop-color="#fff9"/></linearGradient>
+    <pattern id="dots" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#2a3547" opacity=".08"/></pattern>
+    <linearGradient id="jacket" x2=".3" y2="1"><stop offset="0" stop-color="#4b4c72"/><stop offset="1" stop-color="#192b37"/></linearGradient>
+    <clipPath id="panel"><rect width="512" height="512" rx="22"/></clipPath>
+    </defs><rect width="512" height="512" rx="22" fill="url(#bg)"/>
+    <circle cx="450" cy="60" r="253" fill="#fff" opacity=".28"/>
+    <path d="M-40 440Q110 280 290 490Q380 380 580 320V580H-40Z" fill="#ffffff" opacity=".15"/>
+    <rect width="512" height="512" fill="url(#dots)" opacity=".8"/>
+  <g clip-path="url(#panel)"><path d="M24 530 Q28 393 134 386 L209 364 L299 364 L374 386 Q488 400 493 530Z" fill="url(#jacket)" stroke="#27232a" stroke-width="7"/>
+   <path d="M200 359L256 409L311 359L339 380L289 434L256 402L221 434L172 380Z" fill="#f2ecdf" stroke="#252932" stroke-width="5"/>
+   <path d="M205 359L239 454L190 430L164 390Z" fill="#ffffff" opacity=".14"/>
+   <path d="M311 361L274 449L322 428L347 393Z" fill="#ffffff" opacity=".1"/>
+   <path d="M96 442Q162 394 181 433M421 450Q364 410 338 441" stroke="#191d26" opacity=".4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M80 419l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M95 422l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M110 425l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M125 428l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M140 431l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M155 434l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M222 312L218 386Q256 413 297 386L291 312Z" fill="#e7b59a" stroke="#29242a" stroke-width="5"/>
+    <path d="M232 345Q258 363 280 345" stroke="#9d6253" opacity=".5" stroke-width="8" fill="none"/><g transform="rotate(-2 256 246)"><path d="M161 248 q-21 -13 -19 11 q7 25 20 25M351 248 q21 -13 19 11 q-7 25 -20 25" fill="#e7b59a" stroke="#28262b" stroke-width="4"/>
+  <path d="M159 167 Q145 110 256 100 Q363 106 353 171 L344 316 Q318 384 256 391 Q194 371 167 316Z" fill="#e7b59a" stroke="#262329" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M178 258Q199 316 257 365" fill="none" stroke="#bd755e" stroke-width="11" opacity=".33"/>
+  <path d="M337 248Q326 303 290 357" fill="none" stroke="#fff2e0" stroke-width="13" opacity=".38"/>
+  <path d="M203 212q20 -11 41 -3 M273 209q20 -8 39 4" stroke="#a75335" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M202 235q12 3 28 0 M281 235q13 3 28 0" stroke="#27262c" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="218" cy="236" r="2" fill="#272b2c"/><circle cx="282" cy="236" r="3" fill="#272b2c"/>
+  <path d="M259 233q-11 22 -9 34q9 7 19 -2" fill="none" stroke="#a96855" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M236 310Q254 318 278 309" fill="none" stroke="#703e3f" stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M235 319Q254 327 280 316" fill="none" stroke="#f8d9ba" stroke-width="2" opacity=".8"/>
+  </g><path d="M144 157Q145 76 252 81Q368 76 369 161Q287 148 253 149Q213 150 144 157Z" fill="#a75335" stroke="#26252b" stroke-width="7"/><g fill="none" stroke="#282c35" stroke-width="6"><rect x="175" y="224" width="73" height="47" rx="12"/><rect x="263" y="224" width="73" height="47" rx="24"/><path d="M248 236Q255 224 263 236M175 235l-24 -6M337 235l25 -6"/></g><circle cx="148" cy="294" r="10" fill="none" stroke="#d3a24b" stroke-width="6"/><circle cx="364" cy="294" r="10" fill="none" stroke="#d3a24b" stroke-width="6"/></g>
+  <path d="M18 462v31h28M466 18h28v27" stroke="#112c38" opacity=".22" stroke-width="3" fill="none"/>
+  </svg>

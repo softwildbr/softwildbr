@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retrato ilustrado de Alex Dolphin, colaborador digital da Soft Wild" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop offset="0" stop-color="#f4dfd5"/><stop offset="1" stop-color="#fff9"/></linearGradient>
+    <pattern id="dots" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#2a3547" opacity=".08"/></pattern>
+    <linearGradient id="jacket" x2=".3" y2="1"><stop offset="0" stop-color="#4b4c72"/><stop offset="1" stop-color="#192b37"/></linearGradient>
+    <clipPath id="panel"><rect width="512" height="512" rx="22"/></clipPath>
+    </defs><rect width="512" height="512" rx="22" fill="url(#bg)"/>
+    <circle cx="450" cy="420" r="285" fill="#fff" opacity=".28"/>
+    <path d="M-40 440Q110 280 290 490Q380 380 580 320V580H-40Z" fill="#ffffff" opacity=".15"/>
+    <rect width="512" height="512" fill="url(#dots)" opacity=".8"/>
+  <g clip-path="url(#panel)"><path d="M24 530 Q28 393 134 386 L209 364 L299 364 L374 386 Q488 400 493 530Z" fill="url(#jacket)" stroke="#27232a" stroke-width="7"/>
+   <path d="M200 359L256 409L311 359L339 380L289 434L256 402L221 434L172 380Z" fill="#f2ecdf" stroke="#252932" stroke-width="5"/>
+   <path d="M205 359L239 454L190 430L164 390Z" fill="#ffffff" opacity=".14"/>
+   <path d="M311 361L274 449L322 428L347 393Z" fill="#ffffff" opacity=".1"/>
+   <path d="M96 442Q162 394 181 433M421 450Q364 410 338 441" stroke="#191d26" opacity=".4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M80 419l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M95 422l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M110 425l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M125 428l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M140 431l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M155 434l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M222 312L218 386Q256 413 297 386L291 312Z" fill="#eac7b0" stroke="#29242a" stroke-width="5"/>
+    <path d="M232 345Q258 363 280 345" stroke="#9d6253" opacity=".5" stroke-width="8" fill="none"/><g transform="rotate(1 256 246)"><path d="M173 239 q-21 -13 -19 11 q7 25 20 25M339 239 q21 -13 19 11 q-7 25 -20 25" fill="#eac7b0" stroke="#28262b" stroke-width="4"/>
+  <path d="M171 163 Q157 106 256 96 Q351 102 341 167 L332 300 Q318 368 256 375 Q194 355 179 300Z" fill="#eac7b0" stroke="#262329" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M190 258Q211 300 257 349" fill="none" stroke="#bd755e" stroke-width="11" opacity=".33"/>
+  <path d="M325 248Q314 287 290 341" fill="none" stroke="#fff2e0" stroke-width="13" opacity=".38"/>
+  <path d="M203 216q20 -11 41 -3 M273 213q20 -8 39 4" stroke="#211c21" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M202 226q12 7 28 0 M281 226q13 7 28 0" stroke="#27262c" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="215" cy="227" r="3" fill="#4f4735"/><circle cx="283" cy="227" r="2" fill="#4f4735"/>
+  <path d="M259 234q-11 22 -9 34q9 7 19 -2" fill="none" stroke="#a96855" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M236 309Q254 317 278 308" fill="none" stroke="#703e3f" stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M235 318Q254 326 280 315" fill="none" stroke="#f8d9ba" stroke-width="2" opacity=".8"/>
+  </g><path d="M186 264Q194 339 256 372Q317 340 325 263Q311 322 255 344Q203 316 186 264Z" fill="#211c21" opacity=".91"/>
+    <path d="M231 309q26 11 51 0" stroke="#211c21" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M156 157Q157 76 252 81Q356 76 357 161Q287 148 253 149Q213 150 156 157Z" fill="#211c21" stroke="#26252b" stroke-width="7"/><g fill="none" stroke="#282c35" stroke-width="6"><rect x="187" y="215" width="73" height="47" rx="24"/><rect x="251" y="215" width="73" height="47" rx="12"/><path d="M260 227Q255 215 251 227M187 226l-24 -6M325 226l25 -6"/></g></g>
+  <path d="M18 462v31h28M466 18h28v27" stroke="#112c38" opacity=".22" stroke-width="3" fill="none"/>
+  </svg>

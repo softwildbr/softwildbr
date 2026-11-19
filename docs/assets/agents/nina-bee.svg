@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Retrato ilustrado de Nina Bee, colaborador digital da Soft Wild" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop offset="0" stop-color="#dfebdc"/><stop offset="1" stop-color="#fff9"/></linearGradient>
+    <pattern id="dots" width="13" height="13" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#2a3547" opacity=".08"/></pattern>
+    <linearGradient id="jacket" x2=".3" y2="1"><stop offset="0" stop-color="#163e51"/><stop offset="1" stop-color="#192b37"/></linearGradient>
+    <clipPath id="panel"><rect width="512" height="512" rx="22"/></clipPath>
+    </defs><rect width="512" height="512" rx="22" fill="url(#bg)"/>
+    <circle cx="80" cy="150" r="247" fill="#fff" opacity=".28"/>
+    <path d="M-40 440Q110 280 290 490Q380 380 580 320V580H-40Z" fill="#ffffff" opacity=".15"/>
+    <rect width="512" height="512" fill="url(#dots)" opacity=".8"/>
+  <g clip-path="url(#panel)"><path d="M24 530 Q28 393 134 386 L209 364 L299 364 L374 386 Q488 400 493 530Z" fill="url(#jacket)" stroke="#27232a" stroke-width="7"/>
+   <path d="M200 359L256 409L311 359L339 380L289 434L256 402L221 434L172 380Z" fill="#f2ecdf" stroke="#252932" stroke-width="5"/>
+   <path d="M205 359L239 454L190 430L164 390Z" fill="#ffffff" opacity=".14"/>
+   <path d="M311 361L274 449L322 428L347 393Z" fill="#ffffff" opacity=".1"/>
+   <path d="M96 442Q162 394 181 433M421 450Q364 410 338 441" stroke="#191d26" opacity=".4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M80 419l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M95 422l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M110 425l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M125 428l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M140 431l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M155 434l17 -10" stroke="#091b2b" stroke-width="2" opacity=".22"/><path d="M222 312L218 386Q256 413 297 386L291 312Z" fill="#b88568" stroke="#29242a" stroke-width="5"/>
+    <path d="M232 345Q258 363 280 345" stroke="#9d6253" opacity=".5" stroke-width="8" fill="none"/><path d="M152 210Q119 83 253 69Q394 91 361 202L372 387Q340 440 308 362L192 377Q130 451 139 360Z" fill="#211c21" stroke="#23212a" stroke-width="8"/><g transform="rotate(-4 256 246)"><path d="M169 248 q-21 -13 -19 11 q7 25 20 25M343 248 q21 -13 19 11 q-7 25 -20 25" fill="#b88568" stroke="#28262b" stroke-width="4"/>
+  <path d="M167 171 Q153 114 256 104 Q355 110 345 175 L336 294 Q318 362 256 369 Q194 349 175 294Z" fill="#b88568" stroke="#262329" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M186 258Q207 294 257 343" fill="none" stroke="#bd755e" stroke-width="11" opacity=".33"/>
+  <path d="M329 248Q318 281 290 335" fill="none" stroke="#fff2e0" stroke-width="13" opacity=".38"/>
+  <path d="M203 210q20 -11 41 -3 M273 207q20 -8 39 4" stroke="#211c21" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M202 235q12 7 28 0 M281 235q13 7 28 0" stroke="#27262c" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="214" cy="236" r="3" fill="#4f4735"/><circle cx="284" cy="236" r="4" fill="#4f4735"/>
+  <path d="M259 232q-11 22 -9 34q9 7 19 -2" fill="none" stroke="#a96855" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M236 309Q254 317 278 308" fill="none" stroke="#703e3f" stroke-width="4.4" stroke-linecap="round"/>
+  <path d="M235 318Q254 326 280 315" fill="none" stroke="#f8d9ba" stroke-width="2" opacity=".8"/>
+  </g><ellipse cx="339" cy="90" rx="47" ry="44" fill="#211c21" stroke="#24242b" stroke-width="7"/>
+    <path d="M152 172Q139 82 258 81Q363 91 353 175Q298 129 245 153Q211 156 152 172Z" fill="#211c21" stroke="#27232c" stroke-width="7"/><g fill="none" stroke="#282c35" stroke-width="6"><rect x="183" y="224" width="73" height="47" rx="12"/><rect x="255" y="224" width="73" height="47" rx="12"/><path d="M256 236Q255 224 255 236M183 235l-24 -6M329 235l25 -6"/></g><circle cx="156" cy="294" r="10" fill="none" stroke="#d3a24b" stroke-width="6"/><circle cx="356" cy="294" r="10" fill="none" stroke="#d3a24b" stroke-width="6"/></g>
+  <path d="M18 462v31h28M466 18h28v27" stroke="#112c38" opacity=".22" stroke-width="3" fill="none"/>
+  </svg>

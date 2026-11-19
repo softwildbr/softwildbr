@@ -37,6 +37,9 @@ const researchIcons=['⌘','▧','✳','⬡','♫','♧','◈','◌','↗','▤'
 const state={data:null,category:'todos',query:'',team:null,directoryOpen:false};
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const tracks={prototypes:'#track-prototypes',futures:'#track-futures',agents:'#track-agents'};
+const autoplayState=Object.fromEntries(Object.keys(tracks).map(name=>[name,{
+  paused:prefersReducedMotion.matches,visible:false,hover:false,focus:false,touch:false
+}]));
 
 function classify(p){
   return productArt[p.name]||['pesquisa',p.stage==='concept'?'PESQUISA · CONCEITO':'LAB · EXPERIMENTO','✳','teal'];
@@ -112,25 +115,38 @@ function spritePosition(index){
   return (index%5)*25+'% '+Math.floor(index/5)*100+'%';
 }
 function agentVisual(a){
-  const index=featuredNames.indexOf(a.name);
-  if(index>=0){
-    return '<div class="agent-portrait is-illustrated" role="img" aria-label="Retrato editorial ilustrado do agente de IA '+esc(a.name)+'" style="background-position:'+spritePosition(index)+'"></div>';
-  }
-  const initials=a.name.split(' ').slice(0,2).map(x=>x.charAt(0)).join('');
-  return '<div class="agent-portrait initials" aria-label="Monograma para o agente de IA '+esc(a.name)+'" role="img"><span class="agent-initials" aria-hidden="true">'+esc(initials)+'</span></div>';
+  const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  return '<img class="agent-portrait agent-svg" src="./assets/agents/'+slug+'.svg" alt="Retrato ilustrado do colaborador digital '+esc(a.name)+'" width="512" height="512" loading="lazy" decoding="async">';
 }
 function agentTile(a){
-  return '<article class="agent-card">'+agentVisual(a)+
-     '<div class="agent-caption"><h4>'+esc(a.name)+'</h4>'+
-     '<div class="agent-role">'+esc(a.role)+'</div>'+
-     '<p class="agent-description">'+esc(a.description)+'</p><span class="agent-badge">AGENTE DE IA</span></div></article>';
+ const idx=state.data.groups.flatMap(g=>g.agents).indexOf(a);
+ return '<article class="agent-card">'+agentVisual(a)+
+   '<div class="agent-caption"><h4>'+esc(a.name)+'</h4>'+
+   '<div class="agent-role">'+esc(a.role)+'</div>'+
+   '<p class="agent-description">'+esc(a.description)+'</p>'+
+   '<span class="agent-badge">COLABORADOR · AGENTE DE IA</span>'+
+   '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Conhecer o trabalho de '+esc(a.name)+'">O que faz <span aria-hidden="true">↗</span></button>'+
+   '</div></article>';
+}
+function bindAgentDetails(root){
+ $$('button[data-agent]',root).forEach(button=>button.addEventListener('click',()=>{
+   const person=state.data.groups.flatMap(g=>g.agents)[Number(button.dataset.agent)];
+   if(!person)return;
+   $('#detail-content').innerHTML='<span class="dialog-kicker">COLABORADOR DIGITAL · AGENTE DE IA</span>'+
+     '<h2 id="detail-title">'+esc(person.name)+'</h2>'+
+     '<div class="dialog-data"><span>ÁREA DE ATUAÇÃO</span>'+esc(person.role)+'</div>'+
+     '<p>'+esc(person.description)+'</p>'+
+     '<p class="dialog-note">Perfil editorial de um agente de IA da Soft Wild. A configuração operacional e a autonomia de cada especialidade devem ser verificadas antes de afirmar que executam tarefas autonomamente.</p>';
+   $('#detail-dialog').showModal();
+ }));
 }
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
   const list=ordered.filter(a=>matches([a.name,a.role,a.description],state.query));
   const root=$('#track-agents');
-  root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum agente corresponde à busca.');
+  root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
+  bindAgentDetails(root);
   root.scrollLeft=0;updateTrack('agents');
   if(state.directoryOpen)renderDirectory();
 }
@@ -138,9 +154,9 @@ function renderDirectory(){
   const groups=state.team==='todos'?state.data.groups:[state.data.groups[Number(state.team)]];
   const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description],state.query));
   $('#directory-grid').innerHTML=list.length?list.map(a=>{
-    const initials=a.name.split(' ').slice(0,2).map(x=>x.charAt(0)).join('');
-    return '<article class="directory-item"><div class="directory-image" aria-hidden="true">'+esc(initials)+'</div><div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
-      '<small>'+esc(a.role)+' · AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>';
+    const slug=normalize(a.name).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    return '<article class="directory-item"><img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado do colaborador digital '+esc(a.name)+'" src="./assets/agents/'+slug+'.svg"><div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
+      '<small>'+esc(a.role)+' · COLABORADOR DIGITAL / AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>';
   }).join(''):emptyMessage('Nenhum agente neste filtro.');
 }
 function initTeamDirectory(){
@@ -197,6 +213,60 @@ function scrollTrack(which,dir){
   const delta=first.getBoundingClientRect().width+gap;
   track.scrollBy({left:delta*dir,behavior:prefersReducedMotion.matches?'auto':'smooth'});
 }
+/* Autoplay: never overrides manual pause, focus, touch or reduced-motion preference.
+   The timer does not advance tracks outside the viewport or in a hidden tab. */
+function setupAutoplay(){
+  const observer=('IntersectionObserver' in window)
+    ?new IntersectionObserver(entries=>entries.forEach(entry=>{
+       const name=entry.target.dataset.track;
+       if(autoplayState[name])autoplayState[name].visible=entry.isIntersecting;
+     }),{threshold:.12}):null;
+  for(const name of Object.keys(tracks)){
+    const track=$(tracks[name]);const s=autoplayState[name];
+    track.dataset.track=name;
+    s.visible=observer?false:true;
+    if(observer)observer.observe(track);
+    const pauseButton=$('button.autoplay-toggle[data-auto="'+name+'"]');
+    const label=name==='agents'?'colaboradores':(name==='prototypes'?'produtos':'ideias futuras');
+    const refresh=()=>{
+      if(!pauseButton)return;
+      pauseButton.textContent=s.paused?'▶':'Ⅱ';
+      pauseButton.setAttribute('aria-pressed',String(s.paused));
+      pauseButton.setAttribute('aria-label',(s.paused?'Iniciar':'Pausar')+' autoplay de '+label);
+      pauseButton.title=(s.paused?'Reproduzir':'Pausar')+' carrossel de '+label;
+    };
+    refresh();
+    pauseButton?.addEventListener('click',()=>{s.paused=!s.paused;refresh()});
+    track.addEventListener('pointerenter',()=>{s.hover=true});
+    track.addEventListener('pointerleave',()=>{s.hover=false});
+    track.addEventListener('focusin',()=>{s.focus=true});
+    track.addEventListener('focusout',ev=>{if(!track.contains(ev.relatedTarget))s.focus=false});
+    track.addEventListener('touchstart',()=>{s.touch=true},{passive:true});
+    track.addEventListener('touchend',()=>{s.touch=false},{passive:true});
+    track.addEventListener('touchcancel',()=>{s.touch=false},{passive:true});
+    const interval=name==='agents'?4300:5000;
+    setInterval(()=>{
+      if(!state.data||document.hidden||!s.visible||s.paused||s.hover||s.focus||s.touch)return;
+      if($('#detail-dialog')?.open)return;
+      const cards=track.querySelectorAll(name==='agents'?'.agent-card':'.experiment-card');
+      if(cards.length<2||track.scrollWidth<=track.clientWidth+4)return;
+      const gap=parseFloat(getComputedStyle(track).gap||'0');
+      const delta=cards[0].getBoundingClientRect().width+gap;
+      const atEnd=track.scrollLeft>=track.scrollWidth-track.clientWidth-4;
+      if(atEnd)track.scrollTo({left:0,behavior:'auto'});
+      else track.scrollBy({left:delta,behavior:'smooth'});
+    },interval);
+  }
+  prefersReducedMotion.addEventListener?.('change',ev=>{
+    if(ev.matches){
+      for(const name of Object.keys(tracks)){
+        autoplayState[name].paused=true;
+        const button=$('button.autoplay-toggle[data-auto="'+name+'"]');
+        if(button){button.textContent='▶';button.setAttribute('aria-pressed','true');button.setAttribute('aria-label','Iniciar autoplay de '+name);}
+      }
+    }
+  });
+}
 function wireNavigation(){
   const menu=$('#menu-toggle'),nav=$('#main-nav');
   menu.addEventListener('click',()=>{
@@ -236,7 +306,7 @@ function wireNavigation(){
   dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
 }
 async function start(){
-  wireNavigation();activateCarousels();
+  wireNavigation();activateCarousels();setupAutoplay();
   try{
     const res=await fetch('./data/content.json',{cache:'no-store'});
     if(!res.ok)throw Error('Falha de acesso ao catálogo: HTTP '+res.status);
