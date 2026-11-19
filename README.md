@@ -1,16 +1,27 @@
-# SOFT WILD
+<p align="center">
+  <img src="assets/softwild-banner-minimal.svg" alt="Soft Wild — assinatura tipográfica em fundo branco" width="100%" />
+</p>
 
-*Software, hardware e outras invenções que não cabem muito bem numa categoria.*
+<h2 align="center">Se for pra fazer mais do mesmo, agente nem faz.</h2>
 
-> **Se for pra fazer mais do mesmo, agente nem faz.**
+<p align="center"><strong>Software · Hardware · IA · Design · Outras invenções.</strong></p>
 
-**Código, circuitos, design e fabricação digital.**
+<p align="center">
+  <a href="#manifesto">Manifesto</a> ·
+  <a href="#sinais-do-futuro">Sinais do futuro</a> ·
+  <a href="#o-que-investigamos">Pesquisa</a> ·
+  <a href="#coisas-que-estamos-construindo">Produtos</a> ·
+  <a href="#pesquisa-em-andamento">Progresso</a> ·
+  <a href="#a-gente-e-os-agentes">Time</a>
+</p>
+
+<p align="center"><sub>Experimentos nas fronteiras entre pessoas, máquinas e cultura.</sub></p>
 
 ---
 
 ## Manifesto
 
-O óbvio já tem gente demais fazendo.
+> **O óbvio já tem gente demais fazendo.**
 
 A gente pesquisa, desmonta, combina e testa. Um produto pode começar em software, encontrar um circuito, ganhar forma numa impressora 3D ou simplesmente inventar outro jeito de usar algo que já existia. Algumas criações resolvem problemas. Outras divertem ou surpreendem. E algumas simplesmente merecem existir.
 
@@ -20,7 +31,7 @@ A tecnologia deveria ampliar a imaginação — não reduzir o futuro a uma cóp
 
 ## Sinais do futuro
 
-*Ideias que surgem quando cruzamos pesquisas diferentes. Não são previsões nem funcionalidades anunciadas.*
+*Seis perguntas nascidas do cruzamento entre pesquisas. Não são profecias nem produtos anunciados.*
 
 **01 · A próxima interface talvez dure apenas um segundo.** Uma interação útil, no momento certo, pode valer mais que um aplicativo inteiro.
 
@@ -43,7 +54,13 @@ São sínteses editoriais fundamentadas em pesquisas internas de IHC, maker, IA,
 
 ## O que investigamos
 
-Interação humano–máquina · Experiência do usuário · Software e sistemas · IA e agentes · Eletrônica · Fabricação digital · Comunidades e comportamento · Música e percepção · Cultura maker · Experiências em espaços físicos
+| Pessoas e interfaces | Máquinas e sistemas | Cultura e novos espaços |
+| :--- | :--- | :--- |
+| **Interação humano–máquina** | **Software e Android** | **Comunidades e relações** |
+| **UX, UI e acessibilidade** | **Inteligência artificial e agentes** | **Música, percepção e memória** |
+| **Cognição e comportamento** | **Eletrônica e fabricação digital** | **Shopping centers e espaços híbridos** |
+
+<sub>Da pesquisa de gestos aos sistemas embarcados; de histórias entre desconhecidos a serviços que conectam lojas e visitantes.</sub>
 
 <details>
 <summary><strong>Abrir as 10 frentes de pesquisa</strong></summary>
@@ -72,7 +89,7 @@ Interação humano–máquina · Experiência do usuário · Software e sistemas
 
 ## Coisas que estamos construindo
 
-*Projetos de pesquisa e protótipos. Nem tudo é produto lançado, e nem tudo vai virar um.*
+**Não fazemos um catálogo de promessas.** Alguns projetos já têm código; outros são experimentos, e nem todos irão virar produtos. Conheça as frentes mais adiantadas.
 
 | Projeto | O que explora | Situação |
 | --- | --- | --- |
@@ -133,7 +150,7 @@ Interação humano–máquina · Experiência do usuário · Software e sistemas
 
 ## Pesquisa em andamento
 
-A gente prefere mostrar um avanço verificável a uma barra de porcentagem inventada.
+*Última revisão documental: 18/11/2026.* Preferimos mostrar **evidências e próximos passos** a porcentagens inventadas.
 
 | Frente | Progresso documental em 18/11/2026 | Próximo marco |
 | --- | --- | --- |
@@ -148,7 +165,7 @@ A gente prefere mostrar um avanço verificável a uma barra de porcentagem inven
 
 ## A gente. E os agentes.
 
-**A gente faz com agentes. Os agentes fazem com a gente.**
+> **A gente faz com agentes. Os agentes fazem com a gente.**
 
 Aqui, “a gente” é o trabalho lado a lado entre Müller e ChatGPT, com a contribuição de agentes de IA especializados. A direção é humana; os agentes são identificados como IA. A colaboração com ChatGPT não constitui sociedade jurídica.
 
@@ -396,7 +413,7 @@ Organiza fontes e comparações A/B/C por empreendimento; controla escopo, diver
 
 ---
 
-### SOFT WILD
+<p align="center"><strong>SOFT WILD</strong></p>
 
-*Se for pra fazer mais do mesmo, agente nem faz.*
+<p align="center"><em>Se for pra fazer mais do mesmo, agente nem faz.</em></p>
 
