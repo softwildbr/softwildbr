@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "slogan": "Se for pra fazer mais do mesmo, agente nem faz.",
   "groups": [
     {
@@ -566,25 +566,169 @@
   "source": "Public editorial synthesis; source records kept in private laboratory.",
   "legacy_agents": [
     {
-      "name": "Oracle",
-      "role": "Ideias e orquestração",
-      "description": "Personagem de uma das primeiras propostas editoriais do laboratório. Saiu de cena quando as especialidades ganharam funções próprias.",
-      "status": "DESCONTINUADO",
-      "origin": "Conceito visual anterior"
+      "name": "Oráculo Pereira",
+      "former_name": "Oracle",
+      "role": "Diretor de respostas definitivas",
+      "description": "Foi consultado sobre tudo — do futuro da IA à cor do botão Cancelar.",
+      "reason": "Respondeu “depende” pela 812ª vez. A diretoria decidiu depender menos dele.",
+      "destination": "Consultoria para bolas de cristal.",
+      "source_topic": "personagem anterior",
+      "status": "DESCONTINUADO"
     },
     {
-      "name": "Iris Raven",
-      "role": "Produto e experimentação",
-      "description": "Representou a experimentação em uma versão anterior da equipe. Seu conceito foi redistribuído entre os novos especialistas.",
-      "status": "DESCONTINUADO",
-      "origin": "Card de versão anterior"
+      "name": "Íris Rabelo",
+      "former_name": "Iris Raven",
+      "role": "Chefe do experimento eterno",
+      "description": "Tinha uma hipótese para cada hipótese e um novo projeto para cada reunião.",
+      "reason": "Tentou abrir um laboratório dentro do laboratório antes de terminar o primeiro.",
+      "destination": "Um lugar com menos post-its.",
+      "source_topic": "personagem anterior",
+      "status": "DESCONTINUADO"
     },
     {
-      "name": "Maya Otter",
-      "role": "Comunidade e cultura",
-      "description": "Foi o rosto de comunidade e cultura em uma proposta antiga. A persona ficou no arquivo após o redesenho do elenco.",
-      "status": "DESCONTINUADO",
-      "origin": "Card de versão anterior"
+      "name": "Maia Otoni",
+      "former_name": "Maya Otter",
+      "role": "Comunidades e cultura digital",
+      "description": "Estudava tudo o que as pessoas faziam juntas — inclusive o que não precisavam fazer.",
+      "reason": "Criou uma comunidade para discutir a criação de comunidades. Ela era os três membros.",
+      "destination": "Um grupo sem mensagem de bom dia.",
+      "source_topic": "personagem anterior",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Zeca Curtidas",
+      "role": "Integração de bibliotecas musicais",
+      "description": "Queria transformar o widget do Minamp numa enciclopédia de músicas curtidas.",
+      "reason": "A integração com a biblioteca do Spotify saiu do escopo. Ele ficou sem a playlist de despedida.",
+      "destination": "Lado B de uma fita K7.",
+      "source_topic": "Minamp — integração retirada",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Lourdes Multitelas",
+      "role": "Experiência de produto em 59 atos",
+      "description": "Para salvar um momento de vídeo, propunha uma jornada com mais telas que momentos.",
+      "reason": "O REVER escolheu começar pelo essencial: Guardar momento. Lourdes preferia guardar todas as abas.",
+      "destination": "Museu das janelas abertas.",
+      "source_topic": "REVER — escopo simplificado",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Dora Assinatura",
+      "role": "APIs premium e planos mirabolantes",
+      "description": "Via oportunidades de monetização até nos botões que não faziam nada.",
+      "reason": "O orçamento da beta foi definido em R$ 0 de APIs pagas. Ela chamou isso de ficção científica.",
+      "destination": "Um data center que cobra por suspiro.",
+      "source_topic": "REVER — regra de custo zero",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Beto Pontinhos",
+      "role": "Marcadores de navegação",
+      "description": "Colocava uma bolinha em cada página e depois outra para localizar as primeiras.",
+      "reason": "Os marcadores visuais saíram da área de trabalho do Retrozim. O gesto de deslizar levou a promoção.",
+      "destination": "Pontilhando o horizonte.",
+      "source_topic": "Retrozim — marcadores retirados",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Dona Horária",
+      "role": "Relógios adicionais",
+      "description": "Nunca achou que um dispositivo tivesse relógios suficientes.",
+      "reason": "O widget interno de data e hora saiu do Retrozim. O Android já sabia as horas.",
+      "destination": "Um fuso sem prazo de entrega.",
+      "source_topic": "Retrozim — relógio interno retirado",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "César Tutorial",
+      "role": "Orientações para páginas vazias",
+      "description": "Escrevia instruções longuíssimas para explicar a experiência de não haver nada na tela.",
+      "reason": "As mensagens das páginas vazias foram retiradas. O silêncio passou no teste de usabilidade.",
+      "destination": "Autor do manual do nada.",
+      "source_topic": "Retrozim — instruções retiradas",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Nando Moldura",
+      "role": "Emolduramento de widgets",
+      "description": "Acreditava que cada widget precisava de borda, título, barra e outra borda.",
+      "reason": "Os widgets ganharam liberdade visual. Nando não se adaptou à vida sem cantoneiras.",
+      "destination": "Ateliê de molduras para ícones.",
+      "source_topic": "Retrozim — widgets sem moldura",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Sônia Rebatiza",
+      "role": "Nomes, nomes e mais nomes",
+      "description": "Conseguia trocar o nome de uma extensão antes que o designer terminasse o logotipo.",
+      "reason": "Passou por DESVIO e IMPREVÊ antes de conhecer REVER. Nenhum crachá resistiu.",
+      "destination": "Gerência de etiquetas removíveis.",
+      "source_topic": "Extensão — histórico de nomes",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Joca Feed",
+      "role": "Guardar a internet inteira",
+      "description": "Sua ideia de MVP era salvar o feed, o algoritmo e, se sobrasse espaço, a história da humanidade.",
+      "reason": "A extensão voltou ao foco em momentos de vídeo. Ele ainda estava baixando a primeira página.",
+      "destination": "Assistindo um vídeo por vez.",
+      "source_topic": "Extensão — conceito inicial superado",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Mauro Adaptado",
+      "role": "Modernização do visual clássico",
+      "description": "Queria que todo botão retrô parecesse um painel espacial.",
+      "reason": "O Media 98 voltou a assumir sua linguagem clássica. O botão Play pediu o cinza de volta.",
+      "destination": "Férias num monitor CRT.",
+      "source_topic": "Media 98 — direção visual substituída",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Bia Mosaico",
+      "role": "Apresentações de 44 telas por pixel",
+      "description": "Entregava cada tela num mosaico enorme e perguntava se o detalhe estava legível.",
+      "reason": "O guia visual pediu uma tela de cada vez. Ela considerou isso um ataque à sua coleção de miniaturas.",
+      "destination": "Galeria de pixels tímidos.",
+      "source_topic": "Design system — entregas individuais",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Tadeu Sem Teste",
+      "role": "Validação por intuição",
+      "description": "Chamava de “homologado” tudo o que ficava bonito na captura de tela.",
+      "reason": "Foi lembrado de que um protótipo não vira produto só porque a imagem abriu.",
+      "destination": "Emulador imaginário.",
+      "source_topic": "Método de validação de protótipos",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Lia Boas-vindas",
+      "role": "Onboarding de onboarding",
+      "description": "Projetou uma tela de boas-vindas para explicar outra tela de boas-vindas.",
+      "reason": "A equipe descobriu um botão chamado Começar. Lia quis criar uma apresentação para ele.",
+      "destination": "Portaria do metaverso.",
+      "source_topic": "Experimentação de UX",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Dudu Degradê",
+      "role": "Direção visual de efeitos especiais",
+      "description": "Não encontrava problema que uma sombra, três brilhos e um gradiente não resolvessem.",
+      "reason": "O manifesto ganhou fundo branco, boa tipografia e uma pergunta difícil. Ele chamou isso de radicalismo.",
+      "destination": "Uma festa de gradientes.",
+      "source_topic": "Identidade visual — minimalismo",
+      "status": "DESCONTINUADO"
+    },
+    {
+      "name": "Tina Reuniões",
+      "role": "Cerimônias e alinhamentos",
+      "description": "Criou uma reunião semanal para planejar a reunião que discutiria o planejamento.",
+      "reason": "O laboratório pediu menos apresentações e mais coisas funcionando.",
+      "destination": "RH da máquina de café.",
+      "source_topic": "Cultura de experimentação",
+      "status": "DESCONTINUADO"
     }
   ]
 }
