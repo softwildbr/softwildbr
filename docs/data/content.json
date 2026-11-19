@@ -11,7 +11,7 @@
           "card_description": "Cruza pesquisas, tendências e concorrentes para orientar escolhas com evidências, não achismos.",
           "description": "Lidera investigação estratégica, benchmarking de produtos, estudo de mercado e verificação de metodologias, vieses e qualidade das fontes.",
           "gender": "F",
-          "portrait_file": "adrian-wolf.svg",
+          "portrait_file": "ana-litica.webp",
           "portrait_target": "ana-litica.webp",
           "visual_brief": "Mulher adulta de cabelo crespo volumoso curto, óculos de armação geométrica, blusa ameixa, fundo pêssego, olhar analítico",
           "responsibilities": [
@@ -26,7 +26,7 @@
           "card_description": "Escuta comunidades, entrevista pessoas e identifica comportamentos que valem ser investigados.",
           "description": "Investiga comunidades digitais, pesquisa qualitativa, cultura maker, movimentos independentes e vínculos; transforma relatos e tendências em hipóteses documentadas.",
           "gender": "M",
-          "portrait_file": "elliot-fox.svg",
+          "portrait_file": "zeca-escuta.webp",
           "portrait_target": "zeca-escuta.webp",
           "visual_brief": "Homem adulto de cabelo encaracolado escuro e barba curta, camisa verde-musgo, fundo azul-pastel, expressão curiosa",
           "responsibilities": [
@@ -47,7 +47,7 @@
           "card_description": "Pesquisa jornadas e acessibilidade para que interfaces sejam claras e possíveis de usar.",
           "description": "Desenha fluxos, estudos de usabilidade, entrevistas de experiência e critérios de interação humano–máquina, acessibilidade e tecnologia assistiva.",
           "gender": "F",
-          "portrait_file": "theo-lynx.svg",
+          "portrait_file": "jana-jornada.webp",
           "portrait_target": "jana-jornada.webp",
           "visual_brief": "Mulher adulta de cabelo negro em tranças médias, jaqueta mostarda, fundo verde-pastel, semblante atento",
           "responsibilities": [
@@ -62,7 +62,7 @@
           "card_description": "Organiza componentes e telas para unir personalidade visual, consistência e legibilidade.",
           "description": "Cuida de design de interfaces, tipografia, composição, hierarquia, bibliotecas de componentes, tokens e documentação responsiva.",
           "gender": "F",
-          "portrait_file": "milan-falcon.svg",
+          "portrait_file": "lia-layout.webp",
           "portrait_target": "lia-layout.webp",
           "visual_brief": "Mulher adulta com bob preto liso e franja, óculos redondos, moletom preto, fundo azul-turquesa claro",
           "responsibilities": [
@@ -76,7 +76,7 @@
           "card_description": "Cria animações e feedback visual que explicam ações e dão ritmo às interfaces.",
           "description": "Planeja transições, microinterações, estados, motion para interfaces e alternativas de movimento reduzido com foco em clareza.",
           "gender": "F",
-          "portrait_file": "vera-heron.svg",
+          "portrait_file": "mara-movimento.webp",
           "portrait_target": "mara-movimento.webp",
           "visual_brief": "Mulher adulta com cabelo vermelho cacheado preso, brincos finos, jaqueta lilás, fundo areia quente",
           "responsibilities": [
@@ -94,7 +94,7 @@
           "card_description": "Conecta código, APIs e sistemas sem deixar a arquitetura virar um labirinto.",
           "description": "Cuida de arquitetura de software, desenvolvimento web, navegadores e extensões, APIs, módulos, contratos e integrações confiáveis.",
           "gender": "M",
-          "portrait_file": "ethan-bear.svg",
+          "portrait_file": "beto-backend.webp",
           "portrait_target": "beto-backend.webp",
           "visual_brief": "Homem adulto de cabelo curto ondulado castanho, barba densa, camisa bege, fundo creme dourado",
           "responsibilities": [
@@ -109,7 +109,7 @@
           "card_description": "Desenvolve interfaces Android e trabalha com permissões, launchers e widgets.",
           "description": "Pesquisa e implementa experiência Android nativa, launchers, widgets, compatibilidade entre dispositivos e restrições do sistema operacional.",
           "gender": "M",
-          "portrait_file": "max-hound.svg",
+          "portrait_file": "andre-androide.webp",
           "portrait_target": "andre-androide.webp",
           "visual_brief": "Homem adulto de cabelo raspado, bigode, jaqueta vermelha retrô, fundo verde água, postura segura",
           "responsibilities": [
@@ -122,7 +122,7 @@
           "card_description": "Protege dados, mede desempenho e encontra falhas antes de elas virarem recurso.",
           "description": "Avalia privacidade, permissões, ameaças, testes reproduzíveis, desempenho, bateria, memória, regressões e qualidade técnica de produtos.",
           "gender": "F",
-          "portrait_file": "clara-swift.svg",
+          "portrait_file": "zilda-firewall.webp",
           "portrait_target": "zilda-firewall.webp",
           "visual_brief": "Mulher adulta de cabelo loiro escuro muito curto, piercing discreto na orelha, jaqueta azul-marinho, fundo lavanda, expressão determinada",
           "responsibilities": [
@@ -142,7 +142,7 @@
           "card_description": "Organiza equipes de IA, documentos e critérios para que agentes saibam o que fazer.",
           "description": "Desenha sistemas multiagentes, responsabilidades, recuperação de conhecimento, ferramentas, supervisão, rastreabilidade e avaliação crítica de respostas.",
           "gender": "M",
-          "portrait_file": "atlas-orca.svg",
+          "portrait_file": "orlando-orquestra.webp",
           "portrait_target": "orlando-orquestra.webp",
           "visual_brief": "Homem adulto de cabelo grisalho penteado para trás, barba leve, camisa vinho, fundo azul-claro, expressão concentrada",
           "responsibilities": [
@@ -157,7 +157,7 @@
           "card_description": "Combina modalidades de IA para transformar informação em criação e análise.",
           "description": "Pesquisa sistemas multimodais e geração ou interpretação de imagem, vídeo, áudio e texto, incluindo limites, custos e qualidade.",
           "gender": "F",
-          "portrait_file": "isaac-kestrel.svg",
+          "portrait_file": "malu-multimodal.webp",
           "portrait_target": "malu-multimodal.webp",
           "visual_brief": "Mulher jovem adulta com cabelo volumoso castanho cacheado, óculos âmbar, jaqueta verde-escuro, fundo rosa-pastel",
           "responsibilities": [
