@@ -40,10 +40,11 @@
     const hairColors=['#17252E','#3B2828','#6D493B','#9E492C','#CA8750','#211D29','#3B382F'];
     const shirts=['#1F4C55','#9D5641','#5F665D','#374A73','#B97163','#2B434A','#B18B43','#655B71'];
     const bg=['#DFF1ED','#F3E6E0','#E1EDF9','#EEE4F5','#E5E9DA','#F3E9D9','#DDEEDC','#E0E4F0'];
-    const skin=pick(skins,h),hair=pick(hairColors,h>>3),shirt=pick(shirts,h>>6),back=pick(bg,h>>9);
-    const variant=(h>>4)%8,glass=(h%4===0)||person.name.includes('Milan')||person.name.includes('Ada')||person.name.includes('Nora');
-    const beard=!female&&((h>>10)%3===0),freckles=(h>>12)%4===0;
-    const tilt=((h>>3)%9)-4,fx=160+((h>>13)%13)-6,fy=117+((h>>15)%9)-4;
+    const skin=pick(skins,h),hair=pick(hairColors,h>>>3),shirt=pick(shirts,h>>>6),back=pick(bg,h>>>9);
+    const featuredHair={'Adrian Wolf':2,'Iris Wren':0,'Theo Lynx':3,'Luna Fox':5,'Milan Falcon':1,'Atlas Orca':6,'Eva Mink':7,'Talia Swan':4};
+    const variant=featuredHair[person.name]??((h>>>4)%8),glass=(h%4===0)||person.name.includes('Milan')||person.name.includes('Ada')||person.name.includes('Nora');
+    const beard=!female&&((h>>>10)%3===0),freckles=(h>>>12)%4===0;
+    const tilt=((h>>>3)%9)-4,fx=160+((h>>>13)%13)-6,fy=117+((h>>>15)%9)-4;
     let hairBack='',hairFront='';
     if(variant===0){ // rounded afro / curls
       const cs=[[118,84],[137,58],[162,50],[188,58],[209,79],[110,108],[215,105],[125,137],[204,131]];
@@ -68,12 +69,12 @@
       hairBack='<path d="M101 91Q98 38 145 39Q175 22 199 46Q224 59 218 113L204 140 121 136z" fill="'+hair+'"/>';
       hairFront='<path d="M104 103Q107 58 132 65Q152 35 175 59Q192 47 211 84Q174 84 157 87Q136 84 104 103" fill="'+hair+'"/>';
     }
-    const bgAccent=pick(['#B7E0D6','#D7C2DA','#B7CDE0','#F3D4B8','#C8D7C1'],h>>17);
+    const bgAccent=pick(['#B7E0D6','#D7C2DA','#B7CDE0','#F3D4B8','#C8D7C1'],h>>>17);
     const mouth=female?'<path d="M150 170Q161 176 171 169" fill="none" stroke="#884C4A" stroke-width="3" stroke-linecap="round"/>':'<path d="M150 170Q162 172 173 169" fill="none" stroke="#7A4540" stroke-width="3" stroke-linecap="round"/>';
     const beardPart=beard?'<path d="M131 158Q129 204 160 207Q192 205 192 162Q179 177 161 177Q146 176 131 158" fill="'+hair+'" opacity=".9"/><path d="M144 163Q160 171 177 162" stroke="'+hair+'" stroke-width="6" stroke-linecap="round" fill="none"/>':'';
     const specs=glass?'<g fill="none" stroke="#293941" stroke-width="4"><rect x="119" y="122" width="37" height="28" rx="'+(variant%2?12:7)+'"/><rect x="166" y="122" width="37" height="28" rx="'+(variant%2?12:7)+'"/><path d="M156 129Q161 126 166 129M110 132h9M203 132h9"/></g>':'';
     const dots=freckles?'<g fill="#B56E56" opacity=".6"><circle cx="131" cy="152" r="1.6"/><circle cx="137" cy="156" r="1.5"/><circle cx="184" cy="152" r="1.5"/><circle cx="190" cy="155" r="1.5"/></g>':'';
-    const accessory=female&&((h>>19)%3===0)?'<circle cx="113" cy="155" r="7" fill="none" stroke="#E2B761" stroke-width="3"/><circle cx="211" cy="155" r="7" fill="none" stroke="#E2B761" stroke-width="3"/>':'';
+    const accessory=female&&((h>>>19)%3===0)?'<circle cx="113" cy="155" r="7" fill="none" stroke="#E2B761" stroke-width="3"/><circle cx="211" cy="155" r="7" fill="none" stroke="#E2B761" stroke-width="3"/>':'';
     const headphone=person.name.includes('Ryan')||person.name.includes('Atlas')?'<path d="M106 142V112Q106 67 161 67Q215 67 215 112V144" fill="none" stroke="#142D39" stroke-width="11"/><rect x="97" y="133" width="19" height="42" rx="8" fill="#213F47"/><rect x="205" y="133" width="19" height="42" rx="8" fill="#213F47"/>':'';
     const brow='<path d="M123 121Q136 114 149 121M173 121Q187 114 199 121" fill="none" stroke="'+hair+'" stroke-width="5" stroke-linecap="round"/>';
     const eyes='<path d="M129 140Q136 136 144 140M180 140Q187 136 194 140" fill="none" stroke="#26313A" stroke-width="4" stroke-linecap="round"/>';
