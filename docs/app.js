@@ -343,9 +343,26 @@ function wireNavigation(){
   $$('#main-nav a').forEach(a=>a.addEventListener('click',()=>{
     nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menu');
   }));
-  $$('.side-sections a').forEach(a=>a.addEventListener('click',()=>{
-    $$('.side-sections a').forEach(x=>x.classList.toggle('side-active',x===a));
-  }));
+  const indexLinks=$$('.side-sections a');
+  const indexedSections=indexLinks.map(link=>$(link.hash));
+  function updateIndex(){
+    const top=$('.topbar').getBoundingClientRect().bottom+24;
+    let current=0;
+    indexedSections.forEach((section,i)=>{
+      if(section && section.getBoundingClientRect().top<=top)current=i;
+    });
+    indexLinks.forEach((link,i)=>{
+      link.classList.toggle('side-active',i===current);
+      if(i===current)link.setAttribute('aria-current','location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  let indexFrame=0;
+  window.addEventListener('scroll',()=>{
+    if(indexFrame)return;
+    indexFrame=requestAnimationFrame(()=>{updateIndex();indexFrame=0;});
+  },{passive:true});
+  updateIndex();
   const form=$('#site-search-form'),input=$('#site-search');
   const results=$('#search-groups');
   function dismissSearch(){

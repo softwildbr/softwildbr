@@ -53,6 +53,10 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         page.locator("#site-search").fill("zzzzzz")
         page.set_viewport_size({"width": width + 1, "height": 900})
         assert page.locator("#track-agents article").count() == 0
+        page.locator("#site-search").fill("")
+        page.add_style_tag(content="html { font-size: 200% !important }")
+        assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        assert page.locator("#powered-toggle").get_attribute("aria-pressed") == "true"
         assert not errors, errors
         page.close()
     for mode in ("sem-js", "falha-json"):
