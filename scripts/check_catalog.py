@@ -15,7 +15,7 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
     Thread(target=server.serve_forever, daemon=True).start()
     url = f"http://127.0.0.1:{server.server_port}/"
     browser = pw.chromium.launch(executable_path=which("google-chrome") or which("chromium"))
-    for width in (320, 390, 768, 1440):
+    for width in (320, 390, 768, 1440, 1920):
         mobile = width < 800
         page = browser.new_page(viewport={"width": width, "height": 900}, has_touch=mobile,
                                 reduced_motion="reduce")
@@ -33,6 +33,8 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
                                 ("#research-grid article", 10), ("#track-agents article", 20)]:
             assert page.locator(selector).count() == count, selector
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), width
+        assert page.locator('.main').evaluate("el => parseFloat(getComputedStyle(el).paddingLeft) >= 24 || innerWidth > 800"), width
+        page.locator('#como-trabalhamos').screenshot(path=out / f'trio-{width}.png')
         assert page.locator("#agent-dots").count() == 0
         assert page.locator("#legacy-grid .agent-card").count() == 19
         for list_id, expected in [("future-signals", [5, 10, 15, 16]), ("research-grid", [3, 6, 9, 10])]:
@@ -107,3 +109,4 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         page.close()
     browser.close()
     server.shutdown()
+

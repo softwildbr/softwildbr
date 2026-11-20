@@ -1,5 +1,7 @@
 # Soft Wild — manutenção da página GitHub Pages
 
+**Espaçamento web vigente:** [ESPACAMENTO-WEB.md](ESPACAMENTO-WEB.md). Divisórias de 1 px em cinza neutro e margens laterais de pelo menos 24 px na configuração padrão. Não restaurar linhas ciano/azuis nem carrosséis encostados na borda.
+
 ## Regra permanente de cor e destaque — 20/11/2026
 
 - Pontos finais de destaque devem ser pretos (`#000`), nunca coloridos. Use `.sentence-period` para a pontuação antes marcada como ciano; o destaque da palavra não deve se estender ao ponto.
