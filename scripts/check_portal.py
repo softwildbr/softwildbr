@@ -17,7 +17,7 @@ handler = partial(SimpleHTTPRequestHandler, directory=str(docs))
 
 expectations = {
     "produtos": {"count": 15, "heading": "Coisas que estamos construindo.", "query": "Retrozim", "item": "retrozim-launcher", "filter": "midia"},
-    "ideias": {"count": 9, "heading": "E se a gente fizesse isso?", "query": "ficção", "item": "sites-universos-ficcionais", "filter": "comunidades"},
+    "ideias": {"count": 9, "heading": "E se a gente fizesse isso?", "query": "universos", "item": "sites-universos-ficcionais", "filter": "comunidades"},
 }
 
 with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright() as pw:
