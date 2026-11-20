@@ -23,7 +23,11 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         page.on("pageerror", lambda error: errors.append(str(error)))
         page.on("console", lambda msg: errors.append(msg.text)
                 if msg.type == "error" and "Soft Wild" in msg.text else None)
+        page.route("https://upload.wikimedia.org/**", lambda route: route.abort())
         page.goto(url)
+        for name in ("Google Flow", "Epidemic Sound"):
+            fallback = page.locator(".wordmark-name").filter(has_text=name).first
+            assert fallback.is_visible(), name
         page.wait_for_selector("html.catalog-ready")
         for selector, count in [("#track-prototypes article", 15), ("#track-futures article", 8),
                                 ("#research-grid article", 10), ("#track-agents article", 20)]:
