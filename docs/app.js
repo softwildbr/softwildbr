@@ -6,7 +6,6 @@ const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const pad=n=>String(n).padStart(2,'0');
 const featuredNames=['Ana Lítica','Lia Layout','Beto Backend','Malu Multimodal','Léo Loop','Sônia Decibéis','Priscila Prioridade','Vivi Vitrine'];
 const productArt={
   'Retrozim Launcher':['android','ANDROID · INTERFACE','▣','navy'],
@@ -123,7 +122,7 @@ function portraitCard(person,index,archived=false){
   const action=archived?'Ler a história':'Conhecer o trabalho';
   const attr=archived?'data-legacy':'data-agent';
   return `<article class="agent-card" aria-label="${label}: ${esc(person.name)}">
-    <div class="agent-media"><img class="agent-portrait" src="./assets/agents/${esc(path)}" alt="Retrato ilustrado de ${esc(person.name)}" width="928" height="1720" loading="lazy" decoding="async"></div>
+    <div class="agent-media">${archived?`<img class="portrait-backdrop" src="./assets/agents/${esc(path)}" alt="" aria-hidden="true" loading="lazy">`:""}<img class="agent-portrait" src="./assets/agents/${esc(path)}" alt="Retrato ilustrado de ${esc(person.name)}" width="928" height="1720" loading="lazy" decoding="async"></div>
     <div class="agent-caption"><h4>${esc(person.name)}</h4>
       <span class="agent-badge">${label}</span><div class="agent-role">${esc(person.role)}</div>
       <p class="agent-description">${esc(person.card_description||person.description)}</p>
@@ -149,7 +148,6 @@ function renderAgents(){
   const list=ordered;
   const root=$('#track-agents');
   root.innerHTML=list.length?list.map(person=>portraitCard(person,all.indexOf(person))).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
-  const count=$('#count-agents');if(count)count.textContent=list.length;
   bindAgentDetails(root);
   root.scrollLeft=0;updateTrack('agents');
   if(state.directoryOpen)renderDirectory();
@@ -199,10 +197,6 @@ function updateTrack(which){
   const track=$(tracks[which]);if(!track)return;
   const cards=Array.from(track.querySelectorAll(which==='agents'?'.agent-card':(which==='legacy'?'.agent-card':'.experiment-card')));
   const total=cards.length;
-  const first=cards[0];
-  const step=first?(first.getBoundingClientRect().width+parseFloat(getComputedStyle(track).gap||'0')):1;
-  const current=total?Math.min(total,Math.max(1,1+Math.round(track.scrollLeft/Math.max(1,step)))):0;
-  const counter=$('#counter-'+which);if(counter)counter.textContent=pad(current)+' / '+pad(total);
   const progress=$('#progress-'+which);
   const fraction=track.scrollWidth>0?Math.min(1,(track.scrollLeft+track.clientWidth)/track.scrollWidth):1;
   if(progress)progress.style.width=Math.max(4,100*fraction)+'%';
@@ -366,7 +360,69 @@ function setupPoweredStrip(){
   reduced.addEventListener?.('change',event=>{if(event.matches){paused=true;apply()}});
 }
 
+function setupMore(id,step,singular,plural){
+  const list=document.getElementById(id);
+  const button=document.querySelector('button[aria-controls="'+id+'"]');
+  const items=Array.from(list.children);
+  let shown=step;
+  function update(){
+    items.forEach((item,i)=>{item.hidden=i>=shown;});
+    const next=Math.min(step,items.length-shown);
+    button.hidden=next<=0;
+    if(next>0)button.textContent='Ver mais '+next+' '+(next===1?singular:plural);
+  }
+  update();
+  button.addEventListener('click',()=>{
+    const first=items[shown];
+    shown+=step;
+    update();
+    first.tabIndex=-1;
+    first.focus();
+  });
+}
+
+function setupSearch(){
+  const trigger=$('#open-search'),dialog=$('#search-dialog'),input=$('#site-search');
+  const results=$('#search-results'),feedback=$('#search-feedback');
+  function refresh(){
+    const term=normalize(input.value.trim());
+    results.replaceChildren();
+    feedback.textContent='';
+    if(!term)return;
+    for(const card of document.querySelectorAll('.agent-track article,.tile-track article,#research-grid article,#future-signals article')){
+      const title=card.querySelector('h3,h4');
+      if(!title||!normalize(card.textContent).includes(term))continue;
+      const row=document.createElement('li'),button=document.createElement('button');
+      button.type='button';
+      button.textContent=title.textContent;
+      row.append(button);
+      results.append(row);
+      button.addEventListener('click',()=>{
+        dialog.close();
+        const more=card.parentElement.nextElementSibling;
+        while(card.hidden&&more?.matches('button.more-entries:not([hidden])'))more.click();
+        card.tabIndex=-1;
+        card.focus({preventScroll:true});
+        card.scrollIntoView({block:'center',inline:'center',behavior:'instant'});
+      });
+    }
+    feedback.textContent=results.children.length?results.children.length+' resultado(s)':'Nenhum resultado encontrado.';
+  }
+  trigger.hidden=false;
+  trigger.addEventListener('click',()=>{
+    const all=$('.category[data-category="todos"]');
+    if(all&&all.getAttribute('aria-pressed')==='false')all.click();
+    input.value='';
+    refresh();
+    dialog.showModal();
+    input.focus();
+  });
+  input.addEventListener('input',refresh);
+}
+
 async function start(){
+  setupSearch();
+  setupMore('future-signals',5,'sinal','sinais');
   wireNavigation();
   document.documentElement.classList.add('nav-ready');
   activateCarousels();setupAutoplay();setupPoweredStrip();
@@ -378,6 +434,7 @@ async function start(){
     state.data=d;
     $('#date-reviewed').textContent=String(d.updated||'2026-11-18').split('-').reverse().join('/');
   }catch(err){
+    setupMore('research-grid',3,'pesquisa','pesquisas');
     console.error('Soft Wild: catálogo interativo indisponível',err);
     return;
   }
@@ -385,6 +442,7 @@ async function start(){
     try {render();}
     catch(err){console.error('Soft Wild: '+render.name,err);}
   }
+  setupMore('research-grid',3,'pesquisa','pesquisas');
   document.documentElement.classList.add('catalog-ready');
   const view=$('#catalog-view');
   view.hidden=false;

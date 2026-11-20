@@ -35,6 +35,24 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), width
         assert page.locator("#agent-dots").count() == 0
         assert page.locator("#legacy-grid .agent-card").count() == 19
+        for list_id, expected in [("future-signals", [5, 10, 15, 16]), ("research-grid", [3, 6, 9, 10])]:
+            button = page.locator(f'button[aria-controls="{list_id}"]')
+            for index, count in enumerate(expected):
+                if index:
+                    button.click()
+                assert page.locator(f"#{list_id} article:visible").count() == count
+            assert button.is_hidden()
+        if width == 390:
+            for index, portrait in enumerate(page.locator("#legacy-grid article").all()):
+                portrait.evaluate("""el => {
+                    const track=el.parentElement;
+                    track.scrollTo({left:track.scrollLeft+el.getBoundingClientRect().left-track.getBoundingClientRect().left-16,behavior:'instant'});
+                }""")
+                portrait.scroll_into_view_if_needed()
+                assert portrait.evaluate("el => el.getBoundingClientRect().left >= -1 && el.getBoundingClientRect().right <= innerWidth + 1")
+                portrait.locator(".agent-portrait").evaluate("img => img.decode()")
+                portrait.screenshot(path=out / f"retrato-{index:02}.png")
+            page.locator("#legacy-grid").evaluate("e => e.scrollTo({left:0,behavior:'instant'})")
         for name, selector in [("fundador", ".founder-photo img"), ("ativos", "#track-agents"), ("arquivo", "#legacy-grid")]:
             element = page.locator(selector)
             element.scroll_into_view_if_needed()
@@ -58,7 +76,13 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         page.locator("#catalog-view").click()
         assert page.locator("#explorar").evaluate("e => e.classList.contains('catalog-list')")
         page.screenshot(path=out / f"catalogo-{width}.png")
-        assert page.locator("#site-search-form").count() == 0
+        trigger = page.get_by_role("button", name="Pesquisar no site")
+        assert trigger.bounding_box()["x"] > width / 2
+        trigger.click()
+        page.locator("#site-search").fill("Lia Layout")
+        page.locator("#search-results").get_by_role("button", name="Lia Layout", exact=True).click()
+        assert page.evaluate("document.activeElement.querySelector('h4').textContent") == "Lia Layout"
+        assert "agente nem faz." in page.locator("#hero-title").inner_text().lower()
         assert page.locator(".insights-grid article p").count() == 16
         for query, target, detail in [("Arquivos", "track-prototypes", "Ver informações de Arquivos"),
                                       ("Lia Layout", "track-agents", "Ver a descrição completa de Lia Layout")]:
