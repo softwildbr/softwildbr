@@ -44,7 +44,12 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
             assert button.is_hidden()
         if width == 390:
             for index, portrait in enumerate(page.locator("#legacy-grid article").all()):
+                portrait.evaluate("""el => {
+                    const track=el.parentElement;
+                    track.scrollTo({left:track.scrollLeft+el.getBoundingClientRect().left-track.getBoundingClientRect().left-16,behavior:'instant'});
+                }""")
                 portrait.scroll_into_view_if_needed()
+                assert portrait.evaluate("el => el.getBoundingClientRect().left >= -1 && el.getBoundingClientRect().right <= innerWidth + 1")
                 portrait.locator(".agent-portrait").evaluate("img => img.decode()")
                 portrait.screenshot(path=out / f"retrato-{index:02}.png")
             page.locator("#legacy-grid").evaluate("e => e.scrollTo({left:0,behavior:'instant'})")

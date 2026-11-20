@@ -905,3 +905,8 @@ body{background:#fff}
 #legacy-grid .agent-media img.agent-portrait{inset:5% 8% auto;width:84%;height:84%;object-fit:contain;object-position:top center;background:transparent;mask-image:linear-gradient(#000 65%,transparent 98%)}
 .more-entries{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;padding:8px 17px;background:white;border:1px solid #aabfc4;border-radius:8px;color:#075b68;font:inherit;font-weight:650;cursor:pointer}
 .more-entries[hidden],.insights-grid article[hidden],.research-grid article[hidden]{display:none}
+
+.agent-track .agent-card{scroll-snap-align:start}
+@media(max-width:800px){.agent-track{scroll-padding-inline:clamp(16px,4vw,28px)}}
+#legacy-grid .portrait-backdrop{filter:blur(32px);transform:scale(1.75)}
+#legacy-grid .agent-media img.agent-portrait{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent),linear-gradient(transparent,#000 4%,#000 65%,transparent 98%);mask-composite:intersect}
