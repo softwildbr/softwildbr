@@ -1,7 +1,14 @@
 """Atualizar o HTML estático após editar docs/data/content.json."""
-from html import escape
+from html import escape as html_escape
 from pathlib import Path
 import json
+import re
+
+
+def escape(value):
+    """Escape editorial text and keep AI agent mentions blue in static cards."""
+    return re.sub(r"\bagentes?\b", lambda m: f'<span class="agent-word">{m[0]}</span>',
+                  html_escape(value), flags=re.IGNORECASE)
 
 docs = Path(__file__).resolve().parents[1] / "docs"
 page = docs / "index.html"
@@ -42,3 +49,4 @@ for key, rows in blocks.items():
     end = html.index(f"<!-- fim:{key} -->", start)
     html = html[:start] + "\n" + "\n".join(rows) + "\n" + html[end:]
 page.write_text(html)
+

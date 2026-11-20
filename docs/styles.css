@@ -919,3 +919,23 @@ body{background:#fff}
 .search-close{float:right;background:transparent;color:var(--ink);border:0;cursor:pointer;font-size:24px;width:44px;height:44px}
 #search-results{padding:0;margin:0;list-style:none}
 #search-results button{display:block;width:100%;min-height:44px;text-align:left;padding:10px 0;border:0;border-bottom:1px solid var(--line);background:white;color:#075b68;font:inherit;cursor:pointer}
+
+/* Agente = IA; “a gente” = nós. Preserve o trocadilho do slogan. */
+.agent-word,.hero h1 .agent-word{color:#1762c4}
+.hero h1 .agent-word{display:inline}
+.side-sections a .agent-word,.side-sections a.side-active .agent-word{color:#1762c4;font-size:inherit;width:auto;text-align:inherit}
+.agent-track .agent-caption .agent-word{color:#a8ceff}
+.ai-method-section{scroll-margin-top:100px}
+.ai-method-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.ai-method-grid article{border-top:2px solid #1762c4;padding-top:18px;min-width:0}
+.ai-method-label{color:#1762c4;font-size:.7rem;font-weight:750;letter-spacing:.1em}
+.ai-method-grid h3{font-size:1.6rem;margin:12px 0 8px;letter-spacing:-.035em}
+.ai-method-grid h4{font-size:1.05rem;line-height:1.4;margin:0 0 14px}
+.ai-method-grid p,.ai-method-example p{font-size:1rem;line-height:1.6;color:#475762}
+.ai-method-example{margin-top:28px;padding:24px;background:#f1f6fd;border-radius:12px}
+.ai-method-example h3{margin:0;font-size:1.15rem}
+.ai-method-example p:last-child{margin-bottom:0}
+.ai-method-sources{font-size:.8rem;line-height:1.6;color:#475762;margin-top:18px}
+.ai-method-sources a{color:#1762c4;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1000px){.ai-method-grid{grid-template-columns:1fr;gap:20px}}
+

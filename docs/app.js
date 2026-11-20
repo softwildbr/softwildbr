@@ -6,6 +6,23 @@ const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+// Presentation only: preserve text, accessible names, attributes and event handlers.
+function highlightAgentWords(root=document.body){
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];
+  while(walker.nextNode()){
+    const node=walker.currentNode;
+    if(!node.parentElement.closest('script,style,option,textarea,.agent-word')&&/\bagentes?\b/i.test(node.data))nodes.push(node);
+  }
+  for(const node of nodes){
+    const parts=node.data.split(/(\bagentes?\b)/gi);
+    node.replaceWith(...parts.map((part,index)=>{
+      if(index%2===0)return document.createTextNode(part);
+      const span=document.createElement('span');
+      span.className='agent-word';span.textContent=part;return span;
+    }));
+  }
+}
 const featuredNames=['Ana Lítica','Lia Layout','Beto Backend','Malu Multimodal','Léo Loop','Sônia Decibéis','Priscila Prioridade','Vivi Vitrine'];
 const productArt={
   'Retrozim Launcher':['android','ANDROID · INTERFACE','▣','navy'],
@@ -73,6 +90,7 @@ function wireProductDetails(root){
     '<p>'+esc(p.description)+'</p>'+
     '<div class="dialog-data"><span>ESTÁGIO DOCUMENTADO</span>'+esc(p.status)+'</div>'+
     '<p class="dialog-note">Não representa lançamento, preço, estoque nem data prometida. Revisão do catálogo: '+esc(state.data.updated.split('-').reverse().join('/'))+'.</p>';
+    highlightAgentWords($('#detail-content'));
     const dialog=$('#detail-dialog');if(dialog?.showModal)dialog.showModal();
   }));
 }
@@ -86,6 +104,7 @@ function renderProducts(){
     const root=$(tracks[key]);
     const list=filtered.filter(p=>p.stage===stage);
     root.innerHTML=list.length?list.map(p=>productTile(p,d.products.indexOf(p))).join(''):emptyMessage('Nenhum item encontrado nesta categoria.');
+    highlightAgentWords(root);
     wireProductDetails(root);
     const count=$(key==='prototypes'?'#count-prototypes':'#count-futures');
     count.textContent=list.length;
@@ -104,6 +123,7 @@ function renderResearch(){
   $('#research-grid').innerHTML=list.length?list.map((f)=>researchTile(f,state.data.fronts.indexOf(f))).join(''):emptyMessage('Nenhuma frente corresponde à busca.');
   const others=state.data.fronts.filter(f=>!normalize(f.name).includes('shopping')).slice(0,4);
   $('#progress-fronts').innerHTML=others.map(f=>'<article class="progress-row"><b>'+esc(f.name)+'</b><span>'+esc(f.status)+'</span></article>').join('');
+  highlightAgentWords($('#research-grid'));highlightAgentWords($('#progress-fronts'));
 }
 function spritePosition(index){
   return (index%5)*25+'% '+Math.floor(index/5)*100+'%';
@@ -138,6 +158,7 @@ function bindAgentDetails(root){
       '<div class="dialog-data"><span>ÁREA DE ATUAÇÃO</span>'+esc(person.role)+'</div>'+
       '<p>'+esc(person.description)+'</p>'+
       '<p class="dialog-note">Este perfil descreve uma especialidade de agente de IA. A autonomia e a configuração operacional de cada agente são verificadas separadamente.</p>';
+    highlightAgentWords($('#detail-content'));
     const dialog=$('#detail-dialog');
     if(dialog?.showModal)dialog.showModal();
   }));
@@ -148,6 +169,7 @@ function renderAgents(){
   const list=ordered;
   const root=$('#track-agents');
   root.innerHTML=list.length?list.map(person=>portraitCard(person,all.indexOf(person))).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
+  highlightAgentWords(root);
   bindAgentDetails(root);
   root.scrollLeft=0;updateTrack('agents');
   if(state.directoryOpen)renderDirectory();
@@ -161,18 +183,21 @@ function renderDirectory(){
     '<div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
     '<small>'+esc(a.role)+' · AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>'
   ).join(''):emptyMessage('Nenhum agente neste filtro.');
+  highlightAgentWords($('#directory-grid'));
 }
 function renderLegacy(){
   const target=$('#legacy-grid');if(!target||!state.data)return;
   const all=state.data.legacy_agents||[];
   const list=all;
   target.innerHTML=list.length?list.map(person=>portraitCard(person,all.indexOf(person),true)).join(''):emptyMessage('Nenhum agente descontinuado corresponde à busca.');
+  highlightAgentWords(target);
   $$('button[data-legacy]',target).forEach(button=>button.addEventListener('click',()=>{
     const person=all[Number(button.dataset.legacy)];
     $('#detail-content').innerHTML='<span class="dialog-kicker">ARQUIVO DOS DESCONTINUADOS</span>'+
       '<h2 id="detail-title">'+esc(person.name)+'</h2><p>'+esc(person.role)+'</p>'+
       '<p>'+esc(person.description)+'</p><h3>Por que saiu</h3><p>'+esc(person.reason)+'</p>'+
       '<h3>Foi para um lugar melhor</h3><p>'+esc(person.destination)+'</p>';
+    highlightAgentWords($('#detail-content'));
     $('#detail-dialog').showModal();
   }));
    updateTrack('legacy');
@@ -389,7 +414,7 @@ function setupSearch(){
     results.replaceChildren();
     feedback.textContent='';
     if(!term)return;
-    for(const card of document.querySelectorAll('.agent-track article,.tile-track article,#research-grid article,#future-signals article')){
+    for(const card of document.querySelectorAll('.agent-track article,.tile-track article,#research-grid article,#future-signals article,.ai-method-grid article')){
       const title=card.querySelector('h3,h4');
       if(!title||!normalize(card.textContent).includes(term))continue;
       const row=document.createElement('li'),button=document.createElement('button');
@@ -406,6 +431,7 @@ function setupSearch(){
         card.scrollIntoView({block:'center',inline:'center',behavior:'instant'});
       });
     }
+    highlightAgentWords(results);
     feedback.textContent=results.children.length?results.children.length+' resultado(s)':'Nenhum resultado encontrado.';
   }
   trigger.hidden=false;
