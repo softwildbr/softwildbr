@@ -6,13 +6,13 @@ const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const normalize=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-// Presentation only: preserve text, accessible names, attributes and event handlers.
+// Regra da marca: destacar agente/agentes somente em títulos, com a paleta da logo.
 function highlightAgentWords(root=document.body){
   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
   const nodes=[];
   while(walker.nextNode()){
     const node=walker.currentNode;
-    if(!node.parentElement.closest('script,style,option,textarea,.agent-word')&&/\bagentes?\b/i.test(node.data))nodes.push(node);
+    if(node.parentElement.closest('h1,h2,h3,h4,h5,h6')&&!node.parentElement.closest('.agent-word')&&/\bagentes?\b/i.test(node.data))nodes.push(node);
   }
   for(const node of nodes){
     const parts=node.data.split(/(\bagentes?\b)/gi);

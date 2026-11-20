@@ -1,14 +1,14 @@
 """Atualizar o HTML estático após editar docs/data/content.json."""
-from html import escape as html_escape
+from html import escape
 from pathlib import Path
 import json
 import re
 
 
-def escape(value):
-    """Escape editorial text and keep AI agent mentions blue in static cards."""
+def agent_title(value):
+    """Destaque da marca apenas em títulos; texto corrido usa escape normal."""
     return re.sub(r"\bagentes?\b", lambda m: f'<span class="agent-word">{m[0]}</span>',
-                  html_escape(value), flags=re.IGNORECASE)
+                  escape(value), flags=re.IGNORECASE)
 
 docs = Path(__file__).resolve().parents[1] / "docs"
 page = docs / "index.html"
@@ -19,14 +19,14 @@ html = page.read_text()
 def product(p):
     return (
         '<article class="experiment-card"><div class="card-bottom">'
-        f'<h4>{escape(p["name"])}</h4><p>{escape(p["description"])}</p>'
+        f'<h4>{agent_title(p["name"])}</h4><p>{escape(p["description"])}</p>'
         f'<small>{escape(p["status"])}</small></div></article>'
     )
 
 
 def research(f):
     return (
-        f'<article class="research-card"><h3>{escape(f["name"])}</h3>'
+        f'<article class="research-card"><h3>{agent_title(f["name"])}</h3>'
         f'<span class="research-status">{escape(f["status"])}</span>'
         f'<p>{escape(f["progress"])}</p><details><summary>Próximo marco</summary>'
         f'<p>{escape(f["next"])}</p></details></article>'
