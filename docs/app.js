@@ -120,24 +120,20 @@ function agentImagePath(a){
   const file=String(a.portrait_file||'');
   return './assets/agents/'+(/^[a-z0-9-]+\.(?:svg|webp)$/.test(file)?(file.endsWith('.webp')?'cards/'+file:file):'placeholder.svg');
 }
-function agentVisual(a){
-  return '<div class="agent-media">'+
-    '<img class="agent-portrait" src="'+esc(agentImagePath(a))+'" alt="Retrato ilustrado de '+esc(a.name)+'" width="928" height="1720" loading="lazy" decoding="async">'+
-    '</div>';
-}
-function agentTile(a){
-  const all=state.data.groups.flatMap(g=>g.agents);
-  const idx=all.indexOf(a);
-  const tone=['sun','sky','sand','leaf','lilac'][idx%5];
-  return '<article class="agent-card agent-tone-'+tone+'" aria-label="Colaborador digital '+esc(a.name)+'">'+
-    agentVisual(a)+
-    '<div class="agent-caption">'+
-      '<h4>'+esc(a.name)+'</h4>'+
-      '<span class="agent-badge">Agente de IA</span>'+
-      '<div class="agent-role">'+esc(a.role)+'</div>'+
-      '<p class="agent-description">'+esc(a.card_description||a.description)+'</p>'+
-      '<button type="button" class="agent-detail" data-agent="'+idx+'" aria-label="Ver a descrição completa de '+esc(a.name)+'">Conhecer o trabalho <span aria-hidden="true">↗</span></button>'+
-    '</div></article>';
+function portraitCard(person,index,archived=false){
+  const file=String(person.portrait_file||'');
+  const valid=archived?/^legacy\/[a-z0-9-]+\.webp$/:/^[a-z0-9-]+\.(svg|webp)$/;
+  const path=valid.test(file)?(file.endsWith('.webp')?'cards/'+file:file):'placeholder.svg';
+  const label=archived?'Agente descontinuado':'Agente de IA';
+  const action=archived?'Ler a história':'Conhecer o trabalho';
+  const attr=archived?'data-legacy':'data-agent';
+  return `<article class="agent-card" aria-label="${label}: ${esc(person.name)}">
+    <div class="agent-media"><img class="agent-portrait" src="./assets/agents/${esc(path)}" alt="Retrato ilustrado de ${esc(person.name)}" width="928" height="1720" loading="lazy" decoding="async"></div>
+    <div class="agent-caption"><h4>${esc(person.name)}</h4>
+      <span class="agent-badge">${label}</span><div class="agent-role">${esc(person.role)}</div>
+      <p class="agent-description">${esc(person.card_description||person.description)}</p>
+      <button type="button" class="agent-detail" ${attr}="${index}" aria-label="${archived?'Ler a história de':'Ver a descrição completa de'} ${esc(person.name)}">${action} <span aria-hidden="true">→</span></button>
+    </div></article>`;
 }
 function bindAgentDetails(root){
   $$('button[data-agent]',root).forEach(button=>button.addEventListener('click',()=>{
@@ -152,40 +148,15 @@ function bindAgentDetails(root){
     if(dialog?.showModal)dialog.showModal();
   }));
 }
-function buildAgentDots(){
-  const track=$('#track-agents'),holder=$('#agent-dots');
-  if(!track||!holder)return;
-  const cards=track.querySelectorAll('.agent-card');
-  const pages=cards.length?Math.min(9,Math.max(1,Math.ceil(track.scrollWidth/Math.max(track.clientWidth,1)))):0;
-  if(holder.childElementCount!==pages){
-    holder.innerHTML=Array.from({length:pages},(_,i)=>
-      '<button type="button" data-agent-page="'+i+'" aria-label="Ver região '+(i+1)+' de '+pages+' do carrossel de agentes" aria-current="false"></button>'
-    ).join('');
-    $$('button[data-agent-page]',holder).forEach((b,i)=>b.addEventListener('click',()=>{
-      const max=Math.max(0,track.scrollWidth-track.clientWidth);
-      track.scrollTo({left:pages>1?max*i/(pages-1):0,behavior:prefersReducedMotion.matches?'auto':'smooth'});
-    }));
-  }
-  holder.hidden=pages<=1;
-  updateAgentDots();
-}
-function updateAgentDots(){
-  const track=$('#track-agents'),holder=$('#agent-dots');
-  if(!track||!holder)return;
-  const dots=$$('button[data-agent-page]',holder);
-  const max=Math.max(0,track.scrollWidth-track.clientWidth);
-  const current=dots.length>1&&max>0?Math.round(track.scrollLeft/max*(dots.length-1)):0;
-  dots.forEach((b,i)=>b.setAttribute('aria-current',String(i===current)));
-}
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
   const list=ordered.filter(a=>matches([a.name,a.role,a.description,a.card_description,...(a.responsibilities||[])],state.query));
   const root=$('#track-agents');
-  root.innerHTML=list.length?list.map(agentTile).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
+  root.innerHTML=list.length?list.map(person=>portraitCard(person,all.indexOf(person))).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
   const count=$('#count-agents');if(count)count.textContent=list.length;
   bindAgentDetails(root);
-  root.scrollLeft=0;buildAgentDots();updateTrack('agents');
+  root.scrollLeft=0;updateTrack('agents');
   if(state.directoryOpen)renderDirectory();
 }
 function renderDirectory(){
@@ -202,25 +173,15 @@ function renderLegacy(){
   const target=$('#legacy-grid');if(!target||!state.data)return;
   const all=state.data.legacy_agents||[];
   const list=all.filter(a=>matches([a.name,a.former_name,a.role,a.description,a.reason,a.destination,a.source_topic],state.query));
-  const visible=list;
-  target.innerHTML=visible.length?visible.map((a,i)=>{
-    const initials=a.name.trim().split(' ').map(s=>s[0]||'').slice(0,2).join('');
-    const number=pad(i+1);
-    const hasPhoto=typeof a.portrait_file==='string' && a.portrait_file.startsWith('legacy/') && /^[a-z0-9-]+\.webp$/.test(a.portrait_file.slice(7));
-    const portrait=hasPhoto?
-      '<img class="legacy-photo" src="./assets/agents/cards/'+esc(a.portrait_file)+'" alt="Retrato editorial de '+esc(a.name)+'" width="72" height="84" loading="lazy" decoding="async">':
-      '<span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>';
-    return '<article class="legacy-card" aria-label="Ficha de '+esc(a.name)+' — descontinuado">'+
-      '<div class="legacy-card-head">'+portrait+
-      '<span class="legacy-status">'+esc(a.status)+'</span></div>'+
-      '<span class="legacy-file">ARQUIVO / '+number+'</span>'+
-      '<h3>'+esc(a.name)+'</h3><p class="legacy-role">'+esc(a.role)+'</p>'+
-      '<p class="legacy-bio">'+esc(a.description)+'</p>'+
-      '<div class="legacy-reason"><strong>POR QUE SAIU</strong><p>'+esc(a.reason)+'</p></div>'+
-      '<div class="legacy-destination"><strong>FOI PARA UM LUGAR MELHOR</strong><p>'+esc(a.destination)+'</p></div>'+
-      '</article>';
-  }).join(''):emptyMessage('Nenhum agente descontinuado corresponde à busca.');
-  const count=$('#legacy-count');if(count)count.textContent=pad(list.length)+' fichas no arquivo';
+  target.innerHTML=list.length?list.map(person=>portraitCard(person,all.indexOf(person),true)).join(''):emptyMessage('Nenhum agente descontinuado corresponde à busca.');
+  $$('button[data-legacy]',target).forEach(button=>button.addEventListener('click',()=>{
+    const person=all[Number(button.dataset.legacy)];
+    $('#detail-content').innerHTML='<span class="dialog-kicker">ARQUIVO DOS DESCONTINUADOS</span>'+
+      '<h2 id="detail-title">'+esc(person.name)+'</h2><p>'+esc(person.role)+'</p>'+
+      '<p>'+esc(person.description)+'</p><h3>Por que saiu</h3><p>'+esc(person.reason)+'</p>'+
+      '<h3>Foi para um lugar melhor</h3><p>'+esc(person.destination)+'</p>';
+    $('#detail-dialog').showModal();
+  }));
    updateTrack('legacy');
  }
  function initLegacy(){ /* Memorial com navegação compartilhada. */ }
@@ -241,7 +202,7 @@ function initTeamDirectory(){
 }
 function updateTrack(which){
   const track=$(tracks[which]);if(!track)return;
-  const cards=Array.from(track.querySelectorAll(which==='agents'?'.agent-card':(which==='legacy'?'.legacy-card':'.experiment-card')));
+  const cards=Array.from(track.querySelectorAll(which==='agents'?'.agent-card':(which==='legacy'?'.agent-card':'.experiment-card')));
   const total=cards.length;
   const first=cards[0];
   const step=first?(first.getBoundingClientRect().width+parseFloat(getComputedStyle(track).gap||'0')):1;
@@ -250,7 +211,6 @@ function updateTrack(which){
   const progress=$('#progress-'+which);
   const fraction=track.scrollWidth>0?Math.min(1,(track.scrollLeft+track.clientWidth)/track.scrollWidth):1;
   if(progress)progress.style.width=Math.max(4,100*fraction)+'%';
-  if(which==='agents')updateAgentDots();
   $$('button.slide-arrow[data-for="'+which+'"]').forEach(btn=>{
     btn.disabled=total===0||(btn.dataset.dir==="-1"?track.scrollLeft<3:track.scrollLeft>=track.scrollWidth-track.clientWidth-3);
   });
@@ -269,11 +229,11 @@ function activateCarousels(){
     });
   });
   $$('.slide-arrow').forEach(btn=>btn.addEventListener('click',()=>scrollTrack(btn.dataset.for,Number(btn.dataset.dir))));
-  window.addEventListener('resize',()=>{buildAgentDots();Object.keys(tracks).forEach(updateTrack);},{passive:true});
+  window.addEventListener('resize',()=>{Object.keys(tracks).forEach(updateTrack);},{passive:true});
 }
 function scrollTrack(which,dir){
   const track=$(tracks[which]);if(!track)return;
-  const first=track.querySelector('.agent-card, .legacy-card, .experiment-card');
+  const first=track.querySelector('.agent-card, .experiment-card');
   if(!first)return;
   const gap=parseFloat(getComputedStyle(track).gap||'0');
   const delta=first.getBoundingClientRect().width+gap;
@@ -314,7 +274,7 @@ function setupAutoplay(){
     setInterval(()=>{
       if(!state.data||document.hidden||!s.visible||s.paused||s.hover||s.focus||s.touch)return;
       if($('#detail-dialog')?.open)return;
-      const cards=track.querySelectorAll(name==='agents'?'.agent-card':(name==='legacy'?'.legacy-card':'.experiment-card'));
+      const cards=track.querySelectorAll(name==='agents'?'.agent-card':(name==='legacy'?'.agent-card':'.experiment-card'));
       if(cards.length<2||track.scrollWidth<=track.clientWidth+4)return;
       const gap=parseFloat(getComputedStyle(track).gap||'0');
       const delta=cards[0].getBoundingClientRect().width+gap;
@@ -376,7 +336,7 @@ function wireNavigation(){
     ['Ideias','#track-futures','.experiment-card'],
     ['Pesquisas','#research-grid','.research-card'],
     ['Agentes','#track-agents','.agent-card'],
-    ['Memorial','#legacy-grid','.legacy-card']
+    ['Memorial','#legacy-grid','.agent-card']
   ];
   function listMatches(){
     results.replaceChildren();

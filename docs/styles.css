@@ -618,18 +618,11 @@ section{scroll-margin-top:88px}
 .agent-track .agent-detail span{font-size:15px;line-height:1}
 .agent-track .agent-detail:hover,.agent-track .agent-detail:focus-visible{color:#fff}
 .agent-track .agent-detail:focus-visible{outline:2px solid white;outline-offset:4px}
-.agent-dots{
-  display:flex;justify-content:center;align-items:center;gap:9px;
-  flex-wrap:wrap;min-height:30px;margin:0 0 16px
-}
-.agent-dots[hidden]{display:none}
-.agent-dots button{
-  display:inline-block;width:9px;height:9px;padding:0;
-  border:0;border-radius:100px;background:#cbd5dc;
-  transition:background .2s,transform .2s;cursor:pointer
-}
-.agent-dots button[aria-current="true"]{background:var(--cyan);transform:scale(1.17)}
-.agent-dots button:focus-visible{outline:2px solid var(--cyan-dark);outline-offset:4px}
+
+
+
+
+
 .team-heading .card-count{font-variant-numeric:tabular-nums}
 @media(max-width:600px){
   .agent-track{gap:11px}
@@ -637,7 +630,7 @@ section{scroll-margin-top:88px}
   .agent-track .agent-caption{padding:17px 15px 14px}
   .agent-track .agent-caption h4{font-size:21px}
   .agent-track .agent-description{font-size:11px;-webkit-line-clamp:5}
-  .agent-dots{gap:8px;margin-bottom:14px}
+  
 }
 @media(max-width:380px){
   .agent-track .agent-card{flex-basis:218px;height:420px}
@@ -770,8 +763,7 @@ section{scroll-margin-top:88px}
   .legacy-count{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){
-  .agent-track .agent-card,.agent-track .agent-portrait,
-  .agent-dots button,.legacy-section .legacy-card{transition:none!important;transform:none!important}
+  .agent-track .agent-card,.agent-track .agent-portrait{transition:none!important;transform:none!important}
 }
 
 /* Portraits of discontinued digital characters. Images contain no UI overlay;
@@ -825,11 +817,11 @@ a.hero-aside-item:hover{background:#eaf7f8}
 .catalog-list .tile-track,html:not(.catalog-ready) .tile-track{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));overflow:visible}
 .catalog-list .experiment-card,html:not(.catalog-ready) .experiment-card{width:auto;min-width:0;height:auto}
 .catalog-list .carousel-actions,.catalog-list .scroll-track-progress,html:not(.catalog-ready) :is(.category-bar,.carousel-actions,.scroll-track-progress,.search,#show-directory,.agent-detail){display:none}
-.agent-dots{gap:0}
-.agent-dots button{width:44px;height:44px;background:transparent;transform:none}
-.agent-dots button::after{content:"";display:block;margin:auto;width:9px;height:9px;background:#81949b;border-radius:50%}
-.agent-dots button[aria-current="true"]{background:transparent;transform:none}
-.agent-dots button[aria-current="true"]::after{background:#006d77}
+
+
+
+
+
 .manifesto-document-copy{max-width:72ch}
 :where(section,[id^="track-"],#research-grid,#legacy-grid){scroll-margin-top:90px}
 @media(max-width:800px){
@@ -856,3 +848,31 @@ a.hero-aside-item:hover{background:#eaf7f8}
 .mobile-profile{display:none}
 @media(max-width:800px){.mobile-profile{display:block}}
 @media(max-width:380px){.brand-sub,.brand-separator{display:none}}
+
+/* A página é a superfície de leitura. Os retratos formam uma única faixa. */
+body{background:#fff}
+.app-layout{width:100%;max-width:1600px;padding-inline:clamp(18px,3vw,54px)}
+.main{border:0;border-radius:0;box-shadow:none;padding-inline:0}
+.legacy-section,.legacy-tribute,.leadership-grid .founder-card,.voices-card,
+.hero-aside,.manifesto-document,.progress-card{border:0;border-radius:0;box-shadow:none;background:transparent}
+.legacy-section{padding:0;margin-block:clamp(36px,7vw,88px)}
+.legacy-tribute{padding-inline:0}
+.legacy-tribute-symbol,.voices-card:before{display:none}
+.leadership-grid .founder-card{align-items:start;overflow:visible}
+.leadership-grid .founder-photo{height:auto;min-height:0;background:none}
+.leadership-grid .founder-photo img{display:block;width:100%;height:auto;object-fit:contain}
+.agent-track .agent-media img.agent-portrait{object-fit:contain;object-position:center top}
+.agent-track .agent-card:hover .agent-portrait{transform:none}
+@media(max-width:800px){
+  .app-layout{padding:0;width:100%}
+  .main{padding-inline:clamp(16px,4vw,28px)}
+  .agent-track{margin-inline:calc(-1 * clamp(16px,4vw,28px));padding-inline:clamp(16px,4vw,28px)}
+  .leadership-grid .founder-card{display:block;min-height:0}
+  .leadership-grid .founder-photo{width:min(100%,440px);height:auto;margin-inline:auto}
+  .founder-text,.voices-card{padding:18px 0}
+  .founder-text h3{margin-block:8px}
+  .research-card,.insight-card,.progress-row{background:none;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;padding-inline:0}
+  .manifesto-document-copy,.manifesto-document-bar,.progress-card{padding-inline:0}
+}
+
+.catalog-ready .archive-stories{display:none}
