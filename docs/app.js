@@ -34,7 +34,7 @@ const productArt={
   'Ferramentas pessoais acessíveis e offline':['android','SOFTWARE · OFFLINE','✳','green']
 };
 const researchIcons=['⌘','▧','✳','⬡','♫','♧','◈','◌','↗','▤'];
-const state={data:null,category:'todos',query:'',team:null,directoryOpen:false,legacyExpanded:false};
+const state={data:null,category:'todos',team:null,directoryOpen:false,legacyExpanded:false};
 const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const tracks={prototypes:'#track-prototypes',futures:'#track-futures',agents:'#track-agents',legacy:'#legacy-grid'};
 const autoplayState=Object.fromEntries(Object.keys(tracks).map(name=>[name,{
@@ -52,9 +52,6 @@ function status(p){
   if(s.includes('pesquisa')||s.includes('planejamento')||s.includes('sem apk')||s.includes('estudo')||s.includes('conceito'))return 'EM ESTUDO';
   if(s.includes('desenvolvimento')||s.includes('integracao')||s.includes('implementacao'))return 'DESENVOLVIMENTO';
   return p.stage==='concept'?'CONCEITO':'EXPERIMENTO';
-}
-function matches(terms,query){
-  return !query||normalize(terms.join(' ')).includes(query);
 }
 function productTile(p,index){
   const [key,category,icon,variant]=classify(p);
@@ -83,8 +80,8 @@ function wireProductDetails(root){
 function renderProducts(){
   const d=state.data;
   const filtered=d.products.filter(p=>{
-    const [type,cat]=classify(p);
-    return (state.category==='todos'||type===state.category)&&matches([p.name,p.description,p.status,cat],state.query);
+    const [type]=classify(p);
+    return state.category==='todos'||type===state.category;
   });
   for(const [key,stage] of [['prototypes','prototype'],['futures','concept']]){
     const root=$(tracks[key]);
@@ -96,9 +93,7 @@ function renderProducts(){
     root.scrollLeft=0;
     updateTrack(key);
   }
-  $('#catalog-notice').textContent=state.query?
-    'Resultados filtrados por “'+state.query+'”. Os estágios permanecem documentais, sem disponibilidade comercial presumida.':
-    'ⓘ Os estágios são documentais. Nenhum projeto é apresentado como lançado sem confirmação.';
+  $('#catalog-notice').textContent='ⓘ Os estágios são documentais. Nenhum projeto é apresentado como lançado sem confirmação.';
 }
 function researchTile(f,i){
   return '<article class="research-card"><div class="research-top"><span class="research-icon" aria-hidden="true">'+esc(researchIcons[i%researchIcons.length])+'</span>'+
@@ -106,7 +101,7 @@ function researchTile(f,i){
      '<p>'+esc(f.progress)+'</p><details><summary>Próximo marco</summary><p>'+esc(f.next)+'</p></details></article>';
 }
 function renderResearch(){
-  const list=state.data.fronts.filter(f=>matches([f.name,f.progress,f.status,f.next],state.query));
+  const list=state.data.fronts;
   $('#research-grid').innerHTML=list.length?list.map((f)=>researchTile(f,state.data.fronts.indexOf(f))).join(''):emptyMessage('Nenhuma frente corresponde à busca.');
   const others=state.data.fronts.filter(f=>!normalize(f.name).includes('shopping')).slice(0,4);
   $('#progress-fronts').innerHTML=others.map(f=>'<article class="progress-row"><b>'+esc(f.name)+'</b><span>'+esc(f.status)+'</span></article>').join('');
@@ -151,7 +146,7 @@ function bindAgentDetails(root){
 function renderAgents(){
   const all=state.data.groups.flatMap(g=>g.agents);
   const ordered=[...featuredNames.map(n=>all.find(a=>a.name===n)).filter(Boolean),...all.filter(a=>!featuredNames.includes(a.name))];
-  const list=ordered.filter(a=>matches([a.name,a.role,a.description,a.card_description,...(a.responsibilities||[])],state.query));
+  const list=ordered;
   const root=$('#track-agents');
   root.innerHTML=list.length?list.map(person=>portraitCard(person,all.indexOf(person))).join(''):emptyMessage('Nenhum colaborador corresponde à busca.');
   const count=$('#count-agents');if(count)count.textContent=list.length;
@@ -161,7 +156,7 @@ function renderAgents(){
 }
 function renderDirectory(){
   const groups=state.team==='todos'?state.data.groups:[state.data.groups[Number(state.team)]];
-  const list=groups.flatMap(g=>g.agents).filter(a=>matches([a.name,a.role,a.description,a.card_description,...(a.responsibilities||[])],state.query));
+  const list=groups.flatMap(g=>g.agents);
   $('#directory-grid').innerHTML=list.length?list.map(a=>
     '<article class="directory-item">'+
     '<img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado de '+esc(a.name)+'" src="'+esc(agentImagePath(a))+'">'+
@@ -172,7 +167,7 @@ function renderDirectory(){
 function renderLegacy(){
   const target=$('#legacy-grid');if(!target||!state.data)return;
   const all=state.data.legacy_agents||[];
-  const list=all.filter(a=>matches([a.name,a.former_name,a.role,a.description,a.reason,a.destination,a.source_topic],state.query));
+  const list=all;
   target.innerHTML=list.length?list.map(person=>portraitCard(person,all.indexOf(person),true)).join(''):emptyMessage('Nenhum agente descontinuado corresponde à busca.');
   $$('button[data-legacy]',target).forEach(button=>button.addEventListener('click',()=>{
     const person=all[Number(button.dataset.legacy)];
@@ -325,71 +320,6 @@ function wireNavigation(){
     indexFrame=requestAnimationFrame(()=>{updateIndex();indexFrame=0;});
   },{passive:true});
   updateIndex();
-  const form=$('#site-search-form'),input=$('#site-search');
-  const results=$('#search-groups');
-  function dismissSearch(){
-    results.hidden=true;
-    input.blur();
-  }
-  const groups=[
-    ['Projetos','#track-prototypes','.experiment-card'],
-    ['Ideias','#track-futures','.experiment-card'],
-    ['Pesquisas','#research-grid','.research-card'],
-    ['Agentes','#track-agents','.agent-card'],
-    ['Memorial','#legacy-grid','.agent-card']
-  ];
-  function listMatches(){
-    results.replaceChildren();
-    if(!state.query || !state.data){ results.hidden=true; return; }
-    for(const [label,selector,card] of groups){
-      const count=$(selector).querySelectorAll(card).length;
-      if(!count)continue;
-      const link=document.createElement('a');
-      link.href=selector;
-      link.textContent=label+' ('+count+')';
-      results.append(link);
-    }
-    if(!results.childElementCount)results.textContent='Nenhum resultado encontrado.';
-    results.hidden=false;
-  }
-  function visitGroup(link){
-    const group=$(link.hash);
-    group.tabIndex=-1;
-    group.focus();
-    results.hidden=true;
-  }
-  form.addEventListener('submit',event=>{
-    event.preventDefault();
-    listMatches();
-    const link=results.querySelector('a');
-    if(link)visitGroup(link);
-  });
-  results.addEventListener('click',event=>{
-    const link=event.target.closest('a');
-    if(link){event.preventDefault();visitGroup(link);}
-  });
-  $('.close-search').addEventListener('click',()=>{
-    input.value='';
-    input.dispatchEvent(new Event('input'));
-    dismissSearch();
-    $('#menu-toggle').focus();
-  });
-  input.addEventListener('focus',listMatches);
-  form.addEventListener('focusout',event=>{
-    if(!form.contains(event.relatedTarget))results.hidden=true;
-  });
-  input.addEventListener('input',()=>{
-    state.query=normalize(input.value.trim());
-    if(state.data){renderProducts();renderResearch();renderAgents();renderLegacy();}
-    listMatches();
-    $('#live-announcer').textContent=state.query?'Resultados atualizados para '+input.value:'Busca limpa.';
-  });
-  document.addEventListener('keydown',e=>{
-    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){
-      e.preventDefault();input.focus();input.select();
-    }
-    if(e.key==='Escape'&&document.activeElement===input){input.value='';input.dispatchEvent(new Event('input'));dismissSearch();}
-  });
   $$('.category').forEach(b=>b.addEventListener('click',()=>{
     state.category=b.dataset.category;
     $$('.category').forEach(x=>{

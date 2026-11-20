@@ -58,22 +58,16 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         page.locator("#catalog-view").click()
         assert page.locator("#explorar").evaluate("e => e.classList.contains('catalog-list')")
         page.screenshot(path=out / f"catalogo-{width}.png")
+        assert page.locator("#site-search-form").count() == 0
+        assert page.locator(".insights-grid article p").count() == 16
         for query, target, detail in [("Arquivos", "track-prototypes", "Ver informações de Arquivos"),
                                       ("Lia Layout", "track-agents", "Ver a descrição completa de Lia Layout")]:
-            search = page.locator("#site-search")
-            search.fill(query)
-            search.press("Enter")
-            assert page.evaluate("document.activeElement.id") == target
             button = page.get_by_role("button", name=detail, exact=True)
             button.press("Enter")
             assert page.locator("dialog[open] h2").inner_text() == query
             page.screenshot(path=out / f"detalhe-{width}-{target}.png")
             page.keyboard.press("Escape")
             assert button.evaluate("e => e === document.activeElement")
-        page.locator("#site-search").fill("zzzzzz")
-        page.set_viewport_size({"width": width + 1, "height": 900})
-        assert page.locator("#track-agents article").count() == 0
-        page.locator("#site-search").fill("")
         page.add_style_tag(content="html { font-size: 200% !important }")
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth")
         assert page.locator("#powered-toggle").get_attribute("aria-pressed") == "true"

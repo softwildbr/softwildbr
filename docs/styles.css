@@ -876,3 +876,16 @@ body{background:#fff}
 }
 
 .catalog-ready .archive-stories{display:none}
+
+/* Abertura e notas de pesquisa */
+.hero h1{max-width:18ch;font-size:clamp(2.15rem,4.2vw,3.65rem);line-height:1.08;letter-spacing:-.045em;text-wrap:balance}
+.hero h1 span{display:block}
+.manifesto-document-copy .manifesto-signature{background:none;border:0;border-radius:0;padding:0;margin:1.75em 0 .3em;font-size:clamp(1.25rem,2.6vw,2rem);line-height:1.22;letter-spacing:-.03em;text-wrap:balance}
+.insight-heading{align-items:baseline;gap:1rem;flex-wrap:wrap}
+.insight-heading span{color:#50616a;font-size:.75rem;letter-spacing:0}
+.insights-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(20px,4vw,56px);row-gap:0}
+.insights-grid article{min-height:0;padding:1.15rem 0 1.4rem;border:0;border-top:1px solid var(--line);border-radius:0}
+.insights-grid article>span{color:#08646b;font-size:.7rem;margin-bottom:.45rem}
+.insights-grid h4{font-size:1.05rem;line-height:1.32}
+.insights-grid p{margin:.45em 0 0;color:#475762;font-size:1rem;line-height:1.5}
+@media(max-width:650px){.insights-grid{grid-template-columns:1fr}}
