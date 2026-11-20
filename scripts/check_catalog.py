@@ -29,7 +29,7 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
             fallback = page.locator(".wordmark-name").filter(has_text=name).first
             assert fallback.is_visible(), name
         page.wait_for_selector("html.catalog-ready")
-        for selector, count in [("#track-prototypes article", 15), ("#track-futures article", 8),
+        for selector, count in [("#track-prototypes article", 15), ("#track-futures article", 9),
                                 ("#research-grid article", 10), ("#track-agents article", 20)]:
             assert page.locator(selector).count() == count, selector
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), width
