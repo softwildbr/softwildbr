@@ -8,7 +8,9 @@
     "docs/styles.css": "6f2827b4986452f06e913644653fd58d4f2813cb",
     "docs/app.js": "2a6365fd9ad7aed6bd98038d6d4cf117cec4d8cd",
     "docs/data/content.json": "3485ac93a015442d7af8da6531271fb543808241",
-    "docs/assets/softwild-logo.webp": "5f5ecb21ce71d21a4cd4a455974b115364e37619"
+    "docs/assets/softwild-logo.webp": "5f5ecb21ce71d21a4cd4a455974b115364e37619",
+    "scripts/check_catalog.py": "9de4b7d64c98a01caaf7596f3772df3f87acea23",
+    "scripts/render_catalog.py": "9cc51aaf2c81c1aae41b6ce44f052f1727897952"
   },
   "policy": "A mudanca de qualquer hash exige diff especifico, justificativa e revisao humana. Este guard evita alteracoes acidentais, mas nao substitui regras de branch nem menor privilegio para agentes."
 }
