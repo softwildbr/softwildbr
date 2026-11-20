@@ -1,0 +1,42 @@
+name: Soft Wild - Previa Produtos e Ideias
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/produtos/**'
+      - 'docs/ideias/**'
+      - 'docs/portal.css'
+      - 'docs/portal.js'
+      - 'scripts/check_portal.py'
+      - '.github/workflows/portal-preview.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/produtos/**'
+      - 'docs/ideias/**'
+      - 'docs/portal.css'
+      - 'docs/portal.js'
+      - 'scripts/check_portal.py'
+permissions:
+  contents: read
+jobs:
+  portal-preview:
+    name: portal-preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Instalar teste de navegador
+        run: python3 -m pip install playwright==1.56.0
+      - name: Verificar Chrome
+        run: command -v google-chrome || command -v chromium
+      - name: Testar páginas e criar capturas
+        run: python3 scripts/check_portal.py
+      - name: Guardar capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: softwild-produtos-ideias-previews
+          path: portal-capturas/
+          retention-days: 7
+          if-no-files-found: warn
