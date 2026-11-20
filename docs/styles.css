@@ -910,3 +910,12 @@ body{background:#fff}
 @media(max-width:800px){.agent-track{scroll-padding-inline:clamp(16px,4vw,28px)}}
 #legacy-grid .portrait-backdrop{filter:blur(32px);transform:scale(1.75)}
 #legacy-grid .agent-media img.agent-portrait{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent),linear-gradient(transparent,#000 4%,#000 65%,transparent 98%);mask-composite:intersect}
+
+.topbar-inner .brand{margin-right:auto}
+#open-search{flex:none;display:grid;place-items:center;width:44px;height:44px;padding:0;background:#fff;border:1px solid var(--line);border-radius:9px;color:var(--ink);cursor:pointer}
+#open-search[hidden]{display:none}
+.title-accent,.hero h1 em{color:#007584;font-style:normal}
+#search-dialog input{width:100%;padding:12px;font:inherit;border:1px solid #8b9ca4;border-radius:6px}
+.search-close{float:right;background:transparent;color:var(--ink);border:0;cursor:pointer;font-size:24px;width:44px;height:44px}
+#search-results{padding:0;margin:0;list-style:none}
+#search-results button{display:block;width:100%;min-height:44px;text-align:left;padding:10px 0;border:0;border-bottom:1px solid var(--line);background:white;color:#075b68;font:inherit;cursor:pointer}

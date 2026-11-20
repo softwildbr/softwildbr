@@ -381,7 +381,47 @@ function setupMore(id,step,singular,plural){
   });
 }
 
+function setupSearch(){
+  const trigger=$('#open-search'),dialog=$('#search-dialog'),input=$('#site-search');
+  const results=$('#search-results'),feedback=$('#search-feedback');
+  function refresh(){
+    const term=normalize(input.value.trim());
+    results.replaceChildren();
+    feedback.textContent='';
+    if(!term)return;
+    for(const card of $('.agent-track article,.tile-track article,#research-grid article,#future-signals article')){
+      const title=card.querySelector('h3,h4');
+      if(!title||!normalize(card.textContent).includes(term))continue;
+      const row=document.createElement('li'),button=document.createElement('button');
+      button.type='button';
+      button.textContent=title.textContent;
+      row.append(button);
+      results.append(row);
+      button.addEventListener('click',()=>{
+        dialog.close();
+        const more=card.parentElement.nextElementSibling;
+        while(card.hidden&&more?.matches('button.more-entries:not([hidden])'))more.click();
+        card.tabIndex=-1;
+        card.focus({preventScroll:true});
+        card.scrollIntoView({block:'center',inline:'center',behavior:'instant'});
+      });
+    }
+    feedback.textContent=results.children.length?results.children.length+' resultado(s)':'Nenhum resultado encontrado.';
+  }
+  trigger.hidden=false;
+  trigger.addEventListener('click',()=>{
+    const all=$('.category[data-category="todos"]');
+    if(all&&all.getAttribute('aria-pressed')==='false')all.click();
+    input.value='';
+    refresh();
+    dialog.showModal();
+    input.focus();
+  });
+  input.addEventListener('input',refresh);
+}
+
 async function start(){
+  setupSearch();
   setupMore('future-signals',5,'sinal','sinais');
   wireNavigation();
   document.documentElement.classList.add('nav-ready');

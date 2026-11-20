@@ -76,7 +76,13 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         page.locator("#catalog-view").click()
         assert page.locator("#explorar").evaluate("e => e.classList.contains('catalog-list')")
         page.screenshot(path=out / f"catalogo-{width}.png")
-        assert page.locator("#site-search-form").count() == 0
+        trigger = page.get_by_role("button", name="Pesquisar no site")
+        assert trigger.bounding_box()["x"] > width / 2
+        trigger.click()
+        page.locator("#site-search").fill("Lia Layout")
+        page.locator("#search-results").get_by_role("button", name="Lia Layout", exact=True).click()
+        assert page.evaluate("document.activeElement.querySelector('h4').textContent") == "Lia Layout"
+        assert "agente nem faz." in page.locator("#hero-title").inner_text().lower()
         assert page.locator(".insights-grid article p").count() == 16
         for query, target, detail in [("Arquivos", "track-prototypes", "Ver informações de Arquivos"),
                                       ("Lia Layout", "track-agents", "Ver a descrição completa de Lia Layout")]:

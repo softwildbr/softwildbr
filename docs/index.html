@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f8fafb">
-  <meta name="description" content="Soft Wild é um laboratório independente de software, hardware, inteligência artificial, design e experimentos. Se for pra fazer mais do mesmo, a gente nem faz.">
+  <meta name="description" content="Soft Wild é um laboratório independente de software, hardware, inteligência artificial, design e experimentos. Se for pra fazer mais do mesmo, agente nem faz.">
   <meta property="og:title" content="Soft Wild — laboratório de ideias e invenções">
   <meta property="og:description" content="Software, hardware, IA, interfaces, pessoas e agentes. Descubra nossos projetos e pesquisas.">
   <meta property="og:type" content="website">
   <title>Soft Wild — Laboratório independente</title>
   <link rel="icon" href="./assets/softwild-logo.webp" type="image/webp">
-  <link rel="stylesheet" href="./styles.css?v=18">
-  <script src="./app.js?v=18" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=19">
+  <script src="./app.js?v=19" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -31,8 +31,17 @@
       </nav>
       <a class="github-link" href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">GitHub <svg class="action-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M4 12 12 4M4 4h8v8"/></svg></a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <button type="button" id="open-search" hidden aria-label="Pesquisar no site" aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6"/></svg></button>
     </div>
   </header>
+  <dialog id="search-dialog" class="detail-dialog" aria-labelledby="search-title">
+    <form method="dialog"><button class="search-close" aria-label="Fechar pesquisa">×</button></form>
+    <h2 id="search-title">Pesquisar no site</h2>
+    <label class="sr-only" for="site-search">Buscar por nome ou assunto</label>
+    <input id="site-search" type="search" placeholder="Buscar por nome ou assunto" autofocus>
+    <p id="search-feedback" role="status"></p>
+    <ul id="search-results"></ul>
+  </dialog>
 
   <div class="app-layout">
     <aside class="sidebar" aria-label="Perfil e seções do laboratório">
@@ -62,8 +71,8 @@
 
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-text">
-          <h1 id="hero-title">Se for pra fazer mais do mesmo, <span><em>a gente</em> nem faz.</span></h1>
-          <p>A gente mistura código, circuitos, design e pesquisa para construir coisas que merecem existir. Algumas resolvem problemas. Outras fazem perguntas melhores.</p>
+          <h1 id="hero-title">Se for pra fazer mais do mesmo, <span><em>agente</em> nem faz.</span></h1>
+          <p>Agente mistura código, circuitos, design e pesquisa para construir coisas que merecem existir. Algumas resolvem problemas. Outras fazem perguntas melhores.</p>
           <div class="hero-actions"><a href="#time" class="button-primary">Conhecer o time <svg class="action-icon" aria-hidden="true" viewBox="0 0 16 16"><path d="M4 12 12 4M4 4h8v8"/></svg></a></div>
         </div>
         <div class="hero-aside" aria-label="O que você encontra aqui">
@@ -112,7 +121,7 @@
       </div>
 
       <section class="team-section" id="time" aria-labelledby="team-title">
-        <div class="section-heading-row"><div><h2 id="team-title">A gente. E os agentes<span class="dot-cyan">.</span></h2><p>A gente faz com agentes. Conheça os colaboradores de IA que pesquisam, criam e constroem com a Soft Wild.</p></div></div>
+        <div class="section-heading-row"><div><h2 id="team-title">Agente. E os agentes<span class="dot-cyan">.</span></h2><p>Agente faz com agentes. Conheça os colaboradores de IA que pesquisam, criam e constroem com a Soft Wild.</p></div></div>
         <p class="mobile-profile">Soft Wild é um laboratório independente de software, hardware e IA no Brasil. <a href="https://github.com/softwildbr">Perfil no GitHub</a></p>
         <div class="leadership-grid">
           <article class="founder-card">
@@ -463,15 +472,15 @@
         <article class="manifesto-document" aria-label="Manifesto integral da Soft Wild">
           <div class="manifesto-document-bar"><span><span class="manifesto-file-icon" aria-hidden="true">▤</span> MANIFESTO.md</span><span>SOFT WILD / FILOSOFIA</span></div>
           <div class="manifesto-document-copy">
-<h2 id="manifesto-title" class="manifesto-lead"><strong>O óbvio já tem gente demais fazendo.</strong></h2>
-<p>A gente não acredita que tudo precisa ser igual só porque sempre foi assim.</p>
+<h2 id="manifesto-title" class="manifesto-lead"><strong>O óbvio já tem gente demais fazendo<span class="dot-cyan">.</span></strong></h2>
+<p>Agente não acredita que tudo precisa ser igual só porque sempre foi assim.</p>
 <p>Preferimos perguntar. Mexer. Testar. Desmontar uma ideia e montá-la de outro jeito. Encontrar possibilidades onde parecia haver apenas um caminho.</p>
 <p>Esse é o nosso espírito maker. A atitude de quem prefere fazer a esperar que alguém diga como se faz. O <em>do it yourself</em> como liberdade de criar — e não como obrigação de saber tudo.</p>
 <p>Hoje, uma ideia pode começar no software, ganhar corpo em uma impressora 3D, encontrar a eletrônica no meio do caminho ou usar inteligência artificial para abrir novas possibilidades. A ferramenta muda. A vontade de construir, não.</p>
-<p>A gente gosta de coisas que atravessam a tela e chegam ao mundo real: aplicativos, dispositivos, objetos, jogos, coleções e experiências. Algumas resolvem problemas. Outras divertem, surpreendem ou simplesmente dão vontade de usar, ter e guardar.</p>
+<p>Agente gosta de coisas que atravessam a tela e chegam ao mundo real: aplicativos, dispositivos, objetos, jogos, coleções e experiências. Algumas resolvem problemas. Outras divertem, surpreendem ou simplesmente dão vontade de usar, ter e guardar.</p>
 <p><strong>Nem tudo precisa existir aos milhares.</strong> Algumas ideias pedem séries pequenas, edições limitadas, peças numeradas uma a uma. Coisas com identidade própria, que não precisam de escala de fábrica para valer a pena existir.</p>
 <p>Mas uma boa ideia não é desculpa para uma entrega ruim. Experimentar exige coragem. Entregar exige cuidado. A liberdade está no que imaginamos; a responsabilidade, no que colocamos nas mãos das pessoas.</p>
-<p class="manifesto-signature"><strong>Se for pra fazer mais do mesmo, a gente nem faz.</strong></p>
+<p class="manifesto-signature"><strong>Se for pra fazer mais do mesmo, agente nem faz.</strong></p>
 <p class="manifesto-signoff"><strong>Soft Wild.</strong></p>
           </div>
         </article>
@@ -569,7 +578,7 @@
 
       <section class="progress-section" id="progresso" aria-labelledby="progress-title">
         <div class="progress-card">
-          <div class="progress-copy"><span class="micro-tag"><i class="status-dot"></i> PESQUISA DOCUMENTAL / ESPAÇOS HÍBRIDOS</span><h2 id="progress-title">O que um shopping pode ensinar sobre sistemas?</h2><p>Investigamos serviços digitais, a experiência de visitantes e lojistas, operações e oportunidades de integração no mundo físico.</p><div class="abc-tags"><span>A · Visitantes</span><span>B · Operações</span><span>C · Negócios</span></div></div>
+          <div class="progress-copy"><span class="micro-tag"><i class="status-dot"></i> PESQUISA DOCUMENTAL / ESPAÇOS HÍBRIDOS</span><h2 id="progress-title">O que um shopping pode ensinar sobre <em class="title-accent">sistemas</em>?</h2><p>Investigamos serviços digitais, a experiência de visitantes e lojistas, operações e oportunidades de integração no mundo físico.</p><div class="abc-tags"><span>A · Visitantes</span><span>B · Operações</span><span>C · Negócios</span></div></div>
           <div class="progress-numbers"><div><strong>30</strong><span>dossiês documentais</span></div><div><strong>15</strong><span>insights da amostra</span></div><div><strong>12</strong><span>ofertas comparadas</span></div><small>Etapa 1 documental em PR aberto. Sem testes de UX, auditoria visual ou produto lançado. Etapa 2 suspensa.</small></div>
         </div>
         <div class="progress-other"><h3>Outros estudos em movimento</h3><div id="progress-fronts"><!-- catálogo:progress-fronts -->
@@ -580,7 +589,7 @@
 <!-- fim:progress-fronts --></div></div>
       </section>
 
-      <footer class="footer"><div class="footer-brand"><img src="./assets/softwild-logo.webp" alt="" width="32" height="32"><strong>SOFT <span>WILD</span></strong></div><div><p>Se for pra fazer mais do mesmo, a gente nem faz.</p><small>Conteúdo editorial revisado em <span id="date-reviewed">18/11/2026</span> · Estágios não são atualizados em tempo real.</small></div><a href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+      <footer class="footer"><div class="footer-brand"><img src="./assets/softwild-logo.webp" alt="" width="32" height="32"><strong>SOFT <span>WILD</span></strong></div><div><p>Se for pra fazer mais do mesmo, agente nem faz.</p><small>Conteúdo editorial revisado em <span id="date-reviewed">18/11/2026</span> · Estágios não são atualizados em tempo real.</small></div><a href="https://github.com/softwildbr" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
     </main>
   </div>
 
