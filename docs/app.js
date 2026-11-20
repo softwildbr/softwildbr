@@ -389,7 +389,7 @@ function setupSearch(){
     results.replaceChildren();
     feedback.textContent='';
     if(!term)return;
-    for(const card of $('.agent-track article,.tile-track article,#research-grid article,#future-signals article')){
+    for(const card of document.querySelectorAll('.agent-track article,.tile-track article,#research-grid article,#future-signals article')){
       const title=card.querySelector('h3,h4');
       if(!title||!normalize(card.textContent).includes(term))continue;
       const row=document.createElement('li'),button=document.createElement('button');
