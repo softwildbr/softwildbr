@@ -889,3 +889,19 @@ body{background:#fff}
 .insights-grid h4{font-size:1.05rem;line-height:1.32}
 .insights-grid p{margin:.45em 0 0;color:#475762;font-size:1rem;line-height:1.5}
 @media(max-width:650px){.insights-grid{grid-template-columns:1fr}}
+
+.hero h1 em{color:#007584;font-style:normal}
+.main>section:not(.hero){margin-block:clamp(48px,6vw,88px)}
+.section-heading-row{margin-bottom:clamp(20px,3vw,34px)}
+.carousel-heading{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:12px;margin-block:28px 14px}
+.carousel-actions{justify-content:flex-start;gap:8px}
+.carousel-actions button{width:44px;height:44px;padding:0;box-sizing:border-box;display:grid;place-items:center}
+.slide-arrow svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.powered-cycle{gap:18px;padding-right:18px}
+.powered-track{animation-duration:22s}
+.powered-item [hidden]{display:none!important}
+.powered-item{gap:6px;opacity:.8}
+#legacy-grid .portrait-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(14px);transform:scale(1.15)}
+#legacy-grid .agent-media img.agent-portrait{inset:5% 8% auto;width:84%;height:84%;object-fit:contain;object-position:top center;background:transparent;mask-image:linear-gradient(#000 65%,transparent 98%)}
+.more-entries{display:inline-flex;align-items:center;min-height:44px;margin-top:18px;padding:8px 17px;background:white;border:1px solid #aabfc4;border-radius:8px;color:#075b68;font:inherit;font-weight:650;cursor:pointer}
+.more-entries[hidden],.insights-grid article[hidden],.research-grid article[hidden]{display:none}

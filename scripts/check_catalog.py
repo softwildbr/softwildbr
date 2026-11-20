@@ -35,6 +35,19 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), width
         assert page.locator("#agent-dots").count() == 0
         assert page.locator("#legacy-grid .agent-card").count() == 19
+        for list_id, expected in [("future-signals", [5, 10, 15, 16]), ("research-grid", [3, 6, 9, 10])]:
+            button = page.locator(f'button[aria-controls="{list_id}"]')
+            for index, count in enumerate(expected):
+                if index:
+                    button.click()
+                assert page.locator(f"#{list_id} article:visible").count() == count
+            assert button.is_hidden()
+        if width == 390:
+            for index, portrait in enumerate(page.locator("#legacy-grid article").all()):
+                portrait.scroll_into_view_if_needed()
+                portrait.locator(".agent-portrait").evaluate("img => img.decode()")
+                portrait.screenshot(path=out / f"retrato-{index:02}.png")
+            page.locator("#legacy-grid").evaluate("e => e.scrollTo({left:0,behavior:'instant'})")
         for name, selector in [("fundador", ".founder-photo img"), ("ativos", "#track-agents"), ("arquivo", "#legacy-grid")]:
             element = page.locator(selector)
             element.scroll_into_view_if_needed()
