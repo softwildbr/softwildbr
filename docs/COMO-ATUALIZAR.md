@@ -2,6 +2,8 @@
 
 ## Regra permanente de cor e destaque — 20/11/2026
 
+- Pontos finais de destaque devem ser pretos (`#000`), nunca coloridos. Use `.sentence-period` para a pontuação antes marcada como ciano; o destaque da palavra não deve se estender ao ponto.
+
 - A cor de destaque vem da logo do perfil Soft Wild (`assets/softwild-logo.webp`) e da paleta aprovada em `DIRECAO-VISUAL-V6.md`: ciano `--cyan` (`#00bdc5`), com `--cyan-dark` (`#008a94`) para texto sobre fundo claro. Não introduzir outro azul nem alterar essa identidade sem pedido explícito do fundador.
 - Destacar **agente/agentes somente em títulos** (`h1`–`h6`), usando `--cyan-dark`. Não colorir essas palavras nos parágrafos, menus, etiquetas, descrições ou rodapé.
 - “A gente” significa “nós” e mantém a cor normal. O slogan intencional “Se for pra fazer mais do mesmo, agente nem faz.” continua literal; seu destaque só aparece quando for título.
