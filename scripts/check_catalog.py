@@ -33,6 +33,22 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
                                 ("#research-grid article", 10), ("#track-agents article", 20)]:
             assert page.locator(selector).count() == count, selector
         assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), width
+        assert page.locator("#agent-dots").count() == 0
+        assert page.locator("#legacy-grid .agent-card").count() == 19
+        for name, selector in [("fundador", ".founder-photo img"), ("ativos", "#track-agents"), ("arquivo", "#legacy-grid")]:
+            element = page.locator(selector)
+            element.scroll_into_view_if_needed()
+            if name == "fundador":
+                element.evaluate("img => img.decode()")
+                assert element.evaluate("img => Math.abs(img.clientHeight - img.clientWidth * img.naturalHeight / img.naturalWidth) < 2")
+            else:
+                element.locator("img").first.evaluate("img => img.decode()")
+            element.screenshot(path=out / f"{name}-{width}.png")
+        assert page.locator("#legacy-grid article").first.bounding_box()["height"] == page.locator("#track-agents article").first.bounding_box()["height"]
+        page.locator("#legacy-grid button").first.click()
+        assert "Por que saiu" in page.locator("dialog[open]").inner_text()
+        page.keyboard.press("Escape")
+        page.evaluate("window.scrollTo({top:0,behavior:'instant'})")
         page.screenshot(path=out / f"abertura-{width}.png")
         if mobile:
             menu = page.locator("#menu-toggle")
