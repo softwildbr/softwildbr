@@ -20,6 +20,8 @@
 
 **Atenção:** este documento substitui a descrição anterior do layout (v1), que trazia uma composição abstrata de landing page. O novo estilo correto é o do screenshot com **barra lateral e painel central**. O histórico permanece no Git.
 
+Depois de editar produtos, pesquisas ou marcos em `docs/data/content.json`, execute `python3 scripts/render_catalog.py` e inclua o HTML atualizado na mesma alteração.
+
 ## Edição de conteúdo
 
 Campos disponíveis em `content.json`:

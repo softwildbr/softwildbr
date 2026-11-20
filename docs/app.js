@@ -48,9 +48,9 @@ function status(p){
   const s=normalize(p.status);
   if(s.includes('alfa')||s.includes('alpha'))return 'ALFA';
   if(s.includes('candidata')||s.includes('teste'))return 'EM TESTE';
-  if(s.includes('protótipo')||s.includes('piloto'))return 'PROTÓTIPO';
+  if(s.includes('prototipo')||s.includes('piloto'))return 'PROTÓTIPO';
   if(s.includes('pesquisa')||s.includes('planejamento')||s.includes('sem apk')||s.includes('estudo')||s.includes('conceito'))return 'EM ESTUDO';
-  if(s.includes('desenvolvimento')||s.includes('integração')||s.includes('implementação'))return 'DESENVOLVIMENTO';
+  if(s.includes('desenvolvimento')||s.includes('integracao')||s.includes('implementacao'))return 'DESENVOLVIMENTO';
   return p.stage==='concept'?'CONCEITO':'EXPERIMENTO';
 }
 function matches(terms,query){
@@ -76,7 +76,7 @@ function wireProductDetails(root){
     '<h2 id="detail-title">'+esc(p.name)+'</h2>'+
     '<p>'+esc(p.description)+'</p>'+
     '<div class="dialog-data"><span>ESTÁGIO DOCUMENTADO</span>'+esc(p.status)+'</div>'+
-    '<p class="dialog-note">Não representa lançamento, preço, estoque nem data prometida. Revisão do catálogo: 18/11/2026.</p>';
+    '<p class="dialog-note">Não representa lançamento, preço, estoque nem data prometida. Revisão do catálogo: '+esc(state.data.updated.split('-').reverse().join('/'))+'.</p>';
     const dialog=$('#detail-dialog');if(dialog?.showModal)dialog.showModal();
   }));
 }
@@ -118,7 +118,7 @@ function spritePosition(index){
    portrait_file mantém os SVGs de transição sem impedir nomes brasileiros definitivos. */
 function agentImagePath(a){
   const file=String(a.portrait_file||'');
-  return './assets/agents/'+(/^[a-z0-9-]+\.(?:svg|webp)$/.test(file)?file:'placeholder.svg');
+  return './assets/agents/'+(/^[a-z0-9-]+\.(?:svg|webp)$/.test(file)?(file.endsWith('.webp')?'cards/'+file:file):'placeholder.svg');
 }
 function agentVisual(a){
   return '<div class="agent-media">'+
@@ -161,7 +161,7 @@ function buildAgentDots(){
     holder.innerHTML=Array.from({length:pages},(_,i)=>
       '<button type="button" data-agent-page="'+i+'" aria-label="Ver região '+(i+1)+' de '+pages+' do carrossel de agentes" aria-current="false"></button>'
     ).join('');
-    $('button[data-agent-page]',holder).forEach((b,i)=>b.addEventListener('click',()=>{
+    $$('button[data-agent-page]',holder).forEach((b,i)=>b.addEventListener('click',()=>{
       const max=Math.max(0,track.scrollWidth-track.clientWidth);
       track.scrollTo({left:pages>1?max*i/(pages-1):0,behavior:prefersReducedMotion.matches?'auto':'smooth'});
     }));
@@ -172,7 +172,7 @@ function buildAgentDots(){
 function updateAgentDots(){
   const track=$('#track-agents'),holder=$('#agent-dots');
   if(!track||!holder)return;
-  const dots=$('button[data-agent-page]',holder);
+  const dots=$$('button[data-agent-page]',holder);
   const max=Math.max(0,track.scrollWidth-track.clientWidth);
   const current=dots.length>1&&max>0?Math.round(track.scrollLeft/max*(dots.length-1)):0;
   dots.forEach((b,i)=>b.setAttribute('aria-current',String(i===current)));
@@ -208,7 +208,7 @@ function renderLegacy(){
     const number=pad(i+1);
     const hasPhoto=typeof a.portrait_file==='string' && a.portrait_file.startsWith('legacy/') && /^[a-z0-9-]+\.webp$/.test(a.portrait_file.slice(7));
     const portrait=hasPhoto?
-      '<img class="legacy-photo" src="./assets/agents/'+esc(a.portrait_file)+'" alt="Retrato editorial de '+esc(a.name)+'" width="72" height="84" loading="lazy" decoding="async">':
+      '<img class="legacy-photo" src="./assets/agents/cards/'+esc(a.portrait_file)+'" alt="Retrato editorial de '+esc(a.name)+'" width="72" height="84" loading="lazy" decoding="async">':
       '<span class="legacy-monogram" aria-hidden="true">'+esc(initials)+'</span>';
     return '<article class="legacy-card" aria-label="Ficha de '+esc(a.name)+' — descontinuado">'+
       '<div class="legacy-card-head">'+portrait+
@@ -273,7 +273,7 @@ function activateCarousels(){
 }
 function scrollTrack(which,dir){
   const track=$(tracks[which]);if(!track)return;
-  const first=track.querySelector(which==='agents'?'.agent-card':'.experiment-card');
+  const first=track.querySelector('.agent-card, .legacy-card, .experiment-card');
   if(!first)return;
   const gap=parseFloat(getComputedStyle(track).gap||'0');
   const delta=first.getBoundingClientRect().width+gap;
@@ -347,18 +347,69 @@ function wireNavigation(){
     $$('.side-sections a').forEach(x=>x.classList.toggle('side-active',x===a));
   }));
   const form=$('#site-search-form'),input=$('#site-search');
-  form.addEventListener('submit',e=>{e.preventDefault();$('#explorar').scrollIntoView({behavior:prefersReducedMotion.matches?'auto':'smooth'})});
-  form.addEventListener('click',()=>{if(window.matchMedia('(max-width:600px)').matches)input.focus()});
+  const results=$('#search-groups');
+  function dismissSearch(){
+    results.hidden=true;
+    input.blur();
+  }
+  const groups=[
+    ['Projetos','#track-prototypes','.experiment-card'],
+    ['Ideias','#track-futures','.experiment-card'],
+    ['Pesquisas','#research-grid','.research-card'],
+    ['Agentes','#track-agents','.agent-card'],
+    ['Memorial','#legacy-grid','.legacy-card']
+  ];
+  function listMatches(){
+    results.replaceChildren();
+    if(!state.query || !state.data){ results.hidden=true; return; }
+    for(const [label,selector,card] of groups){
+      const count=$(selector).querySelectorAll(card).length;
+      if(!count)continue;
+      const link=document.createElement('a');
+      link.href=selector;
+      link.textContent=label+' ('+count+')';
+      results.append(link);
+    }
+    if(!results.childElementCount)results.textContent='Nenhum resultado encontrado.';
+    results.hidden=false;
+  }
+  function visitGroup(link){
+    const group=$(link.hash);
+    group.tabIndex=-1;
+    group.focus();
+    results.hidden=true;
+  }
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    listMatches();
+    const link=results.querySelector('a');
+    if(link)visitGroup(link);
+  });
+  results.addEventListener('click',event=>{
+    const link=event.target.closest('a');
+    if(link){event.preventDefault();visitGroup(link);}
+  });
+  $('.close-search').addEventListener('click',()=>{
+    input.value='';
+    input.dispatchEvent(new Event('input'));
+    dismissSearch();
+    $('#menu-toggle').focus();
+  });
+  input.addEventListener('focus',listMatches);
+  form.addEventListener('focusout',event=>{
+    if(!form.contains(event.relatedTarget))results.hidden=true;
+  });
   input.addEventListener('input',()=>{
     state.query=normalize(input.value.trim());
     if(state.data){renderProducts();renderResearch();renderAgents();renderLegacy();}
+    listMatches();
     $('#live-announcer').textContent=state.query?'Resultados atualizados para '+input.value:'Busca limpa.';
   });
   document.addEventListener('keydown',e=>{
     if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){
       e.preventDefault();input.focus();input.select();
     }
-    if(e.key==='Escape'&&document.activeElement===input){input.value='';input.dispatchEvent(new Event('input'));}
+    if(e.key==='Escape'&&document.activeElement===input){input.value='';input.dispatchEvent(new Event('input'));dismissSearch();}
   });
   $$('.category').forEach(b=>b.addEventListener('click',()=>{
     state.category=b.dataset.category;
@@ -397,7 +448,9 @@ function setupPoweredStrip(){
 }
 
 async function start(){
-  wireNavigation();activateCarousels();setupAutoplay();setupPoweredStrip();
+  wireNavigation();
+  document.documentElement.classList.add('nav-ready');
+  activateCarousels();setupAutoplay();setupPoweredStrip();
   try{
     const res=await fetch('./data/content.json',{cache:'no-store'});
     if(!res.ok)throw Error('Falha de acesso ao catálogo: HTTP '+res.status);
@@ -405,19 +458,22 @@ async function start(){
     if(!Array.isArray(d.products)||!Array.isArray(d.fronts)||!Array.isArray(d.groups))throw Error('Estrutura inválida');
     state.data=d;
     $('#date-reviewed').textContent=String(d.updated||'2026-11-18').split('-').reverse().join('/');
-    initTeamDirectory();initLegacy();renderProducts();renderResearch();renderAgents();renderLegacy();
   }catch(err){
-    console.error('Soft Wild: dados editoriais indisponíveis',err);
-    // Mantém os 20 cards e o memorial já presentes no HTML estático quando o JSON falha.
-    // Uma falha de rede não deve ocultar o elenco da Soft Wild.
-    for(const id of ['track-prototypes','track-futures','research-grid','progress-fronts']){
-      const target=document.getElementById(id);
-      if(target)target.innerHTML=emptyMessage('Não foi possível carregar esta seção do catálogo. Consulte o repositório público no GitHub.');
-    }
-    const target=document.getElementById('track-agents');
-    if(target&&!target.querySelector('.agent-card'))target.innerHTML=emptyMessage('Não foi possível carregar os agentes.');
-    const note=$('#catalog-notice');if(note)note.textContent='O catálogo interativo está temporariamente indisponível. O elenco e o memorial continuam visíveis nesta página.';
+    console.error('Soft Wild: catálogo interativo indisponível',err);
+    return;
   }
+  for(const render of [initTeamDirectory,renderProducts,renderResearch,renderAgents,renderLegacy]){
+    try {render();}
+    catch(err){console.error('Soft Wild: '+render.name,err);}
+  }
+  document.documentElement.classList.add('catalog-ready');
+  const view=$('#catalog-view');
+  view.hidden=false;
+  view.addEventListener('click',()=>{
+    const expanded=$('#explorar').classList.toggle('catalog-list');
+    view.setAttribute('aria-pressed',String(expanded));
+    view.textContent=expanded?'Ver em carrossel':'Ver todos em lista';
+  });
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
 })();

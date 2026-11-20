@@ -1,0 +1,23 @@
+name: Verificar catálogo público
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'scripts/*catalog*'
+      - '.github/workflows/catalog-qa.yml'
+permissions:
+  contents: read
+jobs:
+  navegador:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/render_catalog.py && git diff --exit-code -- docs/index.html
+      - run: python3 -m pip install playwright==1.56.0
+      - run: python3 scripts/check_catalog.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capturas-catalogo
+          path: capturas/
