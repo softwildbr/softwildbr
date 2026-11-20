@@ -346,7 +346,9 @@ function wireNavigation(){
   const indexLinks=$$('.side-sections a');
   const indexedSections=indexLinks.map(link=>$(link.hash));
   function updateIndex(){
-    const top=$('.topbar').getBoundingClientRect().bottom+24;
+    const anchorOffset=parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0;
+    const sectionMargin=parseFloat(getComputedStyle($('#explorar')).scrollMarginTop)||0;
+    const top=Math.max($('.topbar').getBoundingClientRect().bottom+24,anchorOffset+sectionMargin+2);
     let current=0;
     indexedSections.forEach((section,i)=>{
       if(section && section.getBoundingClientRect().top<=top)current=i;
@@ -443,6 +445,16 @@ function setupPoweredStrip(){
   const strip=$('.powered-strip');
   const toggle=$('#powered-toggle');
   if(!strip||!toggle)return;
+  for(const image of strip.querySelectorAll('.powered-item-wordmark img')){
+    const name=image.previousElementSibling;
+    function showLogo(){
+      image.hidden=false;
+      image.alt=name.textContent;
+      name.hidden=true;
+    }
+    if(image.complete && image.naturalWidth)showLogo();
+    else image.addEventListener('load',showLogo,{once:true});
+  }
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused=reduced.matches;
   const apply=()=>{
