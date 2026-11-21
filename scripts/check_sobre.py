@@ -88,7 +88,7 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
     assert response.status == 200
     assert page.locator("h1").inner_text() == "A gente prefere fazer."
     assert page.locator(".sobre-value").count() == 4
-    assert page.locator('a[href="../#manifesto"]').count() >= 2
+    assert page.locator('footer a[href="../#manifesto"]').count() == 1
     page.close()
 
     # Todos os destinos internos publicados são realmente servidos pelo site.

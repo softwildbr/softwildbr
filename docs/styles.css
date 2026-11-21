@@ -63,6 +63,7 @@ img{display:block;max-width:100%}
 .main-nav{display:flex;align-items:center;gap:21px;white-space:nowrap}
 .main-nav a{color:#56636f;font-size:12px;font-weight:630;transition:color .2s}
 .main-nav a:hover,.main-nav a:focus-visible{color:var(--teal-ink)}
+.main-nav a[aria-current="page"]{color:var(--teal-ink);text-decoration:underline;text-underline-offset:.3em}
 .github-link{font-size:12px;font-weight:700;color:var(--ink);padding:9px 13px;border:1px solid var(--line);border-radius:8px;white-space:nowrap;transition:background .2s}
 .github-link:hover{background:#f1f6f8}
 .github-link span{color:var(--teal-ink);font-size:15px;margin-left:8px}
