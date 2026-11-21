@@ -1,0 +1,58 @@
+/* SOFT WILD / 06 — Sobre. Extensão isolada: a Home e o portal compartilhado não são alterados. */
+.sobre-page .sw-hero{padding-bottom:82px}
+.sobre-page .sw-hero h1{max-width:780px}
+.sobre-page .sw-hero-aside{min-height:315px}
+.sobre-page .sw-hero-aside .sw-aside-main{max-width:335px;font-size:clamp(22px,2.6vw,29px);letter-spacing:-.05em;line-height:1.28}
+.sobre-aside-center{position:relative;display:flex;flex-direction:column;gap:11px}
+.sobre-aside-symbol{font-size:62px;line-height:1;color:var(--sw-cyan-dark);font-weight:300;letter-spacing:-.08em}
+.sobre-jump{padding:21px 0;border-bottom:1px solid var(--sw-line);display:flex;align-items:center;gap:12px 23px;flex-wrap:wrap}
+.sobre-jump a{display:inline-flex;align-items:center;min-height:32px;font-size:12px;font-weight:690;color:#526571}
+.sobre-jump a:hover{color:var(--sw-cyan-dark)}
+.sobre-micro{font-size:10px;color:#84919b;font-weight:800;letter-spacing:.1em}
+.sobre-section{scroll-margin-top:95px}
+.sobre-editorial{display:grid;grid-template-columns:minmax(180px,.53fr) minmax(0,1fr);gap:clamp(30px,6.5vw,100px);border-top:1px solid var(--sw-line);padding-top:41px}
+.sobre-sticky-label{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.sobre-outline-number{font-size:clamp(90px,11vw,170px);line-height:1;font-weight:750;letter-spacing:-.09em;color:transparent;-webkit-text-stroke:1px #d8e3e7;user-select:none;pointer-events:none}
+.sobre-prose{max-width:780px}
+.sobre-prose h2{font-size:clamp(29px,3.6vw,49px);font-weight:760;line-height:1.14;letter-spacing:-.056em;margin:0 0 29px;text-wrap:balance}
+.sobre-prose p{font-size:clamp(15px,1.5vw,18px);line-height:1.8;color:#4d5d69;max-width:740px;margin:0 0 19px}
+.sobre-prose .sobre-conclusion{border-left:3px solid var(--sw-cyan);padding:5px 0 5px 21px;margin:29px 0 0;font-size:clamp(17px,2vw,22px);line-height:1.6;letter-spacing:-.025em;font-weight:700;color:var(--sw-ink)}
+.sobre-territories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sobre-territory{background:#fff;border:1px solid #e3eaed;border-radius:15px;padding:clamp(24px,3vw,37px);min-height:248px;display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-width:0;box-shadow:0 4px 20px rgba(18,38,55,.02)}
+.sobre-territory:nth-child(2){background:#f2f8f8}
+.sobre-territory:nth-child(3){background:#f3f5f8}
+.sobre-territory:nth-child(4){background:#f6f5f2}
+.sobre-territory-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.sobre-territory-top span:first-child{font-weight:790;letter-spacing:.095em;font-size:10px;color:#6e8790}
+.sobre-territory-icon{font-size:40px;color:#4a7d87;line-height:1}
+.sobre-territory h3{font-size:clamp(21px,2.35vw,30px);line-height:1.2;font-weight:760;letter-spacing:-.047em;margin:0 0 12px}
+.sobre-territory p{font-size:13px;color:#546571;line-height:1.75;margin:0;max-width:420px}
+.sobre-after-territories{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:23px 0 0}
+.sobre-after-territories p{margin:0;color:#536571;font-size:15px}
+.sobre-after-territories p strong{color:var(--sw-ink)}
+.sobre-text-link{font-size:12px;min-height:40px;display:inline-flex;align-items:center;gap:7px;color:#166e7b!important;font-weight:760;white-space:normal}
+.sobre-text-link:hover{text-decoration:underline}
+.sobre-values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.sobre-value{border:1px solid var(--sw-line);background:#fff;border-radius:15px;padding:clamp(23px,3vw,38px);min-height:255px}
+.sobre-value-number{font-size:10px;letter-spacing:.09em;font-weight:790;color:var(--sw-cyan-dark)}
+.sobre-value h3{font-size:clamp(25px,2.4vw,32px);font-weight:750;letter-spacing:-.05em;line-height:1.15;margin:24px 0 18px}
+.sobre-value p{color:#576773;line-height:1.75;font-size:13px;margin:0 0 12px}
+.sobre-value p:last-child{margin-bottom:0}
+.sobre-belief{border-bottom:1px solid var(--sw-line);padding:24px 0 26px;margin:11px 0 0;text-align:left;font-size:clamp(21px,3vw,35px);font-weight:730;letter-spacing:-.055em;line-height:1.35}
+.sobre-human-ai{grid-template-columns:minmax(0,.75fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);padding:clamp(28px,4vw,58px)}
+.sobre-human-ai h2{font-size:clamp(27px,3vw,40px);margin:18px 0;line-height:1.2}
+.sobre-human-ai p{font-size:14px;line-height:1.85}
+.sobre-side-note{display:block;font-size:12px;color:#87939d;max-width:290px;line-height:1.7}
+.sobre-manifesto{background:var(--sw-navy);border-radius:18px;padding:clamp(28px,5vw,77px);position:relative;overflow:hidden;color:#f7fcfd}
+.sobre-manifesto:before{content:"✳";position:absolute;right:-48px;top:-130px;font-size:330px;line-height:1;transform:rotate(12deg);color:rgba(0,189,197,.09);pointer-events:none}
+.sobre-manifesto>*{position:relative;z-index:1}
+.sobre-manifesto .sw-eyebrow{color:#82e5e6}
+.sobre-manifesto h2{font-size:clamp(35px,4.2vw,59px);letter-spacing:-.06em;line-height:1.12;margin:24px 0 31px;max-width:760px}
+.sobre-manifesto p{font-size:clamp(14px,1.5vw,18px);line-height:1.8;color:#d0e3e8;max-width:750px;margin:0 0 15px}
+.sobre-manifesto .sw-button{background:#fff;border-color:#fff;color:#172b39!important;margin-top:20px}
+.sobre-manifesto .sw-button:hover{background:#e7f8f8}
+.sobre-end{margin-bottom:62px}
+.sobre-end .sw-actions{max-width:440px;justify-content:flex-start}
+@media(max-width:1050px){.sobre-page .sw-hero{gap:35px}.sobre-page .sw-hero-aside{min-height:280px}.sobre-human-ai{grid-template-columns:1fr 1.2fr}}
+@media(max-width:780px){.sobre-page .sw-hero{padding-bottom:52px}.sobre-page .sw-hero-aside{min-height:225px}.sobre-page .sw-hero-aside .sw-aside-main{max-width:500px}.sobre-editorial{grid-template-columns:1fr;gap:5px;padding-top:27px}.sobre-outline-number{display:none}.sobre-prose h2{margin-top:13px}.sobre-human-ai{grid-template-columns:1fr}.sobre-jump{gap:7px 19px}.sobre-manifesto:before{font-size:260px;right:-70px;top:-100px}}
+@media(max-width:520px){.sobre-jump .sobre-micro{width:100%}.sobre-page .sw-hero h1{font-size:clamp(39px,10vw,52px)}.sobre-territories,.sobre-values{grid-template-columns:1fr}.sobre-territory{min-height:205px;gap:27px}.sobre-after-territories{align-items:flex-start;flex-direction:column;gap:6px}.sobre-value{min-height:auto}.sobre-value h3{margin:17px 0 11px}.sobre-prose p{font-size:15px}.sobre-manifesto{padding:30px 24px}.sobre-manifesto h2{font-size:clamp(32px,9vw,45px)}.sobre-end .sw-actions{width:100%}}
