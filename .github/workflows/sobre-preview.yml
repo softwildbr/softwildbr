@@ -1,0 +1,40 @@
+name: Soft Wild - Sobre
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/sobre/**'
+      - 'docs/produtos/index.html'
+      - 'docs/ideias/index.html'
+      - 'docs/pesquisas/index.html'
+      - 'docs/laboratorio/index.html'
+      - 'scripts/check_sobre.py'
+      - '.github/workflows/sobre-preview.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/sobre/**'
+      - 'scripts/check_sobre.py'
+permissions:
+  contents: read
+jobs:
+  sobre:
+    name: sobre-preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Instalar Playwright
+        run: python3 -m pip install playwright==1.56.0
+      - name: Confirmar Chrome/Chromium
+        run: command -v google-chrome || command -v chromium
+      - name: Testar layout e navegacao
+        run: python3 scripts/check_sobre.py
+      - name: Guardar capturas de teste
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: softwild-sobre-capturas
+          path: sobre-capturas/
+          retention-days: 7
+          if-no-files-found: warn
