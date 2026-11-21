@@ -20,8 +20,15 @@
     nav.addEventListener('click', (event) => {
       if (event.target.closest('a')) close();
     });
+    menu.closest('header').addEventListener('focusout', event => {
+      if (!event.currentTarget.contains(event.relatedTarget)) close();
+    });
+    matchMedia('(max-width: 780px)').addEventListener('change', close);
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') close();
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        close();
+        menu.focus();
+      }
     });
   }
 
@@ -72,7 +79,10 @@
     if (stage) stage.value = 'todos';
     apply();
   }
-  clear?.addEventListener('click', reset);
+  clear?.addEventListener('click', () => {
+    reset();
+    search.focus();
+  });
 
   function resolveHash() {
     if (!location.hash || location.hash.length < 2) return;
