@@ -226,12 +226,30 @@ section{scroll-margin-top:88px}
 .directory-toolbar label{font-size:11px;font-weight:700;color:#677883}
 .directory-toolbar select{background:#fff;border:1px solid var(--line-strong);border-radius:8px;font-size:11px;padding:9px 12px;max-width:300px}
 .directory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.directory-item{display:flex;gap:12px;min-width:0;border:1px solid var(--line);border-radius:10px;padding:13px}
-.directory-image{width:56px;height:56px;flex:0 0 56px;background:#eef6f7;border-radius:9px;display:grid;place-items:center;font-size:19px;font-weight:780;color:#0b8790}
-.directory-copy{min-width:0}
-.directory-copy strong{font-size:12px;display:block}
-.directory-copy small{display:block;color:var(--teal-ink);font-size:10px;margin:3px 0 7px}
-.directory-copy p{font-size:10px;color:#778793;line-height:1.6;margin:0}
+.directory-item{
+ --directory-portrait-width:88px;
+ display:grid;grid-template-columns:var(--directory-portrait-width) minmax(0,1fr);align-items:start;
+ gap:15px;min-width:0;border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff
+}
+.directory-item img.directory-image{display:block;width:100%;height:auto;aspect-ratio:2/3;
+ object-fit:cover;object-position:center 8%;border-radius:8px;background:#edf2f4}
+.directory-item img.directory-image:is([src$="/mara-movimento.webp"],[src$="/priscila-prioridade.webp"]){
+ object-position:center 2%
+}
+.directory-item img.directory-image:is([src$="/ana-litica.webp"],[src$="/leo-loop.webp"]){
+ object-position:center 4%
+}
+.directory-item img.directory-image[src$="/vivi-vitrine.webp"]{object-position:center 23%}
+.directory-copy{min-width:0;overflow-wrap:anywhere}
+.directory-label{font-size:10px;font-weight:800;letter-spacing:.105em;color:var(--muted-ink);text-transform:uppercase}
+.directory-copy h3{font-size:16px;letter-spacing:-.035em;line-height:1.3;margin:5px 0 6px}
+.directory-role,.directory-description{font-size:12px;line-height:1.55;margin:0 0 8px;color:var(--muted-ink)}
+.directory-action{display:block;width:100%;min-height:44px;padding:8px 0;text-align:left;
+ border:0;border-top:1px solid var(--line);background:none;color:var(--teal-ink);font-size:12px;font-weight:760}
+.directory-action:hover{text-decoration:underline}
+@media(max-width:1000px){.directory-grid{grid-template-columns:1fr}}
+@media(max-width:800px){.directory-item{--directory-portrait-width:84px;gap:12px}}
+@media(max-width:360px){.directory-item{--directory-portrait-width:74px;gap:10px;padding:10px}}
 .manifesto-layout{display:grid;grid-template-columns:1fr 1fr;gap:38px;margin:21px 0 37px}
 .manifesto-layout h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.059em;line-height:1.13;margin:17px 0 0;max-width:500px}
 .manifesto-copy p{font-size:13px;line-height:1.8;color:#71808c;margin:0 0 15px}
@@ -448,17 +466,8 @@ section{scroll-margin-top:88px}
 .agent-card img.agent-portrait{display:block;object-fit:cover;width:214px;height:214px;
  max-width:calc(100% - 26px);margin:13px auto 0;border:1px solid #e2e8ee;
  border-radius:12px;background:#f4f8f9}
-.directory-item img.directory-image{display:block;object-fit:cover;object-position:center 8%;
- width:74px;height:74px;flex:0 0 74px;border:1px solid #e2e8ee;border-radius:9px;background:#f2f7f8}
-.directory-item img.directory-image:is([src$="/mara-movimento.webp"],[src$="/priscila-prioridade.webp"]){
- object-position:center 2%
-}
-.directory-item img.directory-image:is([src$="/ana-litica.webp"],[src$="/leo-loop.webp"]){
- object-position:center 4%
-}
 @media(max-width:600px){
  .agent-card img.agent-portrait{width:201px;height:201px}
- .directory-item img.directory-image{width:64px;height:64px;flex-basis:64px}
 }
 
 
@@ -993,7 +1002,7 @@ body{background:#fff}
 .directory-toolbar{gap:var(--space-3);flex-wrap:wrap}
 .directory-toolbar select{max-width:100%}
 .directory-grid,.research-grid,#progress-fronts{gap:var(--space-6)}
-.directory-item,.research-card,.progress-row{padding:var(--space-6)}
+.research-card,.progress-row{padding:var(--space-6)}
 .research-status{display:inline-block;white-space:normal;margin-top:var(--space-3)}
 .research-card>p{margin-block:var(--space-4)}
 .ai-method-grid{gap:var(--space-8)}
@@ -1033,7 +1042,6 @@ body{background:#fff}
   .manifesto-document-copy{padding-inline:0}
   .manifesto-document-bar{padding:var(--space-4)}
   .directory-grid,#progress-fronts{grid-template-columns:1fr}
-  .directory-item{padding:var(--space-4);gap:var(--space-3)}
   .footer>div:nth-child(2){margin-block:var(--space-6)}
 }
 
