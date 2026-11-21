@@ -1,0 +1,41 @@
+name: Verificar retratos do diretório
+on:
+  pull_request:
+    paths:
+      - 'docs/index.html'
+      - 'docs/styles.css'
+      - 'docs/app.js'
+      - 'docs/data/content.json'
+      - 'docs/assets/agents/cards/**'
+      - 'scripts/check_directory_portraits.py'
+      - '.github/workflows/directory-portraits-qa.yml'
+permissions:
+  contents: read
+jobs:
+  retratos:
+    name: Retratos do diretório (${{ matrix.browser }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 2
+      - name: Preparar versão anterior
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git worktree add --detach "$RUNNER_TEMP/softwild-base" "$BASE_SHA"
+      - run: python3 -m pip install playwright==1.56.0 Pillow==11.3.0
+      - if: matrix.browser == 'webkit'
+        run: python3 -m playwright install --with-deps webkit
+      - run: |
+          python3 scripts/check_directory_portraits.py --browser "${{ matrix.browser }}" \
+            --baseline-docs "$RUNNER_TEMP/softwild-base/docs"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capturas-retratos-${{ matrix.browser }}
+          path: retratos-capturas/

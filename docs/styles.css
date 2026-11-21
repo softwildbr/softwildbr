@@ -448,8 +448,14 @@ section{scroll-margin-top:88px}
 .agent-card img.agent-portrait{display:block;object-fit:cover;width:214px;height:214px;
  max-width:calc(100% - 26px);margin:13px auto 0;border:1px solid #e2e8ee;
  border-radius:12px;background:#f4f8f9}
-.directory-item img.directory-image{display:block;object-fit:cover;width:74px;height:74px;flex:0 0 74px;
- border:1px solid #e2e8ee;border-radius:9px;background:#f2f7f8}
+.directory-item img.directory-image{display:block;object-fit:cover;object-position:center 8%;
+ width:74px;height:74px;flex:0 0 74px;border:1px solid #e2e8ee;border-radius:9px;background:#f2f7f8}
+.directory-item img.directory-image:is([src$="/mara-movimento.webp"],[src$="/priscila-prioridade.webp"]){
+ object-position:center 2%
+}
+.directory-item img.directory-image:is([src$="/ana-litica.webp"],[src$="/leo-loop.webp"]){
+ object-position:center 4%
+}
 @media(max-width:600px){
  .agent-card img.agent-portrait{width:201px;height:201px}
  .directory-item img.directory-image{width:64px;height:64px;flex-basis:64px}
