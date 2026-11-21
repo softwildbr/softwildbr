@@ -1,0 +1,39 @@
+name: Soft Wild - Laboratorio
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/laboratorio/**'
+      - 'docs/produtos/index.html'
+      - 'docs/ideias/index.html'
+      - 'docs/pesquisas/index.html'
+      - 'scripts/check_laboratorio.py'
+      - '.github/workflows/laboratorio-preview.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/laboratorio/**'
+      - 'scripts/check_laboratorio.py'
+permissions:
+  contents: read
+jobs:
+  laboratorio:
+    name: laboratorio-preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Instalar Playwright
+        run: python3 -m pip install playwright==1.56.0
+      - name: Confirmar Chrome/Chromium
+        run: command -v google-chrome || command -v chromium
+      - name: Testar Laboratorio responsivo
+        run: python3 scripts/check_laboratorio.py
+      - name: Guardar capturas de teste
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: softwild-laboratorio-capturas
+          path: laboratorio-capturas/
+          retention-days: 7
+          if-no-files-found: warn
