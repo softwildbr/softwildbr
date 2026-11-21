@@ -86,8 +86,8 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
         assert page.evaluate("document.activeElement.querySelector('h4').textContent") == "Lia Layout"
         assert "agente nem faz." in page.locator("#hero-title").inner_text().lower()
         assert page.locator(".insights-grid article p").count() == 16
-        for query, target, detail in [("Arquivos", "track-prototypes", "Ver informações de Arquivos"),
-                                      ("Lia Layout", "track-agents", "Ver a descrição completa de Lia Layout")]:
+        for query, target, detail in [("Arquivos", "track-prototypes", "Ver detalhes de Arquivos"),
+                                      ("Lia Layout", "track-agents", "Conhecer o trabalho de Lia Layout")]:
             button = page.get_by_role("button", name=detail, exact=True)
             button.press("Enter")
             assert page.locator("dialog[open] h2").inner_text() == query

@@ -79,7 +79,10 @@
     if (stage) stage.value = 'todos';
     apply();
   }
-  clear?.addEventListener('click', reset);
+  clear?.addEventListener('click', () => {
+    reset();
+    search.focus();
+  });
 
   function resolveHash() {
     if (!location.hash || location.hash.length < 2) return;

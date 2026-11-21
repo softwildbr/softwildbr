@@ -75,7 +75,7 @@ function productTile(p,index){
   return '<article class="experiment-card" aria-label="'+esc(p.name)+'">'+
     '<div class="card-top"><div class="card-icon variant-'+variant+'" aria-hidden="true">'+esc(icon)+'</div><span class="card-stage '+(p.stage==='concept'?'is-research':'')+'">'+esc(phase)+'</span></div>'+
     '<div class="card-bottom"><span class="card-category">'+esc(category)+'</span><h4>'+esc(p.name)+'</h4>'+
-    '<p>'+esc(p.description)+'</p><button class="card-detail" type="button" data-product="'+index+'" aria-label="Ver informações de '+esc(p.name)+'">Ver detalhes <span aria-hidden="true">↗</span></button></div></article>';
+    '<p>'+esc(p.description)+'</p><button class="card-detail" type="button" data-product="'+index+'" aria-label="Ver detalhes de '+esc(p.name)+'">Ver detalhes <span aria-hidden="true">↗</span></button></div></article>';
 }
 function emptyMessage(text){
   return '<p class="loading-text" role="status">'+esc(text)+'</p>';
@@ -146,7 +146,7 @@ function portraitCard(person,index,archived=false){
     <div class="agent-caption"><h4>${esc(person.name)}</h4>
       <span class="agent-badge">${label}</span><div class="agent-role">${esc(person.role)}</div>
       <p class="agent-description">${esc(person.card_description||person.description)}</p>
-      <button type="button" class="agent-detail" ${attr}="${index}" aria-label="${archived?'Ler a história de':'Ver a descrição completa de'} ${esc(person.name)}">${action} <span aria-hidden="true">→</span></button>
+      <button type="button" class="agent-detail" ${attr}="${index}" aria-label="${archived?'Ler a história de':'Conhecer o trabalho de'} ${esc(person.name)}">${action} <span aria-hidden="true">→</span></button>
     </div></article>`;
 }
 function bindAgentDetails(root){
