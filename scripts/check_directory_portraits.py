@@ -1,6 +1,7 @@
-"""Check directory portrait framing and capture the twenty rendered portraits."""
+"""Check the twenty directory cards, their images and profile interactions."""
 import argparse
 import io
+import json
 import shutil
 from contextlib import contextmanager
 from functools import partial
@@ -8,7 +9,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from threading import Thread
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageStat
 from playwright.sync_api import expect, sync_playwright
 
 
@@ -58,14 +59,20 @@ def open_directory(page, url):
       const directory = document.querySelector('#agent-directory').getBoundingClientRect();
       return images.map(img => {
         const rect = img.getBoundingClientRect();
-        const card = img.closest('.directory-item').getBoundingClientRect();
+        const card = img.closest('.directory-item');
+        const copy = card.querySelector('.directory-copy');
+        const copyBox = copy.getBoundingClientRect();
+        const cardBox = card.getBoundingClientRect();
         const css = getComputedStyle(img);
         return {
           asset: new URL(img.src).pathname,
           alt: img.alt,
-          name: img.closest('.directory-item').querySelector('strong').textContent,
+          name: card.querySelector('h3, strong').textContent,
           source: [img.naturalWidth, img.naturalHeight],
-          size: [rect.width, rect.height, card.width, card.height],
+          size: [rect.width, rect.height],
+          gap: copyBox.left - rect.right,
+          inset: cardBox.right - copyBox.right,
+          copyOverflow: copy.scrollWidth - copy.clientWidth,
           fit: css.objectFit,
           position: css.objectPosition,
           relative: [rect.left - directory.left, rect.top - directory.top],
@@ -78,32 +85,38 @@ def open_directory(page, url):
 
 def check_framing(after, before, width):
     assert len(after) == 20
-    side = 64 if width <= 600 else 74
+    portrait_width = 74 if width <= 360 else 84 if width <= 800 else 88
     for portrait in after:
         asset = Path(portrait["asset"]).stem
         assert portrait["fit"] == "cover", asset
-        assert portrait["size"][:2] == [side, side], (width, asset, portrait["size"])
+        assert portrait["size"] == [portrait_width, 1.5 * portrait_width], (width, asset, portrait["size"])
+        assert portrait["gap"] > 0 and portrait["inset"] > 0, (width, asset, "texto à direita")
+        assert portrait["copyOverflow"] <= 1, (width, asset, "texto extravasou o card")
         source_width, source_height = portrait["source"]
         assert source_width > 0 and source_height > source_width, asset
         x, y = portrait["position"].split()
         assert x == "50%", asset
-        crop_top = (source_height - source_width) * float(y.removesuffix("%")) / 100
+        visible_height = source_width * portrait["size"][1] / portrait["size"][0]
+        crop_top = (source_height - visible_height) * float(y.removesuffix("%")) / 100
         assert crop_top < HAIR_TOP[asset], (width, asset, crop_top, HAIR_TOP[asset])
     if before:
         for old, new in zip(before, after, strict=True):
-            for field in ("asset", "alt", "name", "source", "size", "fit"):
+            for field in ("asset", "alt", "name", "source", "fit"):
                 assert old[field] == new[field], (width, new["name"], field, old[field], new[field])
 
 
 def write_contact_sheet(destination, after, old=None):
-    sample_size = 74
     after_png, after_data = after
     before_image, before_data = (Image.open(io.BytesIO(old[0])), old[1]) if old else (None, [])
     after_image = Image.open(io.BytesIO(after_png))
-    result = Image.new("RGB", (900, 5 * 112 + 34), "#ffffff")
+    result = Image.new("RGB", (900, 5 * 174 + 35), "#ffffff")
     draw = ImageDraw.Draw(result)
+    try:
+        font = ImageFont.truetype("DejaVuSans.ttf", 14)
+    except OSError:
+        font = ImageFont.load_default(size=14)
     draw.text((12, 9), "Diretório · antes à esquerda, depois à direita" if old else "Diretório · depois",
-              fill="#222222")
+              fill="#222222", font=font)
 
     def paste(image, row, x, y):
         left, top = map(round, row["relative"])
@@ -111,19 +124,75 @@ def write_contact_sheet(destination, after, old=None):
         result.paste(image.crop((left, top, left + width, top + height)), (x, y))
 
     for index, row in enumerate(after_data):
-        x, y = 12 + index % 4 * 225, 32 + index // 4 * 112
-        draw.text((x, y), row["name"], fill="#222222")
+        x, y = 12 + index % 4 * 225, 32 + index // 4 * 174
+        draw.text((x, y), row["name"], fill="#222222", font=font)
         if before_image:
             paste(before_image, before_data[index], x, y + 18)
-        paste(after_image, row, x + sample_size + 6 if old else x, y + 18)
+        paste(after_image, row, x + 82 if old else x, y + 18)
         if Path(row["asset"]).stem in SOURCE_EXCEPTIONS:
-            draw.text((x, y + 94), "Corte no arquivo original", fill="#773c2a")
+            draw.text((x, y + 151), "Corte no arquivo original", fill="#773c2a", font=font)
     result.save(destination)
 
 
 def capture(directory, output):
     # Screenshots keep the browser viewport's CSS-pixel dimensions.
     return directory.screenshot(path=output, animations="disabled", scale="css")
+
+
+def check_interactions(page, groups):
+    directory = page.locator("#agent-directory")
+    profiles = directory.locator("article")
+    names = [person["name"] for group in groups for person in group["agents"]]
+    expect(profiles.locator("h3")).to_have_text(names)
+    expect(profiles.locator(".directory-label")).to_have_text(["Agente de IA"] * len(names))
+    expect(profiles.locator("button")).to_have_count(len(names))
+
+    select = page.locator("#agent-area")
+    for index, group in enumerate(groups):
+        select.select_option(str(index))
+        expect(profiles.locator("h3")).to_have_text([person["name"] for person in group["agents"]])
+        expect(profiles.locator(".directory-role")).to_have_text([person["role"] for person in group["agents"]])
+        expect(profiles.locator(".directory-description")).to_have_text([person["description"] for person in group["agents"]])
+
+    name = groups[-1]["agents"][0]["name"]
+    action = directory.get_by_role("button", name=f"Conhecer o trabalho de {name}", exact=True)
+    action.press("Enter")
+    dialog = page.locator("#detail-dialog")
+    expect(dialog).to_be_visible()
+    expect(dialog.get_by_role("heading", name=name, exact=True)).to_be_visible()
+    page.keyboard.press("Escape")
+    expect(dialog).to_be_hidden()
+    expect(action).to_be_focused()
+
+    select.select_option("todos")
+    expect(profiles).to_have_count(20)
+    page.locator("#show-directory").press("Enter")
+    expect(directory).to_be_hidden()
+
+
+def check_legacy(page, base_page, output, width):
+    legacy = page.locator("#legacy-grid")
+    old_legacy = base_page.locator("#legacy-grid")
+    expect(legacy.locator("article")).to_have_count(19)
+    assert legacy.inner_html() == old_legacy.inner_html(), (width, "conteúdo dos descontinuados")
+    base_page.locator("#show-directory").click()
+    label = "Agente descontinuado: Dona Horária"
+    old_card = old_legacy.get_by_role("article", name=label)
+    new_card = legacy.get_by_role("article", name=label)
+    for card in (old_card, new_card):
+        card.locator("img").evaluate_all("""async images => {
+          await Promise.all(images.map(img => {
+            img.loading = 'eager';
+            return img.decode();
+          }));
+        }""")
+    before = capture(old_card, output / f"descontinuados-antes-{width}.png")
+    after = capture(new_card, output / f"descontinuados-depois-{width}.png")
+    with Image.open(io.BytesIO(before)) as old, Image.open(io.BytesIO(after)) as new:
+        assert old.size == new.size
+        difference = ImageChops.difference(old.convert("RGB"), new.convert("RGB"))
+        # Tiny rasterization differences can occur when the card moves by a subpixel.
+        assert max(ImageStat.Stat(difference).mean) < 0.75, (width, label)
 
 
 def main():
@@ -133,10 +202,11 @@ def main():
     parser.add_argument("--captures", default="retratos-capturas", type=Path)
     args = parser.parse_args()
     docs = Path(__file__).resolve().parents[1] / "docs"
+    groups = json.loads((docs / "data/content.json").read_text())["groups"]
     output = args.captures / args.browser
     output.mkdir(parents=True, exist_ok=True)
     for asset in SOURCE_EXCEPTIONS:
-        shutil.copyfile(docs / "assets/agents/cards" / f"{asset}.webp", output / f"original-{asset}.webp")
+        shutil.copyfile(docs / "assets/agents" / f"{asset}.webp", output / f"original-{asset}.webp")
 
     with local_site(docs) as url, local_site(args.baseline_docs or docs) as old_url, sync_playwright() as pw:
         engine = getattr(pw, args.browser)
@@ -157,7 +227,11 @@ def main():
                     old = (old_image, before)
                 check_framing(after, old[1] if old else None, width)
                 write_contact_sheet(output / f"retratos-{width}.png", (image, after), old)
-            print(f"{width}px: 20 retratos conferidos", flush=True)
+                if width in (390, 1440):
+                    check_interactions(page, groups)
+                    if args.baseline_docs:
+                        check_legacy(page, base_page, output, width)
+            print(f"{width}px: 20 cards do diretório conferidos", flush=True)
         browser.close()
 
 

@@ -175,15 +175,26 @@ function renderAgents(){
   if(state.directoryOpen)renderDirectory();
 }
 function renderDirectory(){
-  const groups=state.team==='todos'?state.data.groups:[state.data.groups[Number(state.team)]];
-  const list=groups.flatMap(g=>g.agents);
-  $('#directory-grid').innerHTML=list.length?list.map(a=>
-    '<article class="directory-item">'+
-    '<img class="directory-image" loading="lazy" width="80" height="80" alt="Retrato ilustrado de '+esc(a.name)+'" src="'+esc(agentImagePath(a))+'">'+
-    '<div class="directory-copy"><strong>'+esc(a.name)+'</strong>'+
-    '<small>'+esc(a.role)+' · AGENTE DE IA</small><p>'+esc(a.description)+'</p></div></article>'
+  const groups=state.data.groups;
+  const all=groups.flatMap(g=>g.agents);
+  const list=state.team==='todos'?all:groups[Number(state.team)].agents;
+  const directory=$('#directory-grid');
+  directory.innerHTML=list.length?list.map(person=>`
+    <article class="directory-item">
+      <img class="directory-image" loading="lazy" decoding="async" width="88" height="132"
+        alt="Retrato ilustrado de ${esc(person.name)}" src="${esc(agentImagePath(person))}">
+      <div class="directory-copy">
+        <span class="directory-label">Agente de IA</span>
+        <h3>${esc(person.name)}</h3>
+        <p class="directory-role">${esc(person.role)}</p>
+        <p class="directory-description">${esc(person.description)}</p>
+        <button class="directory-action" type="button" data-agent="${all.indexOf(person)}"
+          aria-label="Conhecer o trabalho de ${esc(person.name)}">Conhecer o trabalho <span aria-hidden="true">→</span></button>
+      </div>
+    </article>`
   ).join(''):emptyMessage('Nenhum agente neste filtro.');
-  highlightAgentWords($('#directory-grid'));
+  highlightAgentWords(directory);
+  bindAgentDetails(directory);
 }
 function renderLegacy(){
   const target=$('#legacy-grid');if(!target||!state.data)return;
