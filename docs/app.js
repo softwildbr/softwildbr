@@ -309,14 +309,25 @@ function setupAutoplay(){
 }
 function wireNavigation(){
   const menu=$('#menu-toggle'),nav=$('#main-nav');
-  menu.addEventListener('click',()=>{
-    const open=nav.classList.toggle('open');
-    menu.setAttribute('aria-expanded',String(open));
-    menu.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+  function setMenuOpen(open) {
+    nav.classList.toggle('open', open);
+    menu.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  }
+  menu.addEventListener('click', () => setMenuOpen(!nav.classList.contains('open')));
+  nav.addEventListener('click', event => {
+    if (event.target.closest('a')) setMenuOpen(false);
   });
-  $$('#main-nav a').forEach(a=>a.addEventListener('click',()=>{
-    nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menu');
-  }));
+  menu.closest('header').addEventListener('focusout', event => {
+    if (!event.currentTarget.contains(event.relatedTarget)) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('open')) {
+      setMenuOpen(false);
+      menu.focus();
+    }
+  });
+  matchMedia('(max-width: 800px)').addEventListener('change', () => setMenuOpen(false));
   const indexLinks=$$('.side-sections a');
   const indexedSections=indexLinks.map(link=>$(link.hash));
   function updateIndex(){

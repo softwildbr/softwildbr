@@ -20,8 +20,15 @@
     nav.addEventListener('click', (event) => {
       if (event.target.closest('a')) close();
     });
+    menu.closest('header').addEventListener('focusout', event => {
+      if (!event.currentTarget.contains(event.relatedTarget)) close();
+    });
+    matchMedia('(max-width: 780px)').addEventListener('change', close);
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') close();
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        close();
+        menu.focus();
+      }
     });
   }
 

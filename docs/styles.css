@@ -294,7 +294,13 @@ section{scroll-margin-top:88px}
  .search{margin-left:auto;width:min(315px,46vw)}
  .search kbd{display:none}
  .main-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:12px 17px 17px;box-shadow:0 15px 25px #162a3914;flex-direction:column;align-items:stretch}
- .main-nav.open{display:flex}
+ .main-nav.open{
+   display:flex;
+   max-height:calc(100vh - 64px);
+   max-height:calc(100dvh - 64px);
+   overflow-y:auto;
+   overscroll-behavior-y:contain;
+ }
  .main-nav a{padding:10px 8px;font-size:13px}
  .menu-toggle{display:flex;flex-shrink:0}
  .app-layout{display:block;width:calc(100% - 26px);padding:20px 0 46px}
