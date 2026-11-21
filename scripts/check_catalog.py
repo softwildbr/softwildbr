@@ -75,10 +75,11 @@ with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server, sync_playwright()
             menu.tap()
             assert menu.get_attribute("aria-expanded") == "true"
             page.locator('#main-nav a[href="./produtos/"]').tap()
-            assert page.url == url + "produtos/"
+            page.wait_for_url(url + "produtos/", wait_until="domcontentloaded")
             page.locator('[data-sw-menu]').tap()
             page.locator('[data-sw-nav] a[href="../"]').tap()
-            assert page.url == url
+            page.wait_for_url(url, wait_until="domcontentloaded")
+            page.wait_for_selector("html.catalog-ready")
             assert page.locator("#menu-toggle").get_attribute("aria-expanded") == "false"
         page.locator("#catalog-view").click()
         assert page.locator("#explorar").evaluate("e => e.classList.contains('catalog-list')")
