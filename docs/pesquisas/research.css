@@ -1,0 +1,19 @@
+/* A página Pesquisas reutiliza a identidade e os componentes do portal Soft Wild. */
+.rs-index{display:grid;grid-template-columns:minmax(180px,.45fr) minmax(0,1fr);gap:35px;align-items:start;padding:36px 0 3px;border-bottom:1px solid var(--sw-line)}
+.rs-index p{color:#52616d;font-size:15px;line-height:1.8;max-width:760px;margin:0 0 31px}
+.sw-feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sw-feature-grid .sw-card-art{height:142px}
+.rs-related{margin:20px 0 0!important;display:flex;flex-direction:column;gap:5px;padding:12px 0 0;border-top:1px solid #e8eef0}
+.rs-related span:first-child{font-size:10px;font-weight:760;letter-spacing:.09em;color:#819099}
+.rs-related a{font-size:13px;color:#126371!important;font-weight:740;width:fit-content;min-height:26px;display:inline-flex;align-items:center}
+.rs-related a:hover{text-decoration:underline}
+.sw-card{scroll-margin-top:93px}
+.sw-card .sw-meta{padding-right:20px}
+.sw-card h3{max-width:100%}
+.sw-card .sw-question{line-height:1.5}
+.sw-card .sw-detail-body h4{margin-top:14px}
+.sw-card .sw-detail-body p{line-height:1.78}
+.sw-card .sw-detail-body p:last-child{margin-bottom:0}
+@media(max-width:1100px){.sw-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:780px){.sw-feature-grid{grid-template-columns:1fr}.rs-index{grid-template-columns:1fr;gap:11px;padding-top:25px}.rs-index p{margin-bottom:20px}}
+@media(max-width:520px){.sw-feature-grid .sw-card-art{height:142px}.rs-index p{font-size:14px}}
