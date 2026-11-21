@@ -1,0 +1,38 @@
+name: Soft Wild - Biblioteca Pesquisas
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/pesquisas/**'
+      - 'docs/produtos/index.html'
+      - 'docs/ideias/index.html'
+      - 'scripts/check_research.py'
+      - '.github/workflows/research-preview.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/pesquisas/**'
+      - 'scripts/check_research.py'
+permissions:
+  contents: read
+jobs:
+  research-preview:
+    name: research-preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Instalar Playwright
+        run: python3 -m pip install playwright==1.56.0
+      - name: Confirmar Chrome/Chromium
+        run: command -v google-chrome || command -v chromium
+      - name: Testar biblioteca responsiva
+        run: python3 scripts/check_research.py
+      - name: Guardar capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: softwild-pesquisas-capturas
+          path: research-capturas/
+          retention-days: 7
+          if-no-files-found: warn
