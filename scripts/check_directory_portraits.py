@@ -177,8 +177,17 @@ def check_legacy(page, base_page, output, width):
     assert legacy.inner_html() == old_legacy.inner_html(), (width, "conteúdo dos descontinuados")
     base_page.locator("#show-directory").click()
     label = "Agente descontinuado: Dona Horária"
-    before = capture(old_legacy.get_by_role("article", name=label), output / f"descontinuados-antes-{width}.png")
-    after = capture(legacy.get_by_role("article", name=label), output / f"descontinuados-depois-{width}.png")
+    old_card = old_legacy.get_by_role("article", name=label)
+    new_card = legacy.get_by_role("article", name=label)
+    for card in (old_card, new_card):
+        card.locator("img").evaluate_all("""async images => {
+          await Promise.all(images.map(img => {
+            img.loading = 'eager';
+            return img.decode();
+          }));
+        }""")
+    before = capture(old_card, output / f"descontinuados-antes-{width}.png")
+    after = capture(new_card, output / f"descontinuados-depois-{width}.png")
     with Image.open(io.BytesIO(before)) as old, Image.open(io.BytesIO(after)) as new:
         assert old.size == new.size
         difference = ImageChops.difference(old.convert("RGB"), new.convert("RGB"))
