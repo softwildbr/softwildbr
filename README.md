@@ -15,6 +15,7 @@
   <a href="#sinais-do-futuro">Sinais do futuro</a> ·
   <a href="#o-que-investigamos">Pesquisa</a> ·
   <a href="#coisas-que-estamos-construindo">Produtos</a> ·
+  <a href="#novidades-da-semana">Novidades</a> ·
   <a href="#pesquisa-em-andamento">Progresso</a> ·
   <a href="#a-gente-e-os-agentes">Time</a>
 </p>
@@ -151,6 +152,19 @@ São sínteses editoriais fundamentadas em pesquisas internas de IHC, maker, IA,
 **Ferramentas offline e acessíveis:** organização, voz e experiência de uso com autonomia e menor dependência de rede.
 
 </details>
+
+## Novidades da semana
+
+*16 a 22 de novembro de 2026 · Revisão editorial em 23/11/2026. [Ver no site](https://softwildbr.github.io/softwildbr/#novidades).*
+
+- **Site publicado:** páginas próprias de [Produtos](https://softwildbr.github.io/softwildbr/produtos/), [Ideias](https://softwildbr.github.io/softwildbr/ideias/), [Pesquisas](https://softwildbr.github.io/softwildbr/pesquisas/), [Laboratório](https://softwildbr.github.io/softwildbr/laboratorio/) e [Sobre](https://softwildbr.github.io/softwildbr/sobre/).
+- **Melhorias de experiência:** navegação com toque e teclado, legibilidade e retratos do diretório revisados no site. [Revisão pública](https://github.com/softwildbr/softwildbr/pull/18).
+- **REVER:** especificação da função *Guardar momento* e roteiro incremental com orçamento de APIs pagas igual a zero. **Planejamento; sem nova implementação ou lançamento confirmado.**
+- **Engenharia de agentes:** pesquisa consolidada em manual de 12 módulos, incluindo harness, RAG, treinamento, avaliação e custos. **Não representa sistemas implantados.**
+- **UX e interfaces:** novas fontes de UX conversacional e 59 telas catalogadas como referência visual do REVER. **Sem testes funcionais dessa nova etapa.**
+- **Cultura e growth:** início de estudos documentais sobre referências culturais e biblioteca de crescimento/experimentação responsável. **Sem experimentos com usuários ou estratégia aprovada.**
+
+*Este resumo não divulga fontes internas dos repositórios privados nem projetos de clientes. Cada estado é uma fotografia documental, não uma promessa de entrega.*
 
 ## Pesquisa em andamento
 
