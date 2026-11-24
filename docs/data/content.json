@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "slogan": "Se for pra fazer mais do mesmo, agente nem faz.",
   "groups": [
     {
@@ -464,6 +464,12 @@
       "name": "Ferramentas pessoais acessíveis e offline",
       "description": "Aplicativos de voz em português, organização, notificações e interfaces mais simples que funcionem com pouco processamento e conexão.",
       "status": "Radar de oportunidades, não produto anunciado",
+      "stage": "concept"
+    },
+    {
+      "name": "Websites de universos fictícios",
+      "description": "Experiências web navegáveis que transformam interfaces de mundos ficcionais em descoberta, com criações próprias ou licenciamento quando envolver obras de terceiros.",
+      "status": "Ideia em investigação; sem site publicado, licença ou modelo comercial validado",
       "stage": "concept"
     }
   ],

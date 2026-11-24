@@ -1,0 +1,8 @@
+# Soft Wild — exigir revisão do titular quando a proteção da branch estiver ativada.
+# Manter CODEOWNERS na própria branch base antes de habilitar Require review from Code Owners.
+* @softwildbr
+/.github/ @softwildbr
+/AGENTS.md @softwildbr
+/README.md @softwildbr
+/docs/ @softwildbr
+/scripts/ @softwildbr
